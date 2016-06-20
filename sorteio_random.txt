@@ -1,3 +1,4 @@
+-- Ordena registros de forma aleatória, implementação de sorteio com registro de histórico e opção de não repetir beneficiados.
 
 -- ordena registros de forma aleatória
 select * from fg_funcionarios order by random() limit 1000;
