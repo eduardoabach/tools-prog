@@ -1,0 +1,36 @@
+
+SELECT 
+	event_manipulation, 
+	trigger_schema||'.'||trigger_name as where,
+	event_object_catalog||'.'||event_object_schema||'.'||event_object_table as destiny
+FROM information_schema.triggers;
+
+
+SELECT * FROM pg_user;
+SELECT * FROM pg_views;
+SELECT * FROM pg_tables order by schemaname, tablename;
+
+SELECT table_schema 
+FROM information_schema.tables 
+where table_schema not in('information_schema', 'pg_catalog') 
+group by table_schema
+order by table_schema;
+
+SELECT * FROM information_schema.tables;
+
+SELECT * FROM pg_settings;
+
+show ls
+
+SELECT * FROM information_schema.tables;
+SELECT * FROM information_schema.sequences;
+SELECT * FROM information_schema.pg_group;
+SELECT * FROM information_schema.pg_user;
+SELECT * FROM information_schema.pg_views;
+SELECT * FROM information_schema.pg_tables;
+SELECT * FROM information_schema.pg_indexes;
+SELECT * FROM information_schema.pg_settings;
+SELECT * FROM information_schema.parameters;
+SELECT * FROM information_schema.attributes;
+
+
