@@ -1,0 +1,8 @@
+#!/bin/sh
+
+//Connect
+psql -h 127.0.0.1 -U username nomebase
+
+//Backup base usando arquivo 
+pg_dump -h 127.0.0.1 -U username -n nomebase>arquivo_destino_da_base
+psql -h 127.0.0.1 -U username -d nomebase -f ./arquivo_destino_da_base
