@@ -15,7 +15,9 @@ SELECT tb.id, row_to_json(tb) FROM tb_teste AS tb limit 10;
 --criar view
 CREATE VIEW nome_view AS SELECT * FROM tb_teste AS tb;
 
-
+--Deletar linhas duplicadas
+DELETE FROM nometabela WHERE ctid NOT IN
+	(SELECT max(ctid) FROM nometabela GROUP BY campoid,complementochave);
 
 
 
