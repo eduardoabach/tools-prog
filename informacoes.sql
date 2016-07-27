@@ -1,4 +1,10 @@
 
+/*Database*/
+SELECT current_database();
+
+/*Tamanho em bytes do database*/
+SELECT pg_catalog.pg_size_pretty(pg_database_size(current_database()));
+
 /*Listar bases*/
 SELECT datname FROM pg_database WHERE datistemplate = false order by datname;
 
@@ -38,13 +44,8 @@ SHOW search_path;
 SHOW server_encoding;
 SHOW server_version;
 
-
-SELECT 
-	event_manipulation, 
-	trigger_schema||'.'||trigger_name as where,
-	event_object_catalog||'.'||event_object_schema||'.'||event_object_table as destiny
-FROM information_schema.triggers;
-
+/* Campo de identificação do sistema para cada linha da tabela [ctid], útil para tabelas sem pk(sinistro) */
+select ctid,* from un_unico order by ctid;
 
 SELECT * FROM pg_user;
 SELECT * FROM pg_views;
