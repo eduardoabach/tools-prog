@@ -33,7 +33,11 @@ SELECT
 	event_object_catalog||'.'||event_object_schema||'.'||event_object_table as destiny
 FROM information_schema.triggers;
 
+/*Listar usuários existens*/
 SELECT * FROM pg_user;
+
+/*Listar conexões do banco e suas orígens*/
+SELECT datname,usename,client_addr,client_port FROM pg_stat_activity;
 
 /*Parâmetros*/
 SHOW ALL;
