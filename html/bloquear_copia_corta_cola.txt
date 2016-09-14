@@ -1,0 +1,25 @@
+
+Em uma página html pode bloquear comportamento aplicando características na div ou aos campo pontualmente.
+Claro que essas proteções são simples, o usuário pode entrar no código da página e copiar, ou simplesmente tirar as características da div.
+
+autocomplete="off"
+autocapitalize="off"
+autocorrect="off"
+
+oncut="return false ;"
+onpaste="return false ;"
+oncopy="return false ;">
+
+<div id='pg-complete'>
+	<div id='pg-head'>
+		<h1>Título ok, pode copiar<h1>
+		<h2 oncut="return false ;" oncopy="return false ;">Título protegido, não pode copiar;<h2>
+	</div>
+	<div id='pg-body' oncut="return false ;" onpaste="return false ;" oncopy="return false ;">
+		<p>Aqui é protegito todo o texto por estar dentro da div...</p>
+		<p>Usuário: <input type="text" name="user" style="width: 260px;" maxlength="32" size="30"></p>
+		<p>Senha: <input type="password" name="pass" style="width: 260px;" maxlength="32" size="30"></p>
+	</div>
+</div>
+
+

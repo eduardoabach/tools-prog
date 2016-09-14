@@ -1,0 +1,9 @@
+
+Em uma página html com campo de senha, input type password, para mostrar basta mudar o type para text.
+Os campo que o browser guarda sua senha, como o facebook como exemplo vai funcionar.
+
+<input type="password" name="password" style="width: 260px;" maxlength="32" size="30" autocomplete="off" autocapitalize="off" oncut="return false ;" onpaste="return false ;" autocorrect="off" oncopy="return false ;">
+
+<!-- Mudar para -->
+
+<input type="text" name="password" style="width: 260px;" maxlength="32" size="30" autocomplete="off" autocapitalize="off" oncut="return false ;" onpaste="return false ;" autocorrect="off" oncopy="return false ;">
