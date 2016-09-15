@@ -1,0 +1,18 @@
+
+>nomes proibidos:
+nul
+aux
+con
+com1, com2 ~ com9
+lpt1
+lp2, lp3 ~ lp9
+prn
+CLOCK$
+
+>para criar eles basta usar o .
+mkdir aux.\
+
+>para criar uma pasta com . no nome basta criar assim:
+mkdir teste..\
+O SO fica bem louco quando interage com essa pasta.
+
