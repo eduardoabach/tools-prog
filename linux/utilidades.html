@@ -1,0 +1,96 @@
+<table>
+
+<tr>
+  <td><b>Comando</b></td><td><b>Descrição</b></td></tr>
+
+  <!-- GERAL -->
+  <tr><td nowrap="nowrap">apropos word</td><td>mostra comandos pertinentes a word</td></tr>
+  <tr><td nowrap="nowrap">gpg -c file</td><td>encripta o arquivo passado como argumento (file)</td></tr>
+  <tr><td nowrap="nowrap">gpg file.gpg</td><td>decripta o arquivo passado como argumento (file)</td></tr>
+  <tr><td nowrap="nowrap">cal -3</td><td>mostra um calendário</td></tr>
+  <tr><td nowrap="nowrap">look wordprefix</td><td>pesquisa rápida em dicionário</td></tr>
+  <tr><td nowrap="nowrap">grep --color word /usr/share/dict/words</td><td>destaca ocorrências de palavras em dicionário</td></tr>
+  <tr><td nowrap="nowrap">nice command</td><td>roda um comando em baixa prioridade</td></tr>
+  <tr><td nowrap="nowrap">echo 'wget url' | at 01:00</td><td>faz um download da url à 01:00AM para o diretório corrente</td></tr>
+  <tr><td nowrap="nowrap">echo &quot;mail -s 'get the train' P@draigBrady.com &lt; /dev/null&quot; | at 17:45</td><td>email de alerta de compromisso</td></tr>
+  <tr><td nowrap="nowrap">echo '(321-123)/123' | bc -l</td><td>calculadora na linha de comando</td></tr>
+  <tr><td nowrap="nowrap">echo 'print (10E3-123)/123' | python</td><td>calculadora na linha de comando (com notação científica)</td></tr>
+  <tr><td nowrap="nowrap">watch -n1 'cat /proc/interrupts'</td><td>observa dados alteráveis continuamente</td></tr>
+  <tr><td nowrap="nowrap">time command</td><td>ver quanto tempo dura a execução do comando</td></tr>
+  <tr><td nowrap="nowrap">dd bs=1M if=/dev/hda | gzip | ssh user@remote dd of=hda.gz</td><td>faz um backup do disco rígido para uma máquina remota</td></tr>
+  <tr><td nowrap="nowrap">alias hd='od -Ax -tx1z -v'</td><td>cria um alias para fazer um dump em hexa de um arquivo</td></tr>
+  <tr><td nowrap="nowrap">ls | pr -T9 -W$COLUMNS</td><td>imprime em 9 colunas na largura do terminal</td></tr>
+  <tr><td nowrap="nowrap">touch -c -t 0304050607 file</td><td>seta o timestamp do arquivo (YYMMDDhhmm)</td></tr>
+  <tr><td nowrap="nowrap">du -sh file dir</td><td>mostra a utilização em disco do arquivo e diretório</td></tr>
+  <tr><td nowrap="nowrap">pstree -hlp</td><td>mostra hierarquia de processos</td></tr>
+  <tr><td nowrap="nowrap">cp -Rp dir1 dir2</td><td>cópia a árvore de diretório dir1 para dir2, preservando as permissões, ownership e timestamp</td></tr>
+  <tr><td nowrap="nowrap">scp -rp dir1 user@hostname:/tmp/.</td><td>cópia via ssh a árvore de diretório dir1 para o host hostname, abaixo do diretório remoto /tmp, preservando as permissões, ownership e timestamp.</td></tr>
+  <tr><td nowrap="nowrap">df -h</td><td>mostra utilização de filesystems com valores formatados em K, M, G,...</td></tr>
+  <tr><td nowrap="nowrap">free -h</td><td>mostra utilização de memória ram</td></tr>
+
+  <!-- NAVEGAÇÃO EM DIRETÓRIO -->
+  <tr><td colspan="2"><b>navegação em diretório</b></td></tr>  
+  <tr><td nowrap="nowrap">cd -</td><td>volta para o diretório anterior</td></tr>
+  <tr><td nowrap="nowrap">cd</td><td>vai para o diretório home</td></tr>
+  <tr><td nowrap="nowrap">(cd dir &amp;&amp;  command)</td><td>vai para o diretório (dir), executa o comando (command) e retorna para o diretório corrente automaticamente</td></tr>
+  <tr><td nowrap="nowrap">pushd <b>.</b></td><td>põe o diretório corrente na pilha de modo que você possa fazer um <b>popd</b> de volta para ele</td></tr>
+
+  <!-- CDs -->
+  <tr><td colspan="2"><b>CDs</b></td></tr>
+  <tr><td nowrap="nowrap">dd bs=1M if=/dev/cdrom | gzip &gt; cdrom.iso.gz</td><td>salva uma cópia do cdrom em formato comprimido</td></tr>
+  <tr><td nowrap="nowrap">mkisofs -r dir | gzip &gt; cdrom.iso.gz</td><td>cria uma image iso (cdrom) do diretório</td></tr>
+  <tr><td nowrap="nowrap">gzip -dc cdrom.iso.gz | cdrecord dev=0,0,0 -</td><td>grava uma imagem em formato comprimido para um cdrom</td></tr>
+  <tr><td nowrap="nowrap">cdparanoia -B</td><td>copia trilhas de áudio do CD para arquivos wav no diretório atual</td></tr>
+  <tr><td nowrap="nowrap">cdrecord dev=0,0,0 -audio *.wav</td><td>grava um CD de áudio a partir de todos os arquivos wav no diretório corrente</td></tr>
+  <tr><td nowrap="nowrap">cdrecord dev=0,0,0 image.iso</td><td>grava um CD a partir de uma imagem ISO</td></tr>
+  <tr><td nowrap="nowrap">mount -o loop -t iso9660 imagem.iso /mnt/image</td><td>monta uma imagem ISO no diretório /mnt/image</td></tr>
+  <tr><td nowrap="nowrap">oggenc --tracknum="track" track.cdda.wav -o "track.ogg"</td><td>gera arquivo ogg de um arquivo wav</td></tr>
+
+  <!-- ARQUIVOS -->
+  <tr><td colspan="2"><b>Arquivos</b></td></tr>
+  <tr><td nowrap="nowrap">tar c dir | bzip2 &gt; dir.tar.bz2</td><td>gera um archive do diretório</td></tr>
+  <tr><td nowrap="nowrap">bzip2 -dc dir.tar.bz2 | tar x</td><td>extrai um archive</td></tr>
+  <tr><td nowrap="nowrap">find dir -name "*.png" | xargs tar rf dir.tar; bzip2 dir.tar</td><td>gera um archive de *.png no diretório dir</td></tr>
+
+  <!-- BUSCA -->
+  <tr><td colspan="2"><b>Busca</b></td></tr>
+  <tr><td nowrap="nowrap">alias l='ls -l --color=auto'</td><td>cria um alias para listar o diretório em formato detalhado</td></tr>
+  <tr><td nowrap="nowrap">ls -rt</td><td>lista arquivos classificados por timestamp</td></tr>
+  <tr><td nowrap="nowrap">ls -rS</td><td>lista arquivos classificados pelo tamanho</td></tr>
+  <tr><td nowrap="nowrap">ls -a</td><td>lista arquivos ocultos, com .nome</td></tr>
+  <tr><td nowrap="nowrap">find -name '*.[ch]' | xargs grep -E 'search string'</td><td>procura em *.c and *.h por "search string" no diretório corrente e abaixo</td></tr>
+  <tr><td nowrap="nowrap">find -type f | xargs grep -E 'search string'</td><td>procura em todos os arquivos regulares por "search string" no diretório corrente e abaixo</td></tr>
+  <tr><td nowrap="nowrap">find -type f -maxdepth 1 | xargs grep -E 'search string'</td><td>procura em todos os arquivos regulares por "search string" no diretório corrente apenas</td></tr>
+  <tr><td nowrap="nowrap">locate 'file*.txt'</td><td>pesquisa indexada por arquivos no sistema</td></tr>
+  <tr><td nowrap="nowrap">slocate 'file*.txt'</td><td>pesquisa indexada por arquivos no sistema, com implementação de segurança e melhor performance</td></tr>
+  <tr><td nowrap="nowrap">whereis command</td><td>localiza binários, fonte, e arquivos de man page do comando</td></tr>
+  <tr><td nowrap="nowrap">which command</td><td>mostra o caminho completo do comando</td></tr>
+
+  <!-- EDIÇÃO DE TEXTO -->
+  <tr><td colspan="2"><b>edição de texto</b></td></tr>
+  <tr><td nowrap="nowrap">sed '/^ *#/d; /^ *$/d' file</td><td>remove comentários e linhas em branco do arquivo (file)</td></tr>
+  <tr><td nowrap="nowrap">sed 's/string1/string2/g' file</td><td>substitui string2 por string1 no arquivo (file)</td></tr>
+  <tr><td nowrap="nowrap">tr -d '\r' &lt; file</td><td>converte arquivo texto DOS para unix</td></tr>
+
+  <!-- RPM -->
+  <tr><td colspan="2"><b>RPM</b></td></tr>
+  <tr><td nowrap="nowrap">rpm -ivh packages(s).rpm</td><td>instala pacote(s) rpm</td></tr>
+  <tr><td nowrap="nowrap">rpm -Uvh packages(s).rpm</td><td>atualiza os pacote(s) rpm</td></tr>
+  <tr><td nowrap="nowrap">rpm -e package</td><td>remove o pacote</td></tr>
+  <tr><td nowrap="nowrap">rpm -q package</td><td>mostra a versão do pacote instalado</td></tr>
+  <tr><td nowrap="nowrap">rpm -q -i package</td><td>mostra os metadados do pacote</td></tr>
+  <tr><td nowrap="nowrap">rpm -q -f /path/file</td><td>mostra a qual pacote o arquivo (file) pertence</td></tr>
+  <tr><td nowrap="nowrap">rpm -q -l package</td><td>lista onde os arquivos do pacote foram instalados</td></tr>
+  <tr><td nowrap="nowrap">rpm -q -l -p package.rpm</td><td>lista onde os arquivos do pacote seriam(ão) instalados</td></tr>
+  <tr><td nowrap="nowrap">rpm -q --requires package</td><td>lista arquivos/pacotes que o pacote rpm requer (dependências)</td></tr>
+  <tr><td nowrap="nowrap">rpm -q --whatrequires package</td><td>lista pacotes que requerem o pacote especificado no comando</td></tr>
+  <tr><td nowrap="nowrap">rpm -q -a  --queryformat '%10{SIZE}\t%{NAME}\n' | sort -k1,1n</td><td>lista todos os pacotes classificados por tamanho</td></tr>
+
+  <!-- INTERATIVO -->
+  <tr><td colspan="2"><b>interativo</b></td></tr>
+  <tr><td nowrap="nowrap"><a href="lkdb/mc.html">mc</a></td><td>poderoso gerenciador de arquivos (se há um arquivo que você não sabe como abrir, tecle return neleno mc), cliente ftp, ...</td></tr>
+  <tr><td nowrap="nowrap"><a href="lkdb/screen.html">screen</a></td><td>terminal virtual com capacidade de detach...</td></tr>
+  <tr><td nowrap="nowrap">lynx</td><td>web browser</td></tr>
+  <tr><td nowrap="nowrap">gnuplot</td><td>utilitário gráfico interativo/escriptável</td></tr>
+  <tr><td nowrap="nowrap">octave</td><td>ambiente estilo matlab</td></tr>
+</table>
