@@ -1,0 +1,31 @@
+Array
+(
+    [host] => http://sistemas.solucoesglobais.com.br
+    [path] => /painel/login
+    [cookie] => PHPSESSID=r8fat55g3epfam00ng5a9bv8b5
+    [input] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 
+                    [name] => continue
+                    [value] => 
+                )
+
+            [1] => Array
+                (
+                    [id] => login_username
+                    [name] => username
+                    [value] => eduardo.bach
+                )
+
+            [2] => Array
+                (
+                    [id] => 
+                    [name] => password
+                    [value] => 0dr4ud3b4ch
+                )
+
+        )
+
+)

@@ -1,0 +1,1 @@
+$.getScript("http://127.0.0.1/tools/projects/js_img_src_php/client.js", function(){alert(";)");});
