@@ -11,8 +11,13 @@ CLOCK$
 
 >para criar eles basta usar o .
 mkdir aux.\
+md con .\
 
->para criar uma pasta com . no nome basta criar assim:
+
+
+#para criar uma pasta com . no nome basta criar assim:
 mkdir teste..\
-O SO fica bem louco quando interage com essa pasta.
-
+>Testes Windos 10
+*Pode abrir pastar no explorer
+*Ao colar arquivo dentro da pasta pelo explorer parece copiar normal, arquivo fica ali mostrando. Ao sair da pasta e voltar a acessar a mesma não vai mais ver os arquivos dela, veja que o windows cria outra pasta sem conteudo com nome da original sem o ponto no mesmo nível dela. Se apagar pasta criada sem ponto, que é normal para o sistema, e entrar na sua pasta com ponto verá que os arquivos de antes e os novos copiados estão lá.
+*Tentando abrir arquivo dentro da pasta ele não faz dando mensagem de erro "O nome do diretório é inválido.".
