@@ -12,4 +12,11 @@ git pull
 git push
 
 # Outras situações
-git ... pendente
+git checkout -f
+git log
+git log --name-only
+git revert --no-eddit 2ab16512207e7b943e4dc1fd2d1176a1d4384a6a
+
+#ferramentas
+sudo apt install gitk
+gitk&
