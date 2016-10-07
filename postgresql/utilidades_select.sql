@@ -5,6 +5,9 @@ SELECT tb.id, md5(CAST((tb.*) AS text)) FROM tb_teste AS tb LIMIT 10;
 -- json completo de um registro
 SELECT tb.id, row_to_json(tb) FROM tb_teste AS tb LIMIT 10;
 
+-- Idade, em anos
+SELECT extract(year from age(p.data_nasc)) as idade FROM pessoas as p
+
 -- Mostrar campo nome que não estão no group by
 SELECT string_agg(nome, ', '), count(1) FROM produtos GROUP BY categoria; 
 
