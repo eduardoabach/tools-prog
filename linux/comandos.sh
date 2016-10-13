@@ -6,7 +6,7 @@ lscpu
 top
 
 #Mata processo com pid 1234, o 9 é para forçar
-kill 1234 -s 9
+kill -s 9 1234
 
 #Memória ram e swap, total, uso, livre
 free -h
