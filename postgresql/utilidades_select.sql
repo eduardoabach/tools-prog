@@ -8,6 +8,14 @@ SELECT tb.id, row_to_json(tb) FROM tb_teste AS tb LIMIT 10;
 -- Idade, em anos
 SELECT extract(year from age(p.data_nasc)) as idade FROM pessoas as p
 
+-- Extrair ano, mês, dia de data
+select extract(year from m.data) as comp_ajust from movimento as m limit 1
+select extract(month from m.data) as comp_ajust from movimento as m limit 1
+select extract(day from m.data) as comp_ajust from movimento as m limit 1
+
+-- Números aos lados, estilo str_pad php
+SELECT RPAD(numcol::text, 3, '0'), LPAD(numcol::text, 3, '0') FROM my_table
+
 -- Mostrar campo nome que não estão no group by
 SELECT string_agg(nome, ', '), count(1) FROM produtos GROUP BY categoria; 
 
