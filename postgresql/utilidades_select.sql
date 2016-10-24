@@ -16,6 +16,9 @@ select extract(day from m.data) as comp_ajust from movimento as m limit 1
 -- Números aos lados, estilo str_pad php
 SELECT RPAD(numcol::text, 3, '0'), LPAD(numcol::text, 3, '0') FROM my_table
 
+-- Contar quantidade de letras...
+select length(cast ('125556' as text)); --out: 6
+
 -- Mostrar campo nome que não estão no group by
 SELECT string_agg(nome, ', '), count(1) FROM produtos GROUP BY categoria; 
 
