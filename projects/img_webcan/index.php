@@ -7,10 +7,6 @@
 		<!-- <script src="script.js"></script> -->
 	</head>
 	<body>
-    	
-
-
-
     	<script>
     		navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.getUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
             window.URL = window.URL || window.webkitURL;
