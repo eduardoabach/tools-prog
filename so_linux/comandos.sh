@@ -22,6 +22,9 @@ sudo yum install mysql-server #centos, fedora
 /etc/init.d/apache2 restart #debian, ubuntu
 service httpd restart #centos, fedora
 
+# Adicionar comando ao iniciar OS, editar arquivo como preferir, usando o nano no exemplo
+nano /etc/rc.d/rc.local
+
 # Listar arquivos pasta
 ls
 ls -l # listar com permissões
