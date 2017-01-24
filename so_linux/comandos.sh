@@ -25,6 +25,12 @@ service httpd restart #centos, fedora
 # Adicionar comando ao iniciar OS, editar arquivo como preferir, usando o nano no exemplo
 nano /etc/rc.d/rc.local
 
+# verificar se esta iniciando com o sistema, (Centos?)
+chkconfig httpd
+# ativar na iniciação do sistema
+chkconfig httpd on
+
+
 # Listar arquivos pasta
 ls
 ls -l # listar com permissões
