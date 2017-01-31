@@ -116,3 +116,23 @@ function number_format(number, decimals, dec_point, thousands_sep) {
    }
    return s.join(dec);
 }
+
+function maximo_minimo(numeros){
+   //var numeros = [5, 6, 2, 3, 7];
+   var max = -Infinity;
+   var min = +Infinity;
+
+   for (var i = 0; i < numeros.length; i++) {
+      if (numeros[i] > max) {
+         max = numeros[i];
+      }
+      if (numeros[i] < min) {
+         min = numeros[i];
+      }
+   }
+
+   return {'max': max, 'min': min};
+}
+
+
+
