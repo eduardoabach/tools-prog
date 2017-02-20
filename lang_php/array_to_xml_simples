@@ -1,0 +1,30 @@
+<?php
+function obj2xml($v, $indent='') {
+  while (list($key, $val) = each($v)) {
+    if ($key == '__attr') continue;
+    // Check for __attr
+    if (is_object($val->__attr)) {
+      while (list($key2, $val2) = each($val->__attr)) {
+        $attr .= " $key2=\"$val2\"";
+      }
+    }
+    else $attr = '';
+    if (is_array($val) || is_object($val)) {
+      print("$indent<$key$attr>\n");
+      obj2xml($val, $indent.'  ');
+      print("$indent</$key>\n");
+    }
+    else print("$indent<$key$attr>$val</$key>\n");
+  }
+}
+
+//Example object
+$x->name->first = "John";
+$x->name->last = "Smith";
+$x->arr['Fruit'] = 'Bannana';
+$x->arr['Veg'] = 'Carrot';
+$y->customer = $x;
+$y->customer->__attr->id='176C4';
+
+$z = get_defined_vars();
+obj2xml($z['y']); 
