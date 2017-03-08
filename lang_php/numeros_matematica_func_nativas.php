@@ -23,6 +23,7 @@ $numDecimal = 256;
 $numBinario = base_convert($numDecimal, 10, 2);
 $numHexa = base_convert($numDecimal, 10, 16);
 
-echo log(5); // logaritmo natural
+echo log(8, 2); // logaritmo, o result é 3, 2*2*2 = 8
+echo log(25, 5); // result é 2, 5*5 = 25
 
 ?>
