@@ -117,6 +117,10 @@ function get_moeda_extenso($number){
 	return ($rt ? $rt : 'zero');
 }
 
-
+// return boolean true / false;
+function multiplos_5($val){
+    $logVal = log($val, 5);
+    return (!(strval($logVal) != strval(intval($logVal))) && $logVal > 0); // numero inteiro e maior que zero
+}
 
 ?>
