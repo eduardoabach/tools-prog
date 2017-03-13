@@ -5,6 +5,9 @@ SELECT tb.id, md5(CAST((tb.*) AS text)) FROM tb_teste AS tb LIMIT 10;
 -- json completo de um registro
 SELECT tb.id, row_to_json(tb) FROM tb_teste AS tb LIMIT 10;
 
+-- Data Atual
+SELECT now();
+
 -- Idade, em anos
 SELECT extract(year from age(p.data_nasc)) as idade FROM pessoas as p
 
