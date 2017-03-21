@@ -1,4 +1,7 @@
 
+/* Valores em geral simples*/
+select * from (values(1, 50),(2,48),(3,0),(4,null),(5, 8001)) as t(cod, valor);
+
 /* Meses simples */
 select * from (values(1,'Jan'),(2,'Fev'),(3,'Mar')) as meses (cod,mes)
 

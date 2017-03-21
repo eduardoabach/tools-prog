@@ -46,4 +46,8 @@ print_r($last_names);
 //     [5623] => Doe
 // )
 
+// End, move ponteiro para o último registro
+$frutas = array('melancia', 'banana', 'morango');
+echo end($frutas); // morango
+
 ?>

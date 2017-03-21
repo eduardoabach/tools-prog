@@ -1,4 +1,26 @@
 
+-- SUB SELECT
+select meses.cod, meses.mes, busca.*
+from (values(1,'Jan'),(2,'Fev'),(3,'Mar')) as meses (cod,mes)
+left join (
+	select 
+		count(faa.cod) as faa_quantidade,
+		count(faa_old.cod) as faa_quantidade_old,
+		entidade.cod,
+		entidade.nome,
+		faa.mes,
+		faa.ano,
+		faa_old.ano as ano_old
+	from (values(1,'ent1'),(2,'ent2')) as entidade (cod,nome)
+	left join (
+		values(1,1,1,2014),(2,1,2,2015),(3,2,1,2014),(4,2,1,2015),(5,2,2,2014)
+		) as faa (cod,entidade,mes,ano) on faa.entidade = entidade.cod and faa.ano = 2015
+	left join (
+		values(1,1,1,2014),(2,1,2,2015),(3,2,1,2014),(4,2,1,2015),(5,2,2,2014)
+		) as faa_old (cod,entidade,mes,ano) on faa_old.entidade = entidade.cod and faa_old.mes = faa.mes and faa_old.ano = 2014
+	group by entidade.cod, entidade.nome, faa.mes, faa.ano, faa_old.mes, faa_old.ano
+) as busca on busca.mes = meses.cod
+
 -- hash de um registro da tabela
 SELECT tb.id, md5(CAST((tb.*) AS text)) FROM tb_teste AS tb LIMIT 10;
 
@@ -74,6 +96,11 @@ LEFT JOIN registro_item as reg_i ON reg_i.id_reg_m = reg_m.id
 WHERE reg_m.id = 1
 GROUP BY reg_m.id
 
-
+/* Soma simples, mostra 8099, repare que não tem problema somar um campo null */
+SELECT SUM(valor) FROM (VALUES(1, 50),(2,48),(3,0),(4,null),(5, 8001)) as t(cod, valor);
+/* CUIDADO ao somar valores com possível null, que vai mostrar null no result mesmo outros números existindo */
+SELECT SUM(valor1 + valor2) FROM (VALUES(1, 50, 10),(2, 20, null)) as t(cod, valor1, valor2); /* resulta em 60, a segunda fica null*/
+/* Usar COALESCE para evitar os possíveis null, ou claro ter um campo com "not null" default 0(zero) */
+SELECT SUM(COALESCE(valor1,0) + COALESCE(valor2,0)) FROM (VALUES(1, 50, 10),(2, 20, null)) as t(cod, valor1, valor2);
 
 
