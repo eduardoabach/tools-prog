@@ -33,7 +33,7 @@ nano /etc/rc.d/rc.local
 #Mês: informe números de 1 a 12
 #Dias da semana: informe números de 0 a 7
 #Usuário: é o usuário que vai executar o comando (não é necessário especificá-lo se o arquivo do próprio usuário) 
-#arquivo fica em /etc/crontab, ou no contexto de user em /var/spool/cron
+#arquivo fica em /etc/crontab, ou no contexto de user em /var/spool/cron, melhor usar o comando crontab -e...
 30 22 2,10 * * echo "Exemplo..." #A frase é exibida às 22 horas e 30 minutos, nos dias 2 e 10, em todos os meses e em todos os dias da semana. 
 
 # verificar se esta iniciando com o sistema, (Centos?)
