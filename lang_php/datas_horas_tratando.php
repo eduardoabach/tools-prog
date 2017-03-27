@@ -1,5 +1,19 @@
 <?php
 
+
+//Uso do DateTime = http://php.net/manual/pt_BR/datetime.createfromformat.php
+echo DateTime::createFromFormat('h:i:sA','4:15:03PM')->format('H:i:s'); // 16:15:03
+echo DateTime::createFromFormat('H\h i\m s\s','23h 15m 03s')->format('H:i:s'); // 23:15:03
+echo DateTime::createFromFormat('Y-m-d H:i:s', '2009-02-15 15:16:17')->format('d/m/Y h:i:s A'); // 15/02/2009 03:16:17 PM
+echo DateTime::createFromFormat('Y-m-d H:i:s', '2009-02-15 15:16:17')->add('P7Y5M4DT4H3M2S')->format('d/m/Y h:i:s A'); // 15/02/2009 03:16:17 PM
+echo DateTime::createFromFormat('Y-m-d H:i:s', '2009-02-15 15:16:17')->add(new DateInterval('PT10H30S'))->format('d/m/Y h:i:s A'); // 16/02/2009 01:16:47 AM
+
+$date = new DateTime('2000-01-01');
+$date->add(new DateInterval('PT10H30S'));
+echo $date->format('Y-m-d H:i:s') . "\n";
+
+// ################################################################################
+
 function is_year($year){
 	return preg_match('/^\d{4}$/', $year) && $year > 1799 && $year < 2501;
 }
