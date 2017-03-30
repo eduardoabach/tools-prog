@@ -103,4 +103,6 @@ SELECT SUM(valor1 + valor2) FROM (VALUES(1, 50, 10),(2, 20, null)) as t(cod, val
 /* Usar COALESCE para evitar os possíveis null, ou claro ter um campo com "not null" default 0(zero) */
 SELECT SUM(COALESCE(valor1,0) + COALESCE(valor2,0)) FROM (VALUES(1, 50, 10),(2, 20, null)) as t(cod, valor1, valor2);
 
-
+/* Exibir data no formato usuário */
+SELECT to_char(field_date, 'DD/MM/YYYY') from table1;
+SELECT to_char(DATE '2016-01-01', 'DD/MM/YYYY');
