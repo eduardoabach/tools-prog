@@ -11,8 +11,21 @@ kill -s 9 1234
 # Memória ram e swap, total, uso, livre
 free -h
 
+# Armazenamento de arquivos
+df -h
+
+# tamanho arquivos
+du -sh #tamanho da pasta atual
+du -h #lista arquivos da pasta, h para tamanho mais legível
+
 # Mover arquivo
 mv caminho_existente/pasta_exist caminho_destino/pasta_novo_nome
+
+# Cpiar arquivo
+cp -Rp dir1 dir2
+
+# Copiar para rede
+scp -rp dir1 user@hostname:/tmp/.
 
 # Instalar
 apt-get install aaa #debian, ubuntu
@@ -41,7 +54,6 @@ chkconfig httpd
 # ativar na iniciação do sistema
 chkconfig httpd on
 
-
 # Listar arquivos pasta
 ls
 ls -l # listar com permissões
@@ -50,7 +62,24 @@ ls -l # listar com permissões
 history
 history -c # apagar lista
 
-#Criar arquivo
+# Criar arquivo
 echo "Conteúdo do arquivo">nome.txt
 echo ", complemento de texto.">>nome.txt # Adicionar ao que já existe
 
+# Encriptar de forma simples
+gpg -c arquivo #vai pedir senha
+gpg -d arquivo_encriptado.gpg #colocar a senha e retorna na tela resultado
+gpg -d arquivo_encriptado.gpg>exemplo.pdf #cria o arquivo como resultado...
+
+# Mostrar calendário
+cal 2017
+cal 2016
+cal -hj 2017 #mostra dias em contagem total do ano
+
+# Medir tempo de comando
+time ls
+time git status
+
+# árvore de processos em execucao, PID...
+pstree
+pstree -hlp
