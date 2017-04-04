@@ -123,4 +123,55 @@ function multiplos_5($val){
     return (!(strval($logVal) != strval(intval($logVal))) && $logVal > 0); // numero inteiro e maior que zero
 }
 
+// Uso: echo " [".fatorial(5)."]";
+// exemplo: 5! = 5*4*3*2*1 = 120
+function fatorial($num){
+    if($num == 1){
+        return 1;
+    }
+    
+    //echo "($num * ".fact($num-1).") = ".$num * fact($num-1)."<br>";
+    return $num * fatorial($num-1);
+}
+
+// fibonacci_base_custom(0,1,5) = 0,1, [ 1, 2, 3, 5, 8 ] = 8
+// fibonacci_base_custom(0,1,10) = 0,1, [ 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 ] = 89
+// fibonacci_base_custom(13,23,3) = 13, 23, [ 36, 59, 95 ] = 95
+function sequencia_fibonacci_base_custom($numAnterior, $numAtual, $qtdLoop=5, $numLoop=1){
+    $fib = $numAnterior+$numAtual;
+    
+    if($numLoop == $qtdLoop)
+        return $fib;
+    return sequencia_fibonacci_base_custom($numAtual, $fib, $qtdLoop, ++$numLoop);
+}
+
+// sequencia_fibonacci(8) = 0, [ 1, 1, 2, 3, 5, 8, 13, 21] = 21
+function sequencia_fibonacci($num){
+    if($num == 0 || $num == 1)
+        return $num;    
+    return (sequencia_fibonacci($num-1) + fibonacci($num-2));
+}
+
+// Dois elevado ao numero menos 1. Resulta sempre em um impar acima de 0
+// Tem grande possibilidade de gerar primos na sequencia
+// Sequencia_mersenne(4) = 0, [ 1, 3, 7, 15 ] = 15
+// Sequencia_mersenne(7) = 0, [ 1, 3, 7, 15, 31, 63, 127 ] = 127
+function sequencia_mersenne($potencia){
+    return pow(2,$potencia) - 1;
+}
+
+// Descobre o maior divisor comum entre dois numeros
+// mdc_euclides(5. 25) = 5
+// mdc_euclides(14. 21) = 7
+// mdc_euclides(212121212, 5642316) = 4
+function mdc_euclides($a, $b){
+        while($b != 0){
+                $q = $a / $b;
+                $r = $a % $b;
+                $a = $b;
+                $b = $r;
+        }
+        return $a;
+}
+
 ?>
