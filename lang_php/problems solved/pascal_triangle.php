@@ -37,7 +37,7 @@ for($posHoriz = 1; $posHoriz <= $repeticoes; $posHoriz++){
 <?php  
  
 // Solução que encontrei na web, matematicamente com fatoração
-// É fico com número inicial 1.
+// É fixo com número inicial 1.
 function factorial($n){
     return ($n < 2) ? 1 : $n * factorial($n-1);
 }
