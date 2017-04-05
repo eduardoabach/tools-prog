@@ -152,6 +152,22 @@ function sequencia_fibonacci($num){
     return (sequencia_fibonacci($num-1) + fibonacci($num-2));
 }
 
+// menos performático por guardar resultados anteriores, mas interessante
+// pode ter utilidade em algum momento
+// sequencia_fibonacci_array(8) = 0, 1, 1, 2, 3, 5, 8, 13
+function sequencia_fibonacci_array($numero = 0){
+	if($numero < 0 || !is_int($numero))
+        return "Informe um numero inteiro valido maior que 0 (zero)";
+
+    $fibo = array(0,1);
+    if($numero >= 2){
+        for($i = 2; $i<$numero; $i++){
+            $fibo[$i] = $fibo[$i-1]+$fibo[$i-2];
+        }
+    } 
+    return implode(', ',$fibo);
+}
+
 // Dois elevado ao numero menos 1. Resulta sempre em um impar acima de 0
 // Tem grande possibilidade de gerar primos na sequencia
 // Sequencia_mersenne(4) = 0, [ 1, 3, 7, 15 ] = 15
@@ -165,13 +181,13 @@ function sequencia_mersenne($potencia){
 // mdc_euclides(14. 21) = 7
 // mdc_euclides(212121212, 5642316) = 4
 function mdc_euclides($a, $b){
-        while($b != 0){
-                $q = $a / $b;
-                $r = $a % $b;
-                $a = $b;
-                $b = $r;
-        }
-        return $a;
+    while($b != 0){
+        //$q = $a / $b; // a mérito de interesse apenas, para ver o andamento
+        $r = $a % $b;
+        $a = $b;
+        $b = $r;
+    }
+    return $a;
 }
 
 ?>
