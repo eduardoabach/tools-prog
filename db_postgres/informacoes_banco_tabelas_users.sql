@@ -1,6 +1,10 @@
 
+
+/* Versão do banco de dados */
+SELECT version();
+
 /* Endereço ip server do banco */
-select inet_server_addr();
+SELECT inet_server_addr();
 
 /*Database*/
 SELECT current_database();
