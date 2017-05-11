@@ -18,6 +18,11 @@ df -h
 du -sh #tamanho da pasta atual
 du -h #lista arquivos da pasta, h para tamanho mais legível
 
+# Deletar aquivo, para pastas deve usar o -r
+rm arquivo.txt
+rm /var/arquivo.txt
+rm /var/teste_folder/ -r
+
 # Mover arquivo
 mv caminho_existente/pasta_exist caminho_destino/pasta_novo_nome
 
