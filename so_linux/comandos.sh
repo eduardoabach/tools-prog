@@ -34,7 +34,8 @@ scp -rp dir1 user@hostname:/tmp/.
 
 # Instalar
 apt-get install aaa #debian, ubuntu
-sudo yum install mysql-server #centos, fedora
+yum install mysql-server #centos, fedora
+yum install php-pgsql
 
 # Manipular serviços
 /etc/init.d/apache2 restart #debian, ubuntu
