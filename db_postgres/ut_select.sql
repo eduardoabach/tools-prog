@@ -1,4 +1,8 @@
 
+-- Paginação com LIMIT e OFFSET
+SELECT coluna FROM tabela LIMIT 15 OFFSET 60; --15 itens, página 4 (15*4)
+
+
 -- SUB SELECT
 select meses.cod, meses.mes, busca.*
 from (values(1,'Jan'),(2,'Fev'),(3,'Mar')) as meses (cod,mes)
