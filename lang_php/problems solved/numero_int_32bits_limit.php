@@ -13,10 +13,6 @@ $numTest64b = (int) $numTest; //OK, 5573165743
 $numTest32b = (int) $numTest; //
 
 //SOLUCTION para as duas possibilidades
-
-//#1
-$numTest = (float) $numTest; //OK, 5573165743
-
-//#2, Não usar isso, é ineficiente
+$numTest32b = (float) $numTest; //OK, 5573165743
 
 ?>
