@@ -24,46 +24,36 @@ function is_month($month){
 
 function get_dia_da_semana($date, $extenso = false){
 	$day = date('w', strtotime($date));
-	if($extenso === true){
+	if($extenso === true)
  		$day = get_days_week($day);
-	}
-
 	return $day;
 }
 
 function add_days($date, $days = 1){
 	$date = new DateTime($date);
-	if($days){
+	if($days)
 		$date->add(new DateInterval('P' . $days . 'D'));
-	}
-
 	return $date->format('Y-m-d');
 }
 
 function sub_days($date, $days = 1){
 	$date = new DateTime($date);
-	if($days){
+	if($days)
 		$date->sub(new DateInterval('P' . $days . 'D'));
-	}
-
 	return $date->format('Y-m-d');
 }
 
 function add_years($date, $years = 1){
 	$date = new DateTime($date);
-	if($years){
+	if($years)
 		$date->add(new DateInterval('P' . $years . 'Y'));
-	}
-
 	return $date->format('Y-m-d');
 }
 
 function sub_years($date, $years = 1){
 	$date = new DateTime($date);
-	if($years){
+	if($years)
 		$date->sub(new DateInterval('P' . $years . 'Y'));
-	}
-
 	return $date->format('Y-m-d');
 }
 
@@ -191,7 +181,7 @@ function timestamp_to_user($timestamp){
 	return sprintf('%s %s', date_to_user($slice->date), $slice->hour);
 }
 
-function date_to_us($date, $default = null){
+function date_to_db($date, $default = null){
 	$valida = preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $date);
 	if (!$valida)
 		return $default;
@@ -284,7 +274,7 @@ function str_to_date($string){
 		$dia = substr($string, 6, 2); // 31
 
 		$date = $ano.'-'.$mes.'-'.$dia;
-		if(is_date_us($date)) {
+		if(is_date_db($date)) {
 			return $date;
 		}
 	}
