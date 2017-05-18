@@ -139,6 +139,53 @@ function get_timestamp_hour($timestamp){
 	return slice_timestamp($timestamp)->hour;
 }
 
+function segundos_entre_datas($data1, $data2){
+	retunr strtotime($data1) - strtotime($data2);
+}
+
+function horas_entre_datas($data1, $data2){
+	$tempoSegundos = segundos_entre_datas($data1, $data2);
+	return round($tempoSegundos / 3600, 0);
+}
+
+function minutos_entre_datas($data1, $data2){
+	$tempoSegundos = segundos_entre_datas($data1, $data2);
+	return round($tempoSegundos / 60, 0);
+}
+
+// Usar quando for necessária precisão de horas, minutos, segundos
+// quando for simplesmente para dias ou maiores usar dias_entre_datas()
+// melhorar essa function, agregar sub valores para montar string composta completa
+// objetivo: 5 meses, 2 dias, 4 horas, 25 minutos e 1 segundo.
+function tempoEntreDatas($data1, $data2) {
+	$ts = segundos_entre_datas($data1, $data2);
+	$unidade = '';
+
+	if ($ts > 31536000) {
+		$val = round($ts / 31536000, 0);
+		$unidade = ($val > 1) ? 'anos' : 'ano';
+	} else if ($ts > 2419200) {
+		$val = round($ts / 2419200, 0);
+		$unidade = ($val > 1) ? 'meses' : 'mês';
+	} else if ($ts > 604800) {
+		$val = round($ts / 604800, 0);
+		$unidade = ($val > 1) ? 'semanas' : 'semana';
+	} else if ($ts > 86400) {
+		$val = round($ts / 86400, 0);
+		$unidade = ($val > 1) ? 'dias' : 'dia';
+	} else if ($ts > 3600) {
+		$val = round($ts / 3600, 0);
+		$unidade = ($val > 1) ? 'horas' : 'hora';
+	} else if ($ts > 60) {
+		$val = round($ts / 60, 0);
+		$unidade = ($val > 1) ? 'minutos' : 'minuto';
+	} else {
+		$val = $ts;
+		$unidade = ($val > 1) ? 'segundos' : 'segundo';
+	}
+	return $val.' '.$unidade;
+}
+
 // get_dias_uteis_entre_datas(date_create('2017-01-01'), date_create('2017-02-01'));
 // get_dias_uteis_entre_datas(date_create(date('Y-m-01')), date_create(date('Y-m-t')));
 function get_dias_uteis_entre_datas(DateTime $dataInicial, DateTime $dataFinal){
@@ -151,6 +198,14 @@ function get_dias_uteis_entre_datas(DateTime $dataInicial, DateTime $dataFinal){
 	}
 
 	return $diasUteis;
+}
+
+function timestamp_to_user($timestamp){
+	if(!is_timestamp($timestamp))
+		return false;
+
+	$slice = slice_timestamp($timestamp);
+	return sprintf('%s %s', date_to_user($slice->date), $slice->hour);
 }
 
 function date_to_user($date, $default = null){
@@ -171,14 +226,6 @@ function date_to_user($date, $default = null){
 		return $default;
 
 	return sprintf('%s/%s/%d', $d, $m, $a);
-}
-
-function timestamp_to_user($timestamp){
-	if(!is_timestamp($timestamp))
-		return false;
-
-	$slice = slice_timestamp($timestamp);
-	return sprintf('%s %s', date_to_user($slice->date), $slice->hour);
 }
 
 function date_to_db($date, $default = null){
