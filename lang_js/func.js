@@ -12,3 +12,8 @@ function mk_div(id){
    }
    return false;
 }
+
+function scroll_to_element(id){
+	 var elemento = document.getElementById(id);
+	 $(elemento).scrollIntoView(2000);
+}
