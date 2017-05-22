@@ -6,17 +6,31 @@
 		print('</pre>');
 	}
 
-	function get_saudacao(){
+	function getSaudacao(){
 		$hour = date('Gi');
 		return ($hour < 1200) ? 'Bom dia' : (($hour < 1800) ? 'Boa tarde' : 'Boa noite');
 	}
 
-	function get_server_cpu_usage(){
+	function getServerSO(){
+		switch (true) {
+            case stristr(PHP_OS, 'DAR'): return 'MAC';
+            case stristr(PHP_OS, 'WIN'): return 'Windows';
+            case stristr(PHP_OS, 'LINUX'): return 'Linux';
+            case stristr(PHP_OS, 'FreeBSD'): return 'FreeBSD';
+            default : return 'Desconhecido';
+        }
+	}
+
+	function getServerDiretorio(){
+		return getcwd();
+	}
+
+	function getServerUsoCpu(){
 		$load = sys_getloadavg();
 		return $load[0]; // array com cores, zero é um total
 	}
 
-	function getNavegador(){
+	function getClienteNavegador(){
 		$list = array();
 		$useragent = $_SERVER['HTTP_USER_AGENT'];
 		if (preg_match('|MSIE ([0-9].[0-9]{1,2})|',$useragent,$matched)) {
@@ -44,7 +58,7 @@
 		return $list;
 	}
 
-	function getSo(){
+	function getClienteSo(){
 		$uAgent = $_SERVER['HTTP_USER_AGENT'];
 		$so = 'Desconhecido';
 
@@ -60,12 +74,12 @@
 		return $so;
 	}
 
-	function getIdioma() {
+	function getClienteIdioma() {
 		$idioma =substr($_SERVER["HTTP_ACCEPT_LANGUAGE"],0,2);
 		return $idioma;
 	}
 
-	function getEngineNavegacao(){
+	function getClienteEngineNavegacao(){
 		$navigator_user_agent = ' ' . strtolower($_SERVER['HTTP_USER_AGENT']);
 		$engine = '';
 
