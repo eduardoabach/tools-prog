@@ -37,4 +37,3 @@ ALTER TABLE nome_tabela ALTER COLUMN tipo SET DEFAULT 'P';
 
 ALTER TABLE nome_tabela ADD COLUMN remuneracao numeric(6,2);
 ALTER TABLE nome_tabela ALTER COLUMN remuneracao TYPE numeric(8,4);
-
