@@ -104,6 +104,28 @@ LEFT JOIN registro_item as reg_i ON reg_i.id_reg_m = reg_m.id
 WHERE reg_m.id = 1
 GROUP BY reg_m.id
 
+SELECT floor(5) --out: 5
+SELECT floor(5.4) --out: 5
+SELECT floor(5.5) --out: 5
+SELECT floor(5.9) --out: 5
+SELECT floor(5.9999) --out: 5
+
+SELECT ceil(5) --out: 5
+SELECT ceil(5.00001) --out: 6
+SELECT ceil(5.1) --out: 6
+SELECT ceil(5.5) --out: 6
+SELECT ceil(5.9999) --out: 6
+
+SELECT round(5) --out: 5
+SELECT round(5.00001) --out: 5
+SELECT round(5.1) --out: 5
+SELECT round(5.499999) --out: 5
+SELECT round(5.55555,3) --out: 5.556
+SELECT round(5.55555,1) --out: 5.6
+SELECT round(5.5) --out: 6
+SELECT round(5.500001) --out: 6
+SELECT round(5.9999) --out: 6
+
 /* Soma simples, mostra 8099, repare que não tem problema somar um campo null */
 SELECT SUM(valor) FROM (VALUES(1, 50),(2,48),(3,0),(4,null),(5, 8001)) as t(cod, valor);
 /* CUIDADO ao somar valores com possível null, que vai mostrar null no result mesmo outros números existindo */
