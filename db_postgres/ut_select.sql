@@ -57,6 +57,8 @@ SELECT lower('Tom'); --out: tom
 SELECT upper('Tom'); --out: TOM
 SELECT initcap('olá carlos'); --out: Olá Carlos
 SELECT substring('Thomas' from 2 for 3); --out: hom
+select SUBSTR('Teste de exemplo.', 1, 1); --out: T
+select SUBSTR('Teste de exemplo.', 5, 9); --out: e de exem
 SELECT lpad('Olá', 10, '.'); --out: .......Olá
 SELECT rpad('Olá', 10, '.'); --out: Olá.......
 SELECT ltrim('....Teste...', '.'); --out: Teste...
