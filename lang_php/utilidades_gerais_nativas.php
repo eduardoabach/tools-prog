@@ -2,6 +2,12 @@
 
 trigger_error("Unable to load class: $class", E_USER_WARNING);
 
+// Nome de variável dinâmico
+for($i=0; $i<10;$i++){
+  ${'ex'.$i} = 'Exemplo '.$i;
+}
+echo $ex0; // out: Exemplo 0
+echo $ex8; // out: Exemplo 8
 
 var_dump(property_exists('myClass', 'exemplo')); //true
 var_dump(property_exists(new myClass, 'exemplo')); //true
