@@ -1,4 +1,9 @@
 
+setTimeout(function(){
+    //o que deseja fazer...
+}, 2000); // 2s
+
+
 function url_view(tela, view){
    return location+'views/'+tela+'/'+view+'.php';
 }
