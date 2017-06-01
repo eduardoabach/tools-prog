@@ -55,6 +55,12 @@ git checkout -f
 git checkout -f 2ab16512207e7b943e4dc1fd2d1176a1d438 # voltar todo projeto para esse momento, não precisa de pull, nada
 git revert --no-edit 2ab16512207e7b943e4dc1fd2d1176a1d438 # desfazer a alteracao
 
+#Estudar mais sobre...
+git diff branch_origem branch_destino # antes de fazer o merge das alterações, você pode também pré-visualizá-as
+git tag 1.0.0 1b2e1d63ff #criar rótulos para releases de software
+git config color.ui true # usar saídas do git coloridas
+
+
 #ferramentas
 sudo apt install gitk
 gitk&
