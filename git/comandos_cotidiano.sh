@@ -40,6 +40,15 @@ git merge dev # enfim a alteraao chega no master, caso tenha feito tudo correto,
 git push # tudo resolvido, mandar alteracao para todos
 
 
+########################### SITUAÇÕES ADVERSAS ################################
+
+# LOG
+git log
+git log --name-only
+git checkout -f
+git checkout -f 2ab16512207e7b943e4dc1fd2d1176a1d438 # voltar todo projeto para esse momento, não precisa de pull, nada
+git revert --no-edit 2ab16512207e7b943e4dc1fd2d1176a1d438 # desfazer a alteracao
+
 # Caso: precisa sobrescrever um branch por outro, que agora é o prioritário e correto
 # Estrutura: master(foi alterado por engado depois do dev, incorreto), dev(é o que está correto)
 git checkout dev
@@ -47,13 +56,12 @@ git merge -s ours master # passa a ser prioritário sobre master, '-s ours' é o
 git checkout master
 git merge dev
 
-
-# Outras situações
-git log
-git log --name-only
-git checkout -f
-git checkout -f 2ab16512207e7b943e4dc1fd2d1176a1d438 # voltar todo projeto para esse momento, não precisa de pull, nada
-git revert --no-edit 2ab16512207e7b943e4dc1fd2d1176a1d438 # desfazer a alteracao
+# Erro: Ao rodar pull ou push a mensagem abaixo acompanha o resultado.
+#error: unable to resolve reference refs/remotes/origin/master: No such file or directory
+#error: Cannot lock the ref 'refs/remotes/origin/master'.
+# Para resolver deve retirar o arquivo e com o fetch volta a funcionar
+rm .git/refs/remotes/origin/master
+git fetch
 
 #Estudar mais sobre...
 git diff branch_origem branch_destino # antes de fazer o merge das alterações, você pode também pré-visualizá-as
