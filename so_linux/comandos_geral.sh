@@ -47,3 +47,7 @@ time git status
 # árvore de processos em execucao, PID...
 pstree
 pstree -hlp
+
+#fazer varredura em outro pc, portas disponiveis e os serviços ligados a elas, route...
+apt-get install nmap
+nmap -v -A www.siteexemplo.com.br
