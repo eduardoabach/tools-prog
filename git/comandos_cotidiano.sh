@@ -14,7 +14,8 @@ git push
 # Trabalhando com branchs
 # os comites e alterações no branch ficam nele
 # ao trocar, volta a situação do anterior
-git branch # lista de existentes
+git branch # lista de existentes local
+git branch -a #lsita existentes local e remoto
 git checkout -b nome_nome_exemplo # para criar um novo branch chamado 'nome_nome_exemplo'
 git branch -d nome_nome_exemplo # exclui o branch
 git checkout dev # vai para o branch dev
@@ -62,6 +63,10 @@ git merge dev
 # Para resolver deve retirar o arquivo e com o fetch volta a funcionar
 rm .git/refs/remotes/origin/master
 git fetch
+
+# Ignorar suas alteracoes e pegar o master
+git fetch
+git reset --hard origin/master
 
 #Estudar mais sobre...
 git diff branch_origem branch_destino # antes de fazer o merge das alterações, você pode também pré-visualizá-as
