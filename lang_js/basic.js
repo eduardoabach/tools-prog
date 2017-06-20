@@ -12,3 +12,9 @@ if(idade > 18) {
 
 history.back();
 history.go(-1);   
+
+var objsMove = document.getElementsByClassName("class-nome-exemplo");
+Object.keys(object).map(function(objectKey, index) {
+    var value = object[objectKey];
+    console.log(value);
+});
