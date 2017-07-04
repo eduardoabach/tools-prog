@@ -2,6 +2,10 @@
 
 trigger_error("Unable to load class: $class", E_USER_WARNING);
 
+$b64Test = base64_encode('string');
+echo base64_decode($b64Test); // echo 'string'
+
+
 // Nome de variável dinâmico
 for($i=0; $i<10;$i++){
   ${'ex'.$i} = 'Exemplo '.$i;
