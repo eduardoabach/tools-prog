@@ -65,6 +65,7 @@ rm .git/refs/remotes/origin/master
 git fetch
 
 # Ignorar suas alteracoes e pegar o master
+# ATENÇÃO, isso distroi até o que tem comitado local e não fez push ainda! 
 git fetch
 git reset --hard origin/master
 

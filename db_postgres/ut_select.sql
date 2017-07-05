@@ -126,6 +126,9 @@ SELECT round(5.5) --out: 6
 SELECT round(5.500001) --out: 6
 SELECT round(5.9999) --out: 6
 
+SELECT greatest(0, 5) --out: 5 // bom para evita números negativos, ou apenas maiores que X
+SELECT greatest(0, -5) --out: 0
+
 /* Soma simples, mostra 8099, repare que não tem problema somar um campo null */
 SELECT SUM(valor) FROM (VALUES(1, 50),(2,48),(3,0),(4,null),(5, 8001)) as t(cod, valor);
 /* CUIDADO ao somar valores com possível null, que vai mostrar null no result mesmo outros números existindo */
