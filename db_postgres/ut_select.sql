@@ -54,20 +54,28 @@ SELECT strpos('algum no texto, continuação do texto.', 'text'); --out: 10
 
 -- Manipulando string
 SELECT lower('Tom'); --out: tom
-SELECT upper('Tom'); --out: TOM
-SELECT initcap('olá carlos'); --out: Olá Carlos
+SELECT upper('Tom'); --out: TOM, maiúsculas
+SELECT initcap('olá carlos'); --out: Olá Carlos, captalizar
 SELECT substring('Thomas' from 2 for 3); --out: hom
 select SUBSTR('Teste de exemplo.', 1, 1); --out: T
 select SUBSTR('Teste de exemplo.', 5, 9); --out: e de exem
+SELECT SUBSTR('2016-05-15', 9, 2); --out: 15, pegar parte de string
 SELECT lpad('Olá', 10, '.'); --out: .......Olá
 SELECT rpad('Olá', 10, '.'); --out: Olá.......
 SELECT ltrim('....Teste...', '.'); --out: Teste...
 SELECT rtrim('....Teste...', '.'); --out: ....Teste
 SELECT trim('....Teste...', '.'); --out: Teste
 SELECT trim('(_@_)Teste(_@_)(_@_)', '(_@_)'); --out: Teste
-SELECT repeat('Pg', 4); --out: PgPgPgPg
-SELECT replace('um {aplic} padrão.', '{aplic}', 'teste'); --out: um teste padrão.
-SELECT substr('2016-05-15', 9, 2); --out: 15
+SELECT repeat('Pg', 4); --out: PgPgPgPg, loop em string
+SELECT replace('um {aplic} padrão.', '{aplic}', 'teste'); --out: um teste padrão. substituir parte de string
+
+-- Concatenar, unir strings, atenção para a diferença da function concat e os simples || com valores nulos.
+select concat('a', 'b') --out:ab
+select concat('a', 'b', 'c') --out:abc
+select concat('a', null, 'c') --out:ac
+select 'a' || 'b' --out:ab
+select 'a' || 'b' || 'c' --out:abc
+select 'a' || null || 'c' --out: null
 
 -- Delimitando valor entre string
 SELECT split_part('abc(~@~)def(~@~)ghi(~@~)jkl', '(~@~)', 1) --out: abc
@@ -104,18 +112,21 @@ LEFT JOIN registro_item as reg_i ON reg_i.id_reg_m = reg_m.id
 WHERE reg_m.id = 1
 GROUP BY reg_m.id
 
+--arredondar número para baixo
 SELECT floor(5) --out: 5
 SELECT floor(5.4) --out: 5
 SELECT floor(5.5) --out: 5
 SELECT floor(5.9) --out: 5
 SELECT floor(5.9999) --out: 5
 
+--arredondar número para cima
 SELECT ceil(5) --out: 5
 SELECT ceil(5.00001) --out: 6
 SELECT ceil(5.1) --out: 6
 SELECT ceil(5.5) --out: 6
 SELECT ceil(5.9999) --out: 6
 
+--arredondar número na regra normal
 SELECT round(5) --out: 5
 SELECT round(5.00001) --out: 5
 SELECT round(5.1) --out: 5
@@ -126,6 +137,7 @@ SELECT round(5.5) --out: 6
 SELECT round(5.500001) --out: 6
 SELECT round(5.9999) --out: 6
 
+-- maior número
 SELECT greatest(0, 5) --out: 5 // bom para evita números negativos, ou apenas maiores que X
 SELECT greatest(0, -5) --out: 0
 
