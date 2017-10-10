@@ -43,6 +43,10 @@ git push # tudo resolvido, mandar alteracao para todos
 
 ########################### SITUAÇÕES ADVERSAS ################################
 
+# Discartar alterações
+git add arquivos...
+git checkout -f
+
 # LOG
 git log
 git log --name-only
