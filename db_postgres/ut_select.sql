@@ -27,6 +27,31 @@ LEFT JOIN (
 	GROUP BY entidade.cod, entidade.nome, faa.mes, faa.ano, faa_old.mes, faa_old.ano
 ) as busca on busca.mes = meses.cod
 
+-- CASE
+SELECT
+	CASE extract(month from TIMESTAMP '2016-10-21') 
+		WHEN 1 THEN 'janeiro'
+		WHEN 2 THEN 'fevereiro'
+		WHEN 3 THEN 'março'
+		WHEN 4 THEN 'abril'
+		WHEN 5 THEN 'maio'
+		WHEN 6 THEN 'junho'
+		WHEN 7 THEN 'julho'
+		WHEN 8 THEN 'agosto'
+		WHEN 9 THEN 'setembro'
+		WHEN 10 THEN 'outubro'
+		WHEN 11 THEN 'novembro'
+		WHEN 12 THEN 'dezembro'
+              ELSE ''
+	END as dt_mes_texto, -- out: 'outubro'
+	CASE 
+		WHEN 50 < 10  THEN 'A'
+		WHEN 20 = 21 THEN 'B'
+		WHEN (10+10) = 20 THEN 'C'
+              ELSE 'D'
+	END as test -- out: c
+	CASE WHEN 55>1 THEN 1 ELSE 0 END
+
 -- hash de um registro da tabela
 SELECT tb.id, md5(CAST((tb.*) AS text)) FROM tb_teste AS tb LIMIT 10;
 
@@ -43,6 +68,9 @@ SELECT extract(year from age(p.data_nasc)) as idade FROM pessoas as p
 SELECT extract(year from m.data) as comp_ajust FROM movimento as m LIMIT 1
 SELECT extract(month from m.data) as comp_ajust FROM movimento as m FROM 1
 SELECT extract(day from m.data) as comp_ajust FROM movimento as m FROM 1
+SELECT extract(month from TIMESTAMP '2016-10-21') --out: 10
+SELECT extract(day from TIMESTAMP '2016-10-10' - TIMESTAMP '2016-01-21') --out: 263
+SELECT extract(day from m.data - now()) FROM movimento as m FROM 1
 
 -- Números aos lados, estilo str_pad php
 SELECT RPAD(numcol::text, 3, '0'), LPAD(numcol::text, 3, '0') FROM my_table
@@ -78,11 +106,11 @@ select 'a' || 'b' || 'c' --out:abc
 select 'a' || null || 'c' --out: null
 
 -- Delimitando valor entre string
-SELECT split_part('abc(~@~)def(~@~)ghi(~@~)jkl', '(~@~)', 1) --out: abc
-SELECT split_part('abc(~@~)def(~@~)ghi(~@~)jkl', '(~@~)', 2) --out: def
-SELECT split_part('abc(~@~)def(~@~)ghi(~@~)jkl', '(~@~)', 3) --out: ghi
-SELECT split_part('abc(~@~)def(~@~)ghi(~@~)jkl', '(~@~)', 4) --out: jkl
-SELECT split_part('abc(~@~)def(~@~)ghi(~@~)jkl', '(~@~)', 5) --out: ''
+SELECT split_part('abc(@)def(@)ghi(@)jkl', '(@)', 1) --out: abc
+SELECT split_part('abc(@)def(@)ghi(@)jkl', '(@)', 2) --out: def
+SELECT split_part('abc(@)def(@)ghi(@)jkl', '(@)', 3) --out: ghi
+SELECT split_part('abc(@)def(@)ghi(@)jkl', '(@)', 4) --out: jkl
+SELECT split_part('abc(@)def(@)ghi(@)jkl', '(@)', 5) --out: ''
 
 -- Convert, Decode, Encode, Cript, Decript
 SELECT convert_to('algum texto...', 'UTF8');
