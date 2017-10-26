@@ -47,3 +47,7 @@ $(function(){
         $('.noticias').append("<li>"+ item.data +" - " +item.titulo + "</li>");
     });
 });
+
+
+
+jsonObj.members.viewers['key_name'] = 'valor...';
