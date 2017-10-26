@@ -140,6 +140,18 @@ LEFT JOIN registro_item as reg_i ON reg_i.id_reg_m = reg_m.id
 WHERE reg_m.id = 1
 GROUP BY reg_m.id
 
+-- Acumular valor por dia, soma por criterio composto
+SELECT
+    dia,
+    caixa,
+    valor_entrada,
+    SUM( valor_entrada ) OVER ( PARTITION BY caixa ORDER BY dia ) AS saldo
+FROM (
+    SELECT ARRAY_TO_ROW( ARRAY[ 1, 2, 3 ] ) AS dia,
+           ARRAY_TO_ROW( ARRAY[ 1, 1, 2 ] ) AS caixa,
+           ARRAY_TO_ROW( ARRAY[ 100, 500, 99 ] ) AS valor_entrada
+) AS caixa 
+
 --arredondar número para baixo
 SELECT floor(5) --out: 5
 SELECT floor(5.4) --out: 5
