@@ -27,7 +27,23 @@
 
 	function getServerUsoCpu(){
 		$load = sys_getloadavg();
-		return $load[0]; // array com cores, zero é um total
+		return $load[0]; // array com cores, key zero é um total agrupado
+	}
+	
+	function getClienteSO(){
+		$uAgent = $_SERVER['HTTP_USER_AGENT'];
+		$so = 'Desconhecido';
+
+		if (preg_match('/linux/i', $uAgent)) {
+			 $so = 'Linux';
+		}
+		elseif (preg_match('/macintosh|mac os x/i', $uAgent)) {
+			 $so = 'Mac';
+		}
+		elseif (preg_match('/windows|win32/i', $uAgent)) {
+			 $so = 'Windows';
+		}
+		return $so;
 	}
 
 	function getClienteNavegador(){
@@ -58,21 +74,6 @@
 		return $list;
 	}
 
-	function getClienteSo(){
-		$uAgent = $_SERVER['HTTP_USER_AGENT'];
-		$so = 'Desconhecido';
-
-		if (preg_match('/linux/i', $uAgent)) {
-			 $so = 'Linux';
-		}
-		elseif (preg_match('/macintosh|mac os x/i', $uAgent)) {
-			 $so = 'Mac';
-		}
-		elseif (preg_match('/windows|win32/i', $uAgent)) {
-			 $so = 'Windows';
-		}
-		return $so;
-	}
 
 	function getClienteIdioma() {
 		$idioma =substr($_SERVER["HTTP_ACCEPT_LANGUAGE"],0,2);
