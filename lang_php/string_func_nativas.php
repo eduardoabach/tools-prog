@@ -23,4 +23,6 @@ echo str_pad($teste, 10, "_", STR_PAD_BOTH); // "___Ana____"
 
 echo substr('Ana Maria da Silva', 0, '10'); //corta texto, "Ana Maria "
 
+echo str_replace('teste', 'novo', 'Algum texto de exemplo: teste.') // Algum texto de exemplo: novo.
+
 ?>

@@ -2,19 +2,32 @@
 
 $repeticoes = 6;
 $simbolo = '#';
-$linhaOld = null;
 
 for($posHoriz = 1; $posHoriz <= $repeticoes; $posHoriz++){
-	$linhaAt = null;
-
+	
 	//estrutura lateralmente triangulo
+	$linhaAt = null;
 	for($posVert = 1; $posVert <= $posHoriz; $posVert++){
 		// primeiro registro não tem espaço
 		$linhaAt .= ($linhaAt == null) ? $simbolo : ' '.$simbolo;
 	}
 
 	echo $linhaAt.'<br>';
-	$linhaOld = $linhaAt;
 }
+
+
+echo '<br><br>';
+
+
+// VERSÃO DO LUCAS, muito boa e simples
+$repet = 6;
+$simb = '#';
+$contador = 1;
+
+for($content=$simb; $contador <= $repet; $content .= ' '.$simb){
+	echo $content.'<br/>';
+	$contador++;
+}
+
 
 ?>
