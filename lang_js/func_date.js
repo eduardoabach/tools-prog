@@ -37,4 +37,6 @@ function date_to_us(date) {
    }
 }
 
-
+// DATA ATUAL
+//now = new Date
+//document.write ( "Agora são "  + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + ":" + now.getMilliseconds() )
