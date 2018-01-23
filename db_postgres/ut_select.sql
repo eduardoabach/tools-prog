@@ -191,3 +191,11 @@ SELECT SUM(COALESCE(valor1,0) + COALESCE(valor2,0)) FROM (VALUES(1, 50, 10),(2, 
 /* Exibir data no formato usuário */
 SELECT to_char(field_date, 'DD/MM/YYYY') from table1;
 SELECT to_char(DATE '2016-01-01', 'DD/MM/YYYY');
+
+/* Distinct, para limitar registros com certa característica repetida*/
+/* Exemplo: Última compra de vários usuários */
+SELECT 
+	DISTINCT ON (id_comprador) id, id_comprador, data, valor_total
+FROM compras
+ORDER BY id_comprador, data DESC, valor_total, id;
+
