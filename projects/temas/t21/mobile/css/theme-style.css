@@ -1,0 +1,450 @@
+/*----
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+.logo,.header-right,.well{
+	background:none;
+	border:none;
+	padding:0px;
+	margin:0 0 0.5em;
+}
+body{
+	background:#F6F6F7;
+}
+.bg{
+	background: url(../images/head-bg.jpg) no-repeat 0px 0px;
+}
+/*----start-header----*/
+.header{
+	padding: 0.5em 0 0;
+}
+.header-right img{
+	margin:0;
+	padding:0;
+}
+.logo{
+	padding: 0.5em 0;
+	text-align: center;
+}
+.header-right{
+	color: #CAD1DB;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.2em;
+	text-align: center;
+}
+.header-right a{
+	text-decoration:none;
+}
+.header-right p i a{
+	margin-right: 0.875em;
+	color: #CAD1DB;
+	display: inline-block;
+}
+.header-right p i a:hover{
+	color:#67BF95;
+}
+.login{
+	background: #3D4B60;
+	color: #CAD1DB;
+	padding: 0.2em 0.8em;
+	text-decoration: none;
+	border-radius: 0.3em;
+	display: inline-block;
+	font-size: 0.875em;
+}
+.login:hover{
+	color:#67BF95;
+	background:#303B4A;
+}
+/*----//End-header----*/
+/*----start-slide-banner---*/
+.slide-banner-left{
+	font-family: Arial, Helvetica, sans-serif;
+}
+.slide-banner-left h1{
+	color: #FFF;
+	font-size: 1.2em;
+	margin: 0;
+	padding: 0;
+}
+.slide-banner-left p{
+	color: #C5D2E5;
+	font-size: 0.9em;
+	width: 100%;
+	margin: 0.3em 0 0.5em;
+}
+.top-grid-left{
+	text-align:center;
+}
+.top-grid-left img{
+	display:inline-block;
+}
+.b-btn{
+	background: #67BF95;
+	padding: 0.65em 1.3em;
+	outline: none;
+	border: none;
+	font-weight: 400;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+}
+.b-btn:hover{
+	background: #3D4B60;
+}
+.slide-banner{
+	text-align:center;
+}
+.slide-banner img{
+	display:inline-block;
+}
+/*----//End-slide-banner---*/
+/*----start-grids----*/
+.top-grids{
+	padding: 2em 0 1em;
+}
+.top-grid-right ul li{
+	list-style-type: none;
+	display: inline-block;
+}
+.top-grid-right ul li a span{
+	width: 60px;
+	height:60px;
+	display: inline-block;
+}
+.icon1{
+	background: url(../images/icons.png) no-repeat 0px 0px;
+}
+.icon2{
+	background: url(../images/icons.png) no-repeat 0px -103px;
+}
+.top-grid-center h2{
+	color: #505965;
+	font-size: 1.2em;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.top-grids{
+	text-align:center;
+}
+.top-grid-center p {
+	color: #4B596C;
+	font-size: 0.875em;
+	margin: 0em 0 0.8em;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.8em;
+}
+.top-grid-right ul{
+	margin:0;
+	padding:0;
+}
+/*----start-mid-grids----*/
+.carousel-control.right,.carousel-control.left{
+	background:none;
+}
+.carousel-control .glyphicon-chevron-right {
+	right: 20%;
+}
+.carousel-control .glyphicon-chevron-left {
+	left: 20%;
+}
+.mid-grids{
+	text-align: center;
+	background: url(../images/mid-bg.jpg) repeat-x 0px 0px;
+	padding-top: 1em;
+}
+.mid-grids h3{
+	color: #FFF;
+	font-size: 1.2em;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.8em;
+	font-weight: 600;
+	padding: 0;
+	margin: 0;
+}
+.mid-grids p{
+	color: #FFF;
+	font-size: 1em;
+	margin: 0 0 1em 0;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.8em;
+	font-weight: 100;
+}
+.pricetables-head{
+	text-align:center;
+	margin-bottom: 3em;
+}
+.pricetables-head h2{
+	color: #37414E;
+	font-size: 1em;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.5em;
+	font-weight: 600;
+	margin:0px;
+	padding:0px;
+}
+.pricetables-head p{
+	color: #858B93;
+	font-size: 0.875em;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.5em;
+	font-weight: 100;
+	margin: 0.5em auto 1em auto;
+}
+.pricetable h3{
+	background: #4B596C;
+	color: #FFF;
+	text-align: center;
+	padding: 0.5em;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.5em;
+	margin: 0;
+}
+.pricetable{
+	margin-bottom:1.8em;
+}
+.pricetable ul{
+	background: #E9EEF3;
+	margin: 0;
+	padding: 0.8em;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	margin-bottom: 1em;
+}
+.pricetable ul li{
+	list-style: none;
+	margin: 0em 0 1em;
+}
+.pricetable ul li a{
+	text-decoration:none;
+}
+.pricetable ul li a.frist-fea{
+	color: #6D737B;
+	font-size: 1.2em;
+	font-weight: 700;
+}
+.pricetable ul li a{
+	color: #6D737B;
+	font-size: 1.2em;
+}
+.price-btn1{
+	display: block;
+	background: #4B596C;
+	border: none;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 1.3em;
+	color: #FFF;
+	font-weight: 600;
+	padding: 0.5em;
+}
+.price-btn1:hover{
+	text-decoration:none;
+	color:#FFF;
+	background:#52AD81;
+}
+.pricetables{
+	padding: 1em 0 1em;
+}
+/*----*/
+.pricetable1 span{
+	width: 32px;
+	height: 32px;
+	display: inline-block;
+	background: url(../images/right-icon.png) no-repeat 0px 0px;
+	position: absolute;
+	top: -10px;
+	right: 27px;
+}
+.pricetable1 ul{
+	background:#DEEBDE;
+}
+.pricetable1 h3,.pricetable1 a.price-btn1{
+	background:#58AD52;
+}
+.pricetable1 ul li a.frist-fea{
+	color:#58AD52;
+}
+.pricetable1 a.price-btn1:hover{
+	background:#4A9345;
+}
+/*-----*/
+.pricetable2 h3,.pricetable2 a.price-btn1{
+	background:#52A1AD;
+}
+.pricetable2 ul li a.frist-fea{
+	color:#52A1AD;
+}
+.pricetable2 ul{
+	background:#DEE9EC;
+}
+.pricetable2 a.price-btn1:hover{
+	background:#4E8B94;
+}
+/*----start-video----*/
+.video{
+	text-align:center;
+	background:#E9EAED;
+}
+.video h4{
+	color: #4B596C;
+	font-size: 1em;
+	margin: 0em;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.8em;
+	font-weight: 600;
+}
+.video-bg{
+	background: url(../images/video-img.jpg) no-repeat 0px 0px;
+	min-height:150px;
+	background-size: 100% 100%;
+	position: relative;
+}
+.video-bg a{
+	height: 51px;
+	width: 50px;
+	display: inline-block;
+	background: url(../images/play-button.png) no-repeat 0px 0px;
+	position: absolute;
+	top: 32%;
+	background-size: 100% 100%;
+	left: 40%;
+}
+.video-bg a:hover{
+	opacity:0.9;
+}
+/*-----light-box-----*/
+.light-box-info h3{
+	color: #4B596C;
+	font-size:1.2em;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.8em;
+	font-weight: 600;
+}
+.light-box-info{
+	padding: 1em;
+	border-radius: 0;
+	background:#F6F6F7;
+}
+.light-box-info iframe{
+	width:100%;
+	min-height:520px;
+}
+/*----start-contact----*/
+.contact{
+	background: #2D3035;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 0em 0 2em;
+}
+.contact p i{
+	width:100px;
+	height:100px;
+	display:inline-block;
+	background:url(../images/msg-icon.png) no-repeat 0px 0px; 
+}
+.contact p{
+	text-align: center;
+	margin: 0;
+	padding: 2em 0 1em;
+}
+.contact span{
+	color: #FFF;
+	display: block;
+	font-size: 1em;
+	margin-bottom: 0.2em
+}
+.contact span label{
+	color: #C63A3D;
+	vertical-align: top;
+	margin-left: 0.1em;
+}
+.contact input[type="text"],.contact textarea{
+	border-radius: 4px;
+	font-family: Arial, Helvetica, sans-serif;
+	outline: none;
+	border: 2px solid #42454A;
+	padding: 0.5em;
+	background: #2F3237;
+	color: #858B93;
+	width: 100%;
+	resize: none;
+	font-size: 1em;
+}
+.contact input[type="text"]:hover,.contact input[type="text"]:focus,.contact textarea:hover,.contact textarea:focus{
+	border: 2px solid #BE393C;
+}
+.contact-text-box div{
+	margin: 0 0 1em 0;
+}
+.contact textarea{
+	height:150px;
+}
+.contact input[type="submit"]{
+	margin: 1em 0 0 0;
+	text-transform: uppercase;
+	padding: 0.8em 0em;
+	font-size: 1em;
+	outline: none;
+	cursor: pointer;
+	width: 100%;
+}
+.contact input[type="submit"]:hover{
+	background:#AC3335;
+}
+/*----start-footer----*/
+.footer{
+	background: #2A2D33;
+	padding: 1.3em 0;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #AAA;
+	font-size: 1.1em;
+}
+.footer p{
+	margin:0;
+}
+.footer ul li{
+	display:inline-block;
+	list-style:none;
+	margin:0;
+}
+.footer ul{
+	padding:0;
+	margin:0;
+}
+.footer ul li img{
+	vertical-align: bottom;
+	margin-bottom: 1em;
+}
+.footer ul li a{
+	color:#AAA;
+}
+.footer ul li a:hover{
+	color:#AC3335;
+	text-decoration:none;
+}
+.footer-left{
+	margin-top: 0.7em;
+	text-align: center;
+}
+.footer-right ul li a span{
+	width:40px;
+	height:40px;
+	display:inline-block;
+}
+.footer-right ul li a:hover{
+	opacity:0.8;
+}
+.footer-right ul li:first-child{
+	margin-right:0.8em;
+}
+.footer-right ul li a.twitter span{
+	background:url(../images/twitter-icon.png) no-repeat 0px 0px;
+}
+.footer-right ul li a.facebook span{
+	background:url(../images/face-book-icon.png) no-repeat 0px 0px;
+}
+.footer-right {
+	text-align: center;
+	margin: 1em 0 0;
+}
+/*----start-priceibng-pop-up----*/
