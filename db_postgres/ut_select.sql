@@ -112,6 +112,10 @@ SELECT split_part('abc(@)def(@)ghi(@)jkl', '(@)', 3) --out: ghi
 SELECT split_part('abc(@)def(@)ghi(@)jkl', '(@)', 4) --out: jkl
 SELECT split_part('abc(@)def(@)ghi(@)jkl', '(@)', 5) --out: ''
 
+-- Formatar CPF e CNPJ
+SELECT to_char( regexp_replace(cpf::text, '[^0-9]', '', 'gi')::numeric, '000"."000"."000"-"00')
+SELECT to_char( regexp_replace(cnpj::text, '[^0-9]', '', 'gi')::numeric, '00"."000"."000"/"0000"-"00')
+
 -- Convert, Decode, Encode, Cript, Decript
 SELECT convert_to('algum texto...', 'UTF8');
 SELECT encode('teste', 'base64'); -- out: dGVzdGU=
