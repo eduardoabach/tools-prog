@@ -63,6 +63,10 @@ SELECT now();
 
 -- Idade, em anos
 SELECT extract(year from age(p.data_nasc)) as idade FROM pessoas as p
+SELECT extract(year from age(CURRENT_DATE, '1991-04-01'))
+
+-- Dias entre datas
+SELECT TIMESTAMP '2010-01-20' - TIMESTAMP '1990-05-28'
 
 -- Extrair ano, mês, dia de data
 SELECT extract(year from m.data) as comp_ajust FROM movimento as m LIMIT 1
@@ -85,8 +89,8 @@ SELECT lower('Tom'); --out: tom
 SELECT upper('Tom'); --out: TOM, maiúsculas
 SELECT initcap('olá carlos'); --out: Olá Carlos, captalizar
 SELECT substring('Thomas' from 2 for 3); --out: hom
-select SUBSTR('Teste de exemplo.', 1, 1); --out: T
-select SUBSTR('Teste de exemplo.', 5, 9); --out: e de exem
+SELECT SUBSTR('Teste de exemplo.', 1, 1); --out: T
+SELECT SUBSTR('Teste de exemplo.', 5, 9); --out: e de exem
 SELECT SUBSTR('2016-05-15', 9, 2); --out: 15, pegar parte de string
 SELECT lpad('Olá', 10, '.'); --out: .......Olá
 SELECT rpad('Olá', 10, '.'); --out: Olá.......
@@ -98,12 +102,12 @@ SELECT repeat('Pg', 4); --out: PgPgPgPg, loop em string
 SELECT replace('um {aplic} padrão.', '{aplic}', 'teste'); --out: um teste padrão. substituir parte de string
 
 -- Concatenar, unir strings, atenção para a diferença da function concat e os simples || com valores nulos.
-select concat('a', 'b') --out:ab
-select concat('a', 'b', 'c') --out:abc
-select concat('a', null, 'c') --out:ac
-select 'a' || 'b' --out:ab
-select 'a' || 'b' || 'c' --out:abc
-select 'a' || null || 'c' --out: null
+SELECT concat('a', 'b') --out:ab
+SELECT concat('a', 'b', 'c') --out:abc
+SELECT concat('a', null, 'c') --out:ac
+SELECT 'a' || 'b' --out:ab
+SELECT 'a' || 'b' || 'c' --out:abc
+SELECT 'a' || null || 'c' --out: null
 
 -- Delimitando valor entre string
 SELECT split_part('abc(@)def(@)ghi(@)jkl', '(@)', 1) --out: abc
@@ -116,13 +120,16 @@ SELECT split_part('abc(@)def(@)ghi(@)jkl', '(@)', 5) --out: ''
 SELECT to_char( regexp_replace(cpf::text, '[^0-9]', '', 'gi')::numeric, '000"."000"."000"-"00')
 SELECT to_char( regexp_replace(cnpj::text, '[^0-9]', '', 'gi')::numeric, '00"."000"."000"/"0000"-"00')
 
+-- Limpar formatação CPF
+SELECT translate(translate('555.444.666-77', '-', ''), '.','') --out 55544466677
+
 -- Convert, Decode, Encode, Cript, Decript
 SELECT convert_to('algum texto...', 'UTF8');
 SELECT encode('teste', 'base64'); -- out: dGVzdGU=
 SELECT decode('dGVzdGU=', 'base64'); -- out: teste
 SELECT to_hex(255); --out: ff
-select translate(upper('texto de exemplo.'), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 'CDEFGHIJKLMNOPQRSTUVWXYZAB2345678901'); --out: VGZVQ FG GZGORNQ.
-select translate('VGZVQ FG GZGORNQ.', 'CDEFGHIJKLMNOPQRSTUVWXYZAB2345678901', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'); --out: TEXTO DE EXEMPLO.
+SELECT translate(upper('texto de exemplo.'), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 'CDEFGHIJKLMNOPQRSTUVWXYZAB2345678901'); --out: VGZVQ FG GZGORNQ.
+SELECT translate('VGZVQ FG GZGORNQ.', 'CDEFGHIJKLMNOPQRSTUVWXYZAB2345678901', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'); --out: TEXTO DE EXEMPLO.
 
 -- Exibir caract UTF8 usando código
 SELECT chr(65); --out: A

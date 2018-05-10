@@ -43,6 +43,13 @@ git push # tudo resolvido, mandar alteracao para todos
 
 ########################### SITUAÇÕES ADVERSAS ################################
 
+# Passar alterações de um lugar para outro, usando stash
+git stash
+git checkout nome_branch_destino
+git stash list 
+git stash apply
+
+
 # Discartar alterações
 git add arquivos...
 git checkout -f
