@@ -1,4 +1,9 @@
 
+#Configurações
+git config -l #ver configurações atuais
+git config user.name "Fulano de Tal"
+git config user.email fulanodetal@tal.com.br
+
 # Início de projeto
 git init
 git remote add origin https://github.com/eduardoabach/repositorio.git
@@ -22,6 +27,9 @@ git checkout dev # vai para o branch dev
 git add item_alterado_exemplo.php
 git commit -m "Exemplo alteracao branch dev"
 git push # fecha ciclo da alteração no branch, mas o master nao tem ela ainda
+
+# Criar um branch local em base de um branch remoto
+git checkout -b tarefa_5545 origin/tarefa_5545
 
 # Branch merge direto com o master, este é mais perigoso, mas para projetos simplórios até pode ser usado
 git checkout master #ir para o master para posterior pull atualizando

@@ -1,0 +1,304 @@
+body {
+   font-family: sans-serif;
+   font-size: small;
+   margin: 0px;
+   padding: 0px;
+   background-color: #dddddd;
+}
+
+#conteudoTudo{
+   width: 100%;
+   height: 300px;
+   background-image: url("../img/brasao.gif");
+   background-repeat: no-repeat;
+   background-position: center 100px;
+   background-size: 150px;
+   background-color: #302d2F;
+   -webkit-border-radius: 0px 0px 30% 30%;
+   -moz-border-radius: 0px 0px 30% 30%;
+   border-radius: 0px 0px 30% 30%;
+   box-shadow: 5px 5px 10px #aa3333;
+}
+
+#supTudo{
+   width: 100%;
+   height: 320px;
+   border: 3px solid #302d2F;
+   /*border-bottom: none;*/
+   border-left: none;
+   border-right: none;
+
+   -webkit-border-radius: 0px 0px 30% 30%;
+   -moz-border-radius: 0px 0px 30% 30%;
+   border-radius: 0px 0px 30% 30%;
+}
+
+#separadorTela{
+   width: 40px;
+   height: 40px;
+   background-color: #302d2F;
+   transform:rotate(45deg);
+   -ms-transform:rotate(45deg); /* IE 9 */
+   -webkit-transform:rotate(45deg); /* Safari and Chrome */
+
+   position: absolute;
+   left: 50%;
+   top: 270px;
+   margin-left: -20px;
+
+   box-shadow: 5px 5px 5px #aa3333;
+}
+
+.telaConversa{
+   width:330px;
+   height:315px;
+   background-color:#FFFFFF;
+   margin-left:auto;
+   margin-right:auto;
+}
+
+.vocediz{
+   padding: 2px;
+   background-color: #ddddff;
+}
+.progdiz{
+   padding: 2px;
+   background-color: #ddffdd;
+}
+
+.logo {
+   width:400px;
+   height:100px;
+   margin-left:auto;
+   margin-right:auto;
+}
+
+.blocoT{
+   background-color: #ffffff;
+   border: 2px solid #aaaaaa;
+   padding: 10px;
+   margin: 10px 0px 0px 10px;
+   display: inline-block;
+   position: absolute;
+
+   -webkit-border-radius: 20px 5px 20px 5px;
+   -moz-border-radius: 20px 5px 20px 5px;
+   border-radius: 20px 5px 20px 5px;
+}
+
+.inferiorDireito{
+   position: fixed;
+   right: 0px;
+   bottom: 0px;
+}
+
+#titulo{
+   width: 160px;
+   height: 30px;
+   border: 2px solid #ddffff;
+   color: #ddffff;
+   display: inline-block;
+   text-align: center;
+   position: absolute;
+   left: 50%;
+   top: 50px;
+   margin-left: -80px;
+   font-size: 16px;
+   padding-top: 10px;
+
+   text-shadow: 0px 0px 20px #ffffff;
+   border-top: none;
+   border-bottom: none;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+}
+
+.optMenu{
+   width: 180px;
+   height: 30px;
+   border: 1px solid #ddffff;
+   color: #ddffff;
+   display: inline-block;
+   text-align: center;
+   cursor: pointer;
+   position: absolute;
+   left: 50%;
+   top: 150px;
+   margin-left: -75px;
+   font-size: 15px;
+   transition: 1s;
+   -webkit-transition: 1s;
+   text-shadow: 0px 0px 20px #ffffff;
+}
+
+.optMenu:hover{
+   text-shadow: 0px 0px 20px #aa3333;
+   border-color: #aa3333;
+   color: #aa3333;
+}
+
+.menutopesq{
+   margin-left: -230px;
+   top: 125px;
+   border-top: none;
+   border-left: none;
+   -webkit-border-radius: 0px 10px 10px 30px;
+   -moz-border-radius: 0px 10px 10px 30px;
+   border-radius: 0px 10px 10px 30px;
+}
+.menuinfesq{
+   margin-left: -230px;
+   top: 205px;
+   border-top: none;
+   border-left: none;
+   -webkit-border-radius: 0px 10px 10px 30px;
+   -moz-border-radius: 0px 10px 10px 30px;
+   border-radius: 0px 10px 10px 30px;
+}
+
+.menutopdir{
+   margin-left: 50px;
+   top: 125px;
+   border-top: none;
+   border-right: none;
+   -webkit-border-radius: 10px 0px 50px 10px;
+   -moz-border-radius: 10px 0px 50px 10px;
+   border-radius: 10px 0px 50px 10px;
+}
+
+.menuinfdir{
+   margin-left: 50px;
+   top: 205px;
+   border-top: none;
+   border-right: none;
+   -webkit-border-radius: 10px 0px 50px 10px;
+   -moz-border-radius: 10px 0px 50px 10px;
+   border-radius: 10px 0px 50px 10px;
+}
+
+.menuinfcen{
+   margin-left: -90px;
+   top: 240px;
+   border-top: none;
+   border-right: none;
+   border-left: none;
+   -webkit-border-radius: 0px 0px 50px 50px;
+   -moz-border-radius: 0px 0px 50px 50px;
+   border-radius: 0px 0px 50px 50px;
+}
+
+#conteudoConversa{
+   width: 390px;
+   height: 100px;
+   border: 1px solid #666666;
+   overflow: auto;
+}
+
+#blockEsq{
+   position: fixed;
+   left: 0px;
+   top: 0px;
+}
+#blockDir{
+   position: fixed;
+   right: 0px;
+   top: 0px;
+}
+
+.block{
+   width: 50%;
+   height: 100%;
+   background-color: #444444;
+}
+
+.fechar{
+   float: right;
+   background-color: #dd3333;
+   width: 30px;
+   height: 20px;
+   text-align: center;
+   position: relative;
+   right: -10px;
+   top: -10px;
+   -webkit-border-radius: 0px 2px 0px 10px;
+   -moz-border-radius: 0px 2px 0px 10px;
+   border-radius: 0px 2px 0px 10px;
+   cursor: pointer;
+}
+
+
+
+#info {
+   position: absolute;
+   width: 100%;
+   color: #ffffff;
+   padding: 5px;
+   font-family: Monospace;
+   font-size: 13px;
+   font-weight: bold;
+   text-align: center;
+   z-index: 1;
+}
+
+.element {
+   width: 700px;
+   height: 180px;
+   box-shadow: 0px 0px 20px rgba(255,0,0,0.5);
+   border: 1px solid rgba(255,127,127,0.25);
+   cursor: default;
+}
+
+.element:hover {
+   box-shadow: 0px 0px 20px rgba(255,255,255,0.75);
+   border: 1px solid rgba(255,127,127,0.75);
+}
+
+   .element .number {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 20px;
+      color: rgba(255,127,127,0.75);
+   }
+
+   .element .symbol {
+      position: absolute;
+      top: 40px;
+      width: 100%;
+      font-size: 70px;
+      text-align: center;
+      color: rgba(255,255,255,0.75);
+      font-weight: bold;
+
+      -webkit-filter: drop-shadow(0px 0px 20px rgba(255,0,0,0.95));
+      -moz-filter: drop-shadow(0px 0px 20px rgba(255,0,0,0.95));
+      -o-filter: drop-shadow(0px 0px 20px rgba(255,0,0,0.95));
+      -ms-filter: drop-shadow(0px 0px 20px rgba(255,0,0,0.95));
+      filter: drop-shadow(0px 0px 20px rgba(255,0,0,0.95));
+   }
+
+   .element .details {
+      position: absolute;
+      top: 125px;
+      width: 100%;
+      font-size: 18px;
+      text-align: center;
+      color: rgba(255,127,127,0.75);
+   }
+
+button {
+   color: rgba(255,127,127,0.75);
+   background: transparent;
+   outline: 1px solid rgba(255,127,127,0.75);
+   border: 0px;
+   padding: 5px 10px;
+   cursor: pointer;
+}
+button:hover {
+   background-color: rgba(255,0,0,0.5);
+}
+button:active {
+   color: #000000;
+   background-color: rgba(255,0,0,0.75);
+}

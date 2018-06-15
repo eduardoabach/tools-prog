@@ -3,6 +3,9 @@
 -- Simples
 INSERT INTO nome_tabela_exemplo (nome_coluna) VALUES ('Carlos');
 
+-- Retornar id do novo registro
+INSERT INTO nome_tabela_exemplo( nome, cpf) VALUES( 'Fulano de Tal', '03180405066') RETURNING id
+
 -- Multiplos registros
 INSERT INTO nome_tabela_exemplo (nome_coluna) VALUES 
 ('Carlos'),

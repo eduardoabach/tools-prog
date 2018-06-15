@@ -68,6 +68,9 @@ SELECT extract(year from age(CURRENT_DATE, '1991-04-01'))
 -- Dias entre datas
 SELECT TIMESTAMP '2010-01-20' - TIMESTAMP '1990-05-28'
 
+-- Subtrair dias de data com número ou field variável
+SELECT TIMESTAMP '2018-11-15' - (5 || ' days')::interval
+
 -- Extrair ano, mês, dia de data
 SELECT extract(year from m.data) as comp_ajust FROM movimento as m LIMIT 1
 SELECT extract(month from m.data) as comp_ajust FROM movimento as m FROM 1
@@ -134,8 +137,13 @@ SELECT translate('VGZVQ FG GZGORNQ.', 'CDEFGHIJKLMNOPQRSTUVWXYZAB2345678901', 'A
 -- Exibir caract UTF8 usando código
 SELECT chr(65); --out: A
 SELECT chr(66); --out: B
+SELECT chr(161); --out: ¢
+SELECT chr(165); --out: ¥
+SELECT chr(181); --out: µ
+SELECT chr(208); --out: Ð
 
 -- Mostrar campo nome que não estão no group by
+-- reunir vários registros, ao estilo SUM concatenando strings
 SELECT string_agg(nome, ', '), count(1) FROM produtos GROUP BY categoria; 
 
 -- Count simples, soma para contagem por situação em IF
@@ -192,16 +200,25 @@ SELECT round(5.9999) --out: 6
 SELECT greatest(0, 5) --out: 5 // bom para evita números negativos, ou apenas maiores que X
 SELECT greatest(0, -5) --out: 0
 
+-- menor número
+SELECT least(5, 100, 8.8) --out 5
+SELECT least(5, 0, -1, 0.9) --out -1
+SELECT least(5, 0, -1, -1.01) --out -1.01
+
 /* Soma simples, mostra 8099, repare que não tem problema somar um campo null */
-SELECT SUM(valor) FROM (VALUES(1, 50),(2,48),(3,0),(4,null),(5, 8001)) as t(cod, valor);
+--out: 8099, 2024.750000, 0, 8001
+SELECT sum(valor), avg(valor), min(valor), max(valor) FROM (VALUES(1, 50),(2,48),(3,0),(4,null),(5, 8001)) as t(cod, valor);
 /* CUIDADO ao somar valores com possível null, que vai mostrar null no result mesmo outros números existindo */
-SELECT SUM(valor1 + valor2) FROM (VALUES(1, 50, 10),(2, 20, null)) as t(cod, valor1, valor2); /* resulta em 60, a segunda fica null*/
+SELECT sum(valor1 + valor2) FROM (VALUES(1, 50, 10),(2, 20, null)) as t(cod, valor1, valor2); /* resulta em 60, a segunda fica null*/
 /* Usar COALESCE para evitar os possíveis null, ou claro ter um campo com "not null" default 0(zero) */
-SELECT SUM(COALESCE(valor1,0) + COALESCE(valor2,0)) FROM (VALUES(1, 50, 10),(2, 20, null)) as t(cod, valor1, valor2);
+SELECT sum(COALESCE(valor1,0) + COALESCE(valor2,0)) FROM (VALUES(1, 50, 10),(2, 20, null)) as t(cod, valor1, valor2);
 
 /* Exibir data no formato usuário */
 SELECT to_char(field_date, 'DD/MM/YYYY') from table1;
 SELECT to_char(DATE '2016-01-01', 'DD/MM/YYYY');
+SELECT to_char(fild_timestamp, 'HH:MI:SS - DD/MM/YYYY');
+select to_char(current_timestamp, 'YYYY-MM-DD');
+select to_char(current_timestamp, 'HH:MI:SS');
 
 /* Distinct, para limitar registros com certa característica repetida*/
 /* Exemplo: Última compra de vários usuários */

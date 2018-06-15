@@ -19,6 +19,9 @@ free -h
 # Infos sobre armazenamento de arquivos, hds, tamanho, livre...
 df -h
 
+# Infos do sistema operacional, versão do kernel, nome do computador
+uname -a
+
 # Instalar
 apt-get install aaa #debian, ubuntu
 yum install mysql-server #centos, fedora

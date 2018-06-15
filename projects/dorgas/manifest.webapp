@@ -1,0 +1,14 @@
+{
+  "name": "Dorgas",
+  "description": "Dorgas, ria dos seus amigos em situações irreverentes",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "/logo.png"
+  },
+  "developer": [
+    {
+      "name": "Eduardo Bach"
+    }
+  ],
+  "default_locale": "pt-BR"
+}
