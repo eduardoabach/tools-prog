@@ -2,9 +2,21 @@
 # Informações sobre o processador, arquitetura 32/64bits, tamanho do cache, núcleos, GHz...
 lscpu
 
+# Lista dos últimos comandos
 history
-history -c
-history -d 15
+history -c # apagar lista
+#apaga a linha 15
+history -d 15 
+#mostra historico de forma mais completa, com data e hora
+export HISTTIMEFORMAT='%F %T '
+history
+
+#remover as ultimas 10 linhas do arquivo bash_history
+sed -e :a -e '$d;N;2,10ba' -e 'P;D' ~/.bash_history
+
+#acesso remoto
+ssh user@hostname
+ssh user@hostname 'hostname; ifconfig; ls;' #executa lista de comandos em sequencia ao conectar, depois fecha conexão
 
 
 # Processos ativos
@@ -38,10 +50,6 @@ nano /etc/rc.d/rc.local
 chkconfig httpd
 # ativar na iniciação do sistema
 chkconfig httpd on
-
-# Lista dos últimos comandos
-history
-history -c # apagar lista
 
 # Mostrar calendário
 cal 2017
@@ -84,4 +92,32 @@ ifconfig -a | awk '/^[a-z]/ { iface=$1; mac=$NF; next } /inet addr:/ { print ifa
 #Listar dispositivos na rede, -a mostra nome e ip
 arp -a
 
+#?
 
+scp -rf root@10.1.1.185:/usr/lib/jvm/java-1.7.0-openjdk-amd64 ./
+cls
+
+
+#ver arquivos e permissões
+ls -palho
+
+chown root.root java-7-openjdk-amd64/ -Rf
+
+pwd
+
+ll
+
+sudo rm -r /var/lib/apt/lists/* -vf
+
+htop
+
+
+#adicionar um usuario
+adduser nome_user
+
+#Transformar usuário em root, para funcionar deve estar logado no terminal como root
+usermod -aG sudo nome_user
+
+#desligar e reiniciar
+poweroff
+restart
