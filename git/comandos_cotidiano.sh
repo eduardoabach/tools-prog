@@ -28,6 +28,9 @@ git add item_alterado_exemplo.php
 git commit -m "Exemplo alteracao branch dev"
 git push # fecha ciclo da alteração no branch, mas o master nao tem ela ainda
 
+# Alterar a ultima mensagem de commit
+git commit -m "Exemplo de novo texto do commit, vai substituir o existente anterior" --amend
+
 # Criar um branch local em base de um branch remoto
 git checkout -b tarefa_5545 origin/tarefa_5545
 

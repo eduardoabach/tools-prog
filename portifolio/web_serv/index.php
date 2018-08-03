@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 	<head>
 		<meta charset="utf-8">
 		<title>title</title>
@@ -7,6 +7,9 @@
 		<!-- <script src="script.js"></script> -->
 	</head>
 	<body>
-    	Test
+    	<?php
+    		include('serv_bcb/basico.php');
+
+		?>
 	</body>
 </html>
