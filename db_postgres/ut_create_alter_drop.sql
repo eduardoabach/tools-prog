@@ -52,6 +52,7 @@ ALTER TABLE nome_tabela ADD CONSTRAINT nome_tabela_pkey PRIMARY KEY (id);
 ALTER TABLE your_table DROP CONSTRAINT constraint_name;
 
 ALTER TABLE nome_tabela ALTER COLUMN tipo SET DEFAULT 'P';
+ALTER TABLE nome_tabela DROP COLUMN tipo;
 
 ALTER TABLE nome_tabela ADD COLUMN remuneracao numeric(6,2);
 ALTER TABLE nome_tabela ALTER COLUMN remuneracao TYPE numeric(8,4);

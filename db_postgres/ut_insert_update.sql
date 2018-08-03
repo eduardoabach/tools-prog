@@ -19,6 +19,15 @@ INSERT INTO nome_tabela_exemplo (nome_coluna) VALUES
 -- Simples
 UPDATE tabela_exemplo SET campo_exemplo = 'texto', campo_2 = 42	WHERE id = 5
 
+-- Com case no update
+UPDATE tabela_exemplo 
+SET quantidade_entrada = (
+	CASE
+		WHEN quantidade_entrada > 15 THEN quantidade_entrada - 15
+		ELSE 0
+	END)
+WHERE id = 127664
+
 -- Update apenas de registros seguindo lista em um select e formatando valores
 UPDATE tabela_exemplo AS update_tb
 	SET campo_exemplo = tb_filtro_exemplo.ajust_campo_exemplo,

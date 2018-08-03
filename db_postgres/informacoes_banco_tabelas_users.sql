@@ -60,6 +60,7 @@ SHOW default_text_search_config;
 
 /* Usuários e possivelmente um hash md5 de senha na coluna passwd */
 select * from pg_shadow
+select * from pg_authid --mesma coisa pelo que me parece
 
 /* Campo de identificação do sistema para cada linha da tabela [ctid], útil para tabelas sem pk(sinistro) */
 SELECT ctid,* FROM un_unico ORDER BY ctid;

@@ -5,6 +5,21 @@ SELECT coluna FROM tabela LIMIT 15 OFFSET 60; --15 itens, página 4 (15*4)
 -- Fields com case
 SELECT (case when campo_exemplo = 'teste' then 'result_1' else 'result_2' end) as teste_case_campo FROM tabela_exemplo
 
+-- Where com case
+SELECT * FROM tabela_exemplo 
+WHERE codigo IS NOT NULL
+    AND (
+        CASE
+            WHEN m.tipo = 'E' AND m.movimento_estornado IS NOT NULL THEN m.movimento_estornado::varchar
+            WHEN m.tipo = 'E' THEN n.nro_nota::varchar
+            WHEN m.tipo = 'S' AND m.talao_saida_s_requisicao IS NOT NULL THEN m.talao_saida_s_requisicao::varchar
+            WHEN m.tipo = 'S' THEN m.cod_requisicao::varchar
+            ELSE NULL
+        END
+    ) IS NOT NULL
+
+
+
 -- SUB SELECT
 SELECT meses.cod, meses.mes, busca.*
 FROM (values(1,'Jan'),(2,'Fev'),(3,'Mar')) as meses (cod,mes)
@@ -61,6 +76,13 @@ SELECT tb.id, row_to_json(tb) FROM tb_teste AS tb LIMIT 10;
 -- Data Atual
 SELECT now();
 
+/* Exibir data no formato usuário */
+SELECT to_char(field_date, 'DD/MM/YYYY') from table1;
+SELECT to_char(DATE '2016-01-01', 'DD/MM/YYYY');
+SELECT to_char(fild_timestamp, 'HH:MI:SS - DD/MM/YYYY');
+select to_char(current_timestamp, 'YYYY-MM-DD');
+select to_char(current_timestamp, 'HH:MI:SS');
+
 -- Idade, em anos
 SELECT extract(year from age(p.data_nasc)) as idade FROM pessoas as p
 SELECT extract(year from age(CURRENT_DATE, '1991-04-01'))
@@ -68,8 +90,9 @@ SELECT extract(year from age(CURRENT_DATE, '1991-04-01'))
 -- Dias entre datas
 SELECT TIMESTAMP '2010-01-20' - TIMESTAMP '1990-05-28'
 
--- Subtrair dias de data com número ou field variável
-SELECT TIMESTAMP '2018-11-15' - (5 || ' days')::interval
+-- Subtrair tempo de uma data com número ou field variável, dias, meses, anos
+SELECT TIMESTAMP '2018-11-15' - (5 || ' days')::interval --out: "2018-11-10 00:00:00"
+SELECT TIMESTAMP '2018-11-15' - (20 || ' months')::interval --out: "2017-03-15 00:00:00"
 
 -- Extrair ano, mês, dia de data
 SELECT extract(year from m.data) as comp_ajust FROM movimento as m LIMIT 1
@@ -205,6 +228,38 @@ SELECT least(5, 100, 8.8) --out 5
 SELECT least(5, 0, -1, 0.9) --out -1
 SELECT least(5, 0, -1, -1.01) --out -1.01
 
+
+-- TESTES GERAIS ------------------
+
+select null = null; -- null
+select '' = null; -- null
+select 10 = null; -- null
+select false = null; -- null
+select true = null; -- null
+
+select null is null; -- true
+select '' is null; -- false
+select 10 is null; -- false
+select false is null; -- false
+select true is null; -- false
+
+select null > 0; -- null
+select 4 > null; -- null
+
+select '4'::int > 0; -- true
+select '4'::int = 4; -- true
+select '5' > '4'; -- true
+select '5' > '4,55'; -- true
+select '5' > '4.55'; -- true
+select '5,11' > '4.55'; -- true
+select 5.11 > '4.55'; -- true
+select 5.11 > '4.55'; -- true
+select 5.11 > '0'; -- true
+select 5.11 > ''; -- erro
+select 5.11 > ''::int; -- erro
+
+---------------------------------
+
 /* Soma simples, mostra 8099, repare que não tem problema somar um campo null */
 --out: 8099, 2024.750000, 0, 8001
 SELECT sum(valor), avg(valor), min(valor), max(valor) FROM (VALUES(1, 50),(2,48),(3,0),(4,null),(5, 8001)) as t(cod, valor);
@@ -212,13 +267,6 @@ SELECT sum(valor), avg(valor), min(valor), max(valor) FROM (VALUES(1, 50),(2,48)
 SELECT sum(valor1 + valor2) FROM (VALUES(1, 50, 10),(2, 20, null)) as t(cod, valor1, valor2); /* resulta em 60, a segunda fica null*/
 /* Usar COALESCE para evitar os possíveis null, ou claro ter um campo com "not null" default 0(zero) */
 SELECT sum(COALESCE(valor1,0) + COALESCE(valor2,0)) FROM (VALUES(1, 50, 10),(2, 20, null)) as t(cod, valor1, valor2);
-
-/* Exibir data no formato usuário */
-SELECT to_char(field_date, 'DD/MM/YYYY') from table1;
-SELECT to_char(DATE '2016-01-01', 'DD/MM/YYYY');
-SELECT to_char(fild_timestamp, 'HH:MI:SS - DD/MM/YYYY');
-select to_char(current_timestamp, 'YYYY-MM-DD');
-select to_char(current_timestamp, 'HH:MI:SS');
 
 /* Distinct, para limitar registros com certa característica repetida*/
 /* Exemplo: Última compra de vários usuários */
