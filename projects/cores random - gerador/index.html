@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>auxclick demo</title>
+  <title>Gerador Cores</title>
   <style>
     html {
       height: 100%;
@@ -34,33 +34,25 @@
 </head>
 
 <body>
-
-  <button><h1>Click me!</h1></button>
-
+  <button><h1>Click!</h1></button>
 
   <script>
+    function random(number) {
+      return Math.floor(Math.random() * number);
+    }
 
-  var button = document.querySelector('button');
-  var html = document.querySelector('html');
+    var botao = document.querySelector('button');
+    botao.onclick = function(){
+      var rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+      botao.style.backgroundColor = rndCol;
+    };
 
-  function random(number) {
-    return Math.floor(Math.random() * number);
-  }
-
-  button.onclick = function() {
-    var rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
-    button.style.backgroundColor = rndCol;
-  };
-
-  button.onauxclick = function(e) {
-    e.preventDefault();
-    var rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
-    button.style.color = rndCol;
-  }
-
+    botao.onauxclick = function(e) {
+      e.preventDefault();
+      var rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+      botao.style.color = rndCol;
+    }
   </script>
-
-
 </body>
 
 </html>

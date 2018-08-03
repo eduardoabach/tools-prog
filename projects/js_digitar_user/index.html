@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>title</title>
+		<style>
+			.terminal{background-color: #151515; margin: 30px;}
+			.caixa-texto{
+				display: inline;
+				color: #559955;
+				font-size: 14px;
+				font-family: monospace;
+				border-right: .45em solid #559955;
+				animation: cursor-piscando .5s step-end infinite;
+			}
+			@keyframes cursor-piscando {
+			  from, to { border-color: transparent }
+			  50% { border-color: #559955 }
+			}
+		</style>
+	</head>
+	<body class="terminal">
+		<div id="texto" class="caixa-texto"></div>
+		
+		<script>
+			var elDigit = document.getElementById("texto");
+			terminalFilmeMatrix(elDigit, true);
+
+			function somTeclado(){
+				// propositalmente sem o VAR, pois assim o delete do javascript tem o comportamento desejado
+				itemAudio = new Audio("keypress.mp3");
+    			itemAudio.play();
+				itemAudio.onended = function() {
+					delete itemAudio;
+				};
+			}
+
+			function terminalFilmeMatrix(elDigit, loop){
+				if(loop == undefined)
+					loop = false;
+
+				tcFrase(elDigit, 'Wake up, Neo...', 1500, function(){
+					tcApagarFrase(elDigit, 4500, function(){
+						tcFrase(elDigit, 'The Matrix has you', null, function(){
+							tcApagarFrase(elDigit, null, function(){
+								tcFrase(elDigit, 'Follow the White Rabbit.', null, function(){
+									tcApagarFrase(elDigit, 7000, function(){
+										tcFrase(elDigit, 'Knock, knock, Neo.', null, function(){
+											tcApagarFrase(elDigit, null, function(){
+												if(loop === true)
+													terminalFilmeMatrix(elDigit, true);	
+											});
+										});
+									});
+								});
+							});
+
+						});
+					});
+				});
+			}
+
+			
+			function tcApagarFrase(el, intervalo, callback){
+				if(intervalo == undefined || intervalo == null || !(intervalo > 0))
+					intervalo = 3000; //3s
+				setTimeout(tcApagar, intervalo, el, callback);
+			}
+
+			function tcApagar(el, callback){
+				if (el.innerHTML.length > 0) {
+					el.innerHTML = el.innerHTML.substring(0, el.innerHTML.length - 1);
+					somTeclado();
+
+					var velocidadeBase = 100;
+					var variacao = 50;
+					setTimeout(tcApagar, Math.floor(velocidadeBase+Math.random()*variacao), el, callback);
+				} else {
+					var existCallback = ('function' === typeof callback);
+					if(existCallback)
+						callback();
+				}
+			}
+
+			function tcFrase(el, txt, intervalo, callback){
+				if(intervalo == undefined || intervalo == null || !(intervalo > 0))
+					intervalo = 3000; //3s
+				setTimeout(tcString, intervalo, el, txt, callback);
+			}
+
+			function tcString(el, txt, callback, posicao) {
+				if(posicao == undefined)
+					posicao = 0;
+
+				if (posicao < txt.length) {
+					var caract = txt.charAt(posicao);
+					el.innerHTML += caract;
+					posicao++;
+					somTeclado();
+
+					var velocidadeBase = (caract == ' ') ? 100 : 50;
+					var variacao = 50;
+					setTimeout(tcString, Math.floor(velocidadeBase+Math.random()*variacao), el, txt, callback, posicao);
+				} else {
+					var existCallback = ('function' === typeof callback);
+					if(existCallback)
+						callback();
+				}
+			}
+		</script>
+	</body>
+</html>
+
+
