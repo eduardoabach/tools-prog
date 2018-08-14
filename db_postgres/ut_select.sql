@@ -275,3 +275,9 @@ SELECT
 FROM compras
 ORDER BY id_comprador, data DESC, valor_total, id;
 
+/* Montar um select com todos os campos de uma tabela, menos uma lista de campos. Útil para monstar um insert para duplicar reigistro*/
+SELECT 'SELECT ' || array_to_string(ARRAY(SELECT 'f' || '.' || c.column_name
+        FROM information_schema.columns As c
+            WHERE table_name = 'nome_tabela'  and schema = 'public'
+            AND  c.column_name NOT IN('id')
+    ), ',') || ' FROM public.nome_tabela as t' As sqlstmt

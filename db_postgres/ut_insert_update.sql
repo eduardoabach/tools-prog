@@ -15,6 +15,10 @@ INSERT INTO nome_tabela_exemplo (nome_coluna) VALUES
 ('Carla'),
 ('Cristina');
 
+-- Inserir um registro com base em outro
+INSERT INTO public.table_name
+	SELECT id, campo1, campo2 FROM public.table_name_2 as f WHERE id = 5546;
+
 
 -- Simples
 UPDATE tabela_exemplo SET campo_exemplo = 'texto', campo_2 = 42	WHERE id = 5
