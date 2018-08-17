@@ -18,7 +18,8 @@ WHERE codigo IS NOT NULL
         END
     ) IS NOT NULL
 
-
+-- Order de um varchar, mas focando na ordem numérica
+SELECT * FROM tabela_exemplo ORDER BY NULLIF(regexp_replace(nome_coluna_varchar, '\D', '', 'g'), '')::int
 
 -- SUB SELECT
 SELECT meses.cod, meses.mes, busca.*
