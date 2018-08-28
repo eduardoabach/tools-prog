@@ -1,4 +1,10 @@
 
+// Pegar o elemento javascript de um Jquery
+var elJs = $('#nome_elemento').get(0);
+
+// Sobe nos elementos html para a tr 
+$('#id_exemplo').closest('tr');
+
 $('#id_form').serialize();
 
 //buscas de elementos dentro de outro

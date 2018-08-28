@@ -1,6 +1,7 @@
 
 alert('test');
 
+
 var respostaDeletar = confirm("Deseja deletar?");
 if (respostaDeletar == true) {
 } else {
@@ -12,6 +13,25 @@ if(idade > 18) {
 
 history.back();
 history.go(-1);   
+
+
+// criar array
+var arrExemplo1 = [];
+arrExemplo1.push("teste"); // ["teste"], index 0
+console.log(arrExemplo1[0]); // mostra teste
+
+//remover itens de um array
+var arrayExemplo = ["bar", "baz", "foo", "qux"]; // index = 0,1,2,3
+arrayExemplo.splice(2, 1); // Inicia na index 2, removendo um elemento = ["bar", "baz", "qux"]
+arrayExemplo.splice(2,2); // Inicia na index 2, removendo dois elementos = ["bar", "baz"]
+
+// criar objeto
+var objExemplo1 = {};
+objExemplo1.item = "teste"; // {item: "teste"}
+console.log(objExemplo1.item); // mostra teste
+
+// remover itens em um objeto
+objExemplo1.remove('item');
 
 var objsMove = document.getElementsByClassName("class-nome-exemplo");
 Object.keys(object).map(function(objectKey, index) {
@@ -25,3 +45,7 @@ var x = document.getElementById("myBtn").hasAttribute("onclick");
 Math.round(1.005 * 1000)/1000 // Returns 1 instead of expected 1.01!
 parseFloat("1.555").toFixed(2); // Returns 1.55 instead of 1.56.
 
+// Criar um observador de evento, ótimo para callback envolvendo a interface
+document.getElementById('anchor').addEventListener('click', function() {
+	console.log('anchor');
+});
