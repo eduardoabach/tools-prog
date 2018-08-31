@@ -49,3 +49,38 @@ parseFloat("1.555").toFixed(2); // Returns 1.55 instead of 1.56.
 document.getElementById('anchor').addEventListener('click', function() {
 	console.log('anchor');
 });
+
+
+// ************************************************
+  
+var Pessoa = {
+   nome: '',
+   idade: 22,
+   tipo: 'human',
+   apresentar: function() {
+       console.log('Olá, meu nome é ' + this.nome + ' e eu sou um ' + this.tipo + '.' );
+   }
+};
+
+var RoboTeste = Object.create(Pessoa);
+Object.assign(RoboTeste, {
+    nome: "R2D2",
+    tipo: 'robô',
+    material: "metal",
+    consumo_kWh: 5,
+    carga_maxima_kWh: 10,
+    carga_atual_kWh: 5,
+    carregar: function(kWh) {
+        var self = this;
+        this.carga_atual_kWh = Math.min(self.carga_maxima_kWh, self.carga_atual_kWh + kWh);
+        var percentCarga = this.carga_atual_kWh / this.carga_maxima_kWh * 100;
+        var msgCarga = (percentCarga === 100) ? ' está completamente carregado.' : ' está ' + percentCarga +'% carregado.';
+        console.log(self.nome + msgCarga);
+    }
+});
+
+RoboTeste.nome = 'Bender';
+RoboTeste.apresentar(); //Olá, meu nome é Bender e eu sou um robô.
+RoboTeste.carregar(5); //Bender está completamente carregado.
+
+// ****************************************************

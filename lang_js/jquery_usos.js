@@ -5,6 +5,14 @@ var elJs = $('#nome_elemento').get(0);
 // Sobe nos elementos html para a tr 
 $('#id_exemplo').closest('tr');
 
+// Desativar e Ativar o botão
+if ($(this).val() == '') {
+    $('.enableOnInput').prop('disabled', true);
+} else {
+    $('.enableOnInput').prop('disabled', false);
+}
+
+
 $('#id_form').serialize();
 
 //buscas de elementos dentro de outro
