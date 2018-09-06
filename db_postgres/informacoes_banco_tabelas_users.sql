@@ -82,4 +82,7 @@ SELECT * FROM information_schema.pg_indexes;
 SELECT * FROM information_schema.parameters;
 SELECT * FROM information_schema.attributes;
 
-
+-- Lista as colunas da tabelas e seus tipos
+SELECT column_name,data_type 
+FROM information_schema.columns 
+WHERE table_name = 'nome_da_tabela';
