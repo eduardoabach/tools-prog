@@ -1,38 +1,39 @@
 
-    /**
-    Isso tudo ainda nao funciona, está com algum problema na recursiveidade de resolução da operação
-    */
-    
     function resolveOperacao(operacao){
-        console.log('operacao '+operacao);
 
-        if(operacao == parseFloat(operacao))
+        if(operacao == parseInt(operacao)){
             return operacao;
+        }
 
-        var resultOp = null;
+        var resultOper = null;
         ['-', '+', '/', '*'].forEach(function(op){
-            if(operacao.indexOf(op) > -1){
-                console.log('op '+op);
+            
+            if(resultOper === null && operacao.indexOf(op) > -1){
 
                 var listOperador = operacao.split(op);
                 if(listOperador.length > 0){
-                    if(listOperador.length == 2){
-                        return fazOperacao(listOperador[0], listOperador[1], op);
-                    } else {
-                        var primeiroItem = listOperador[0];
-                        listOperador.splice(0, 1);
-                        return fazOperacao(primeiroItem, listOperador.join(op), op);
-                    }
+                    
+                    var primeiroItem = listOperador[0];
+                    listOperador.splice(0, 1);
+                    resultOper = fazOperacao(primeiroItem, listOperador.join(op), op);
                 }
-            }        
+            }    
         });
 
-        return (resultOp === null) ? operacao : resultOp;
+        return resultOper;
     }
 
     function fazOperacao(valA, valB, operador){
-        valA = parseFloat(resolveOperacao(valA));
-        valB = parseFloat(resolveOperacao(valB));
+        valA = resolveOperacao(valA);
+        valB = resolveOperacao(valB);
+        
+        if(valA == parseInt(valA)){
+            valA = parseInt(valA);
+        }
+        
+        if(valB == parseInt(valB)){
+            valB = parseInt(valB);
+        }
         
         var result = 0;
         if(operador == '*')
@@ -47,6 +48,7 @@
         return result;
     }
     
-    console.log(resolveOperacao('20+30+7+3-8'));
+//        console.log(fazOperacao('7+1','3+1','+'));
+//        console.log(resolveOperacao('20+30+7+3*8'));
     //console.log(resolveOperacao('20+30+5+8+7-3'));
         

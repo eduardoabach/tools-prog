@@ -84,3 +84,18 @@ RoboTeste.apresentar(); //Olá, meu nome é Bender e eu sou um robô.
 RoboTeste.carregar(5); //Bender está completamente carregado.
 
 // ****************************************************
+
+// Try e Catch, forEach de array que não é interrompido com return, então aqui como exemplo foi aplicado Try...
+
+var BreakException = {};
+
+try {
+  [1, 2, 3].forEach(function(el) {
+    console.log(el);
+    if (el === 2) throw BreakException;
+  });
+} catch (e) {
+  if (e !== BreakException) throw e;
+}
+
+// ----------------------------------------------------
