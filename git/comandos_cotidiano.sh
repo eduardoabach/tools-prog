@@ -41,6 +41,12 @@ git merge dev # enfim a alteraao chega no master, caso tenha feito tudo correto,
 git push # tudo resolvido, mandar alteracao para todos
 
 
+# Tags e versoes
+git fetch --all --tags --prune
+git checkout tags/<tag_name> -b <branch_name>
+git checkout tags/version 1.0
+
+
 ########################### SITUAÇÕES ADVERSAS ################################
 
 # LOG
