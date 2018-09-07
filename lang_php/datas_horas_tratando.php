@@ -29,6 +29,18 @@ function get_dia_da_semana($date, $extenso = false){
 	return $day;
 }
 
+/* $time = H:i:s / hh:mm:ss */
+function add_minutes($time, $minutes = 1){
+	$time = strtotime($time);
+	return date("H:i:s", strtotime('+'.$minutes.' minutes', $time));
+}
+
+/* $time = H:i:s / hh:mm:ss */
+function sub_minutes($time, $minutes = 1){
+	$time = strtotime($time);
+	return date("H:i:s", strtotime('-'.$minutes.' minutes', $time));
+}
+
 function add_days($date, $days = 1){
 	$date = new DateTime($date);
 	if($days)
@@ -139,15 +151,18 @@ function get_timestamp_hour($timestamp){
 	return slice_timestamp($timestamp)->hour;
 }
 
+/* Y-m-d H:i:s */
 function segundos_entre_datas($data1, $data2){
 	retunr strtotime($data1) - strtotime($data2);
 }
 
+/* Y-m-d H:i:s */
 function horas_entre_datas($data1, $data2){
 	$tempoSegundos = segundos_entre_datas($data1, $data2);
 	return round($tempoSegundos / 3600, 0);
 }
 
+/* Y-m-d H:i:s */
 function minutos_entre_datas($data1, $data2){
 	$tempoSegundos = segundos_entre_datas($data1, $data2);
 	return round($tempoSegundos / 60, 0);

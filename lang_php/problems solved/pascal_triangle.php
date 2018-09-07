@@ -1,3 +1,5 @@
+
+<div style="text-align: center;">
 <?php
 
 // Minha resolução, usando array da ultima linha
@@ -22,35 +24,14 @@ for($posHoriz = 1; $posHoriz <= $repeticoes; $posHoriz++){
                 }
                 
                 // primeiro número da linha não tem espaço
-                $linhaAt .= ($linhaAt == null) ? $valItem : ' '.$valItem;
+                $linhaAt .= ($linhaAt == null) ? $valItem : ' | '.$valItem;
                 
         }
 
-        echo $linhaAt.'<br>';
-        $linhaOld = explode(' ', $linhaAt);
+        echo '| '.$linhaAt.' |<br>';
+        $linhaOld = explode(' | ', $linhaAt);
 }
 
 ?>
+</div>
 
-
-
-<?php  
- 
-// Solução que encontrei na web, matematicamente com fatoração
-// É fixo com número inicial 1.
-function factorial($n){
-    return ($n < 2) ? 1 : $n * factorial($n-1);
-}
-
-function pascal($n){
-    for($posHoriz=0; $posHoriz<$n; $posHoriz++){
-        for($posVert=0; $posVert<($posHoriz+1); $posVert++){
-            echo factorial($posHoriz) / (factorial($posVert) * factorial($posHoriz - $posVert));
-            echo " ";
-        }
-        
-        echo "<br>";
-    }
-}
-pascal(15);
-?>

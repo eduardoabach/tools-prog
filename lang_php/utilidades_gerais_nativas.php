@@ -2,6 +2,10 @@
 
 trigger_error("Unable to load class: $class", E_USER_WARNING);
 
+$b64Test = base64_encode('string');
+echo base64_decode($b64Test); // echo 'string'
+
+
 // Nome de variável dinâmico
 for($i=0; $i<10;$i++){
   ${'ex'.$i} = 'Exemplo '.$i;
@@ -72,4 +76,50 @@ print_r(get_loaded_extensions());
    [10] => calendar
    [11] => bcmath
 )*/
+
+// TIPAGEM / CASTING
+//Retorna 'integer'
+$var = 2;
+print gettype($var);
+//Retorna 'string'
+$var = "6";
+print gettype($var);
+
+$foo = "5bar"; // string
+$bar = true;   // boolean
+settype($foo, "integer"); // $foo é agora 5   (integer)
+settype($bar, "string");  // $bar é agora "1" (string)
+
+$var = "true";
+settype($var, 'bool');
+var_dump($var); // true
+
+$var = "false";
+settype($var, 'bool');
+var_dump($var); // true mesmo assim!!
+
+$var = "";
+settype($var, 'bool');
+var_dump($var); // false
+
+
+// VER TODOS OS ERROS
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+
+
+// Constantes pré-definidas
+PHP_VERSION //(string) 
+PHP_MAJOR_VERSION //(integer) 
+PHP_OS //O sistema operacional para o qual o PHP foi compilado. 
+PHP_OS_FAMILY //'Windows', 'BSD', 'Darwin', 'Solaris', 'Linux' ou 'Unknown'. Disponível a partir do PHP 7.2.0. 
+PHP_INT_SIZE // O tamanho de um inteiro em bytes, então 32 / 64...
+DEFAULT_INCLUDE_PATH  (string) 
+PHP_EXTENSION_DIR  (string) 
+PHP_BINDIR (string) 
+PHP_DATADIR (string) 
+PHP_LOCALSTATEDIR (string) 
+PHP_CONFIG_FILE_PATH (string) 
+
+
 

@@ -1,0 +1,20 @@
+
+# Rodar um projeto, entrar na pasta:
+npm install && npm start
+
+#----------------------------------
+
+#----------------------------------
+
+# Para montar um pacote compilado para uma plataforma:
+
+# Instalar
+npm install electron-packager --save-dev
+sudo npm install electron-packager -g
+
+# Criar o pacote compilado
+electron-packager <sourcedir> <appname> --platform=win32 --arch=x64
+electron-packager electron-api-demos/ test_app --platform=win32 --arch=x64
+
+
+

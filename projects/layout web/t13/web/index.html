@@ -1,0 +1,614 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>LASO Website Template | Home :: w3layouts</title>
+		<link href="web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="web/js/jquery.min.js"></script>
+		 <!---- start-smoth-scrolling---->
+		<script type="text/javascript" src="web/js/move-top.js"></script>
+		<script type="text/javascript" src="web/js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+		 <!---- start-smoth-scrolling---->
+		 <!-- Custom Theme files -->
+		<link href="web/css/style.css" rel='stylesheet' type='text/css' />
+   		 <!-- Custom Theme files -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		</script>
+		<!----webfonts--->
+		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+		<!---//webfonts--->
+		<!----start-top-nav-script---->
+		<script>
+			$(function() {
+				var pull 		= $('#pull');
+					menu 		= $('nav ul');
+					menuHeight	= menu.height();
+				$(pull).on('click', function(e) {
+					e.preventDefault();
+					menu.slideToggle();
+				});
+				$(window).resize(function(){
+	        		var w = $(window).width();
+	        		if(w > 320 && menu.is(':hidden')) {
+	        			menu.removeAttr('style');
+	        		}
+	    		});
+			});
+		</script>
+		<!----//End-top-nav-script---->
+	</head>
+	<body>
+		<!----- start-header---->
+			<div id="home" class="header">
+					<div class="top-header bounceInDown" data-wow-delay="0.4s">
+						<div class="container">
+						<div class="logo">
+							<a href="#">LASO .</a>
+						</div>
+						<!----start-top-nav---->
+						 <nav class="top-nav">
+							<ul class="top-nav">
+								<li class="active"><a href="#home" class="scroll">Home</a></li>
+								<li><a href="#about" class="scroll">About</a></li>
+								<li><a href="#portfolio" class="scroll">Portfolio</a></li>
+								<li><a href="#skills" class="scroll">skills</a></li>
+								<li><a href="#contact" class="scroll">Contact</a></li>
+								<li class="team-active"><a href="#team" class="scroll">TEAM</a></li>
+							</ul>
+							<a href="#" id="pull"><img src="web/images/nav-icon.png" title="menu" /></a>
+						</nav>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		<!----- //End-header---->
+		<!----start-slider-script---->
+			<script src="web/js/responsiveslides.min.js"></script>
+			 <script>
+			    // You can also use "$(window).load(function() {"
+			    $(function () {
+			      // Slideshow 4
+			      $("#slider4").responsiveSlides({
+			        auto: true,
+			        pager: true,
+			        nav: true,
+			        speed: 500,
+			        namespace: "callbacks",
+			        before: function () {
+			          $('.events').append("<li>before event fired.</li>");
+			        },
+			        after: function () {
+			          $('.events').append("<li>after event fired.</li>");
+			        }
+			      });
+			
+			    });
+			  </script>
+			<!----//End-slider-script---->
+			<!-- Slideshow 4 -->
+			    <div  id="top" class="callbacks_container">
+			      <ul class="rslides" id="slider4">
+			        <li>
+			          <img src="web/images/slide1.jpg" alt="">
+			          <div class="caption bounceInDown" data-wow-delay="0.4s">
+			          	<div class="slide-text-info">
+			          		<span>THE WAY OF <label>SUCCESS</label></span>
+			          		<h1>WHY YOU ARE WAITING</h1>
+			          		<div class="slide-btns">
+			          			<a class="startnow" href="#">GET STARTED NOW</a>
+			          			<a class="livedemo" href="#">LIVE DEMO</a>
+			          		</div>
+			          	</div>
+			          </div>
+			        </li>
+			        <li>
+			          <img src="web/images/slide2.jpg" alt="">
+			        <div class="caption">
+			          	<div class="slide-text-info bounceInDown" data-wow-delay="0.4s">
+			          		<span>THE WAY OF <label>SUCCESS</label></span>
+			          		<h1>WHY YOU ARE WAITING</h1>
+			          		<div class="slide-btns">
+			          			<a class="startnow" href="#">GET STARTED NOW</a>
+			          			<a class="livedemo" href="#">LIVE DEMO</a>
+			          		</div>
+			          	</div>
+			          </div>
+			        </li>
+			        <li>
+			          <img src="web/images/slide1.jpg" alt="">
+			          <div class="caption">
+			          	<div class="slide-text-info bounceInDown" data-wow-delay="0.4s">
+			          		<span>THE WAY OF <label>SUCCESS</label></span>
+			          		<h1>WHY YOU ARE WAITING</h1>
+			          		<div class="slide-btns">
+			          			<a class="startnow" href="#">GET STARTED NOW</a>
+			          			<a class="livedemo" href="#">LIVE DEMO</a>
+			          		</div>
+			          	</div>
+			          </div>
+			        </li>
+			      </ul>
+			    </div>
+			    <div class="clearfix"> </div>
+			<!----- //End-slider---->
+			<!---- top-grids ---->
+			<div id="about" class="top-grids text-center">
+				<div class="container">
+					<div class="col-md-4">
+						<div class="top-grid">
+							<span><label class="icon1"> </label></span>
+							<h3><a href="#">responsive layout</a></h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et d</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="top-grid">
+							<span><label class="icon2"> </label></span>
+							<h3><a href="#">responsive layout</a></h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et d</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="top-grid">
+							<span><label class="icon3"> </label></span>
+							<h3><a href="#">responsive layout</a></h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et d</p>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+			<!---- top-grids ---->
+			<!---- works ---->
+			<div id="portfolio" class="works text-center">
+				<h3>Check out our latest work</h3>
+				<div class="container">
+					<!---- start-portfolio-script----->
+					<script type="text/javascript" src="web/js/jquery.mixitup.min.js"></script>
+					<script type="text/javascript">
+						$(function () {
+							var filterList = {
+								init: function () {
+								
+									// MixItUp plugin
+									// http://mixitup.io
+									$('#portfoliolist').mixitup({
+										targetSelector: '.portfolio',
+										filterSelector: '.filter',
+										effects: ['fade'],
+										easing: 'snap',
+										// call the hover effect
+										onMixEnd: filterList.hoverEffect()
+									});				
+								
+								},
+								hoverEffect: function () {
+									// Simple parallax effect
+									$('#portfoliolist .portfolio').hover(
+										function () {
+											$(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+											$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
+										},
+										function () {
+											$(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+											$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
+										}		
+									);				
+								
+								}
+					
+							};
+							// Run the show!
+							filterList.init();
+						});	
+					</script>
+					<!----//End-portfolio-script----->
+					<ul id="filters" class="clearfix">
+						<li><span class="filter active" data-filter="app card icon logo web">All</span> /</li>
+						<li><span class="filter" data-filter="app">DESIGN</span> /</li>
+						<li><span class="filter" data-filter="card">PHOTOGRAPHY</span> /</li>
+						<li><span class="filter" data-filter="icon">VIDEO</span> /</li>
+						<li><span class="filter" data-filter="app">PRINT</span></li>
+					</ul>
+					<div id="portfoliolist">
+					<div class="portfolio logo1 mix_all port-big-grid" data-cat="logo" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper">		
+							<a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go  thickbox">
+						     <img class="p-img" src="web/images/w1.jpg" /><div class="b-wrapper">
+						     	<h2 class="b-animate b-from-left    b-delay03 ">
+						     		<div class="work-caption text-center">
+						     			<div class="search-icon" href="#"><span> </span></div>
+						     			<div class="link-icon" href="#"><span> </span></div>
+						     			<div class="clearfix"> </div>
+						     			<h3>Project title</h3>
+						     		</div>
+						     	</h2>
+						  	</div></a>
+		                </div>
+					</div>				
+					<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper">		
+							<a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go  thickbox">
+						     <img class="p-img" src="web/images/w2.jpg" /><div class="b-wrapper">
+						     	<h2 class="b-animate b-from-left    b-delay03 ">
+						     		<div class="work-caption text-center">
+						     			<div class="search-icon" href="#"><span> </span></div>
+						     			<div class="link-icon" href="#"><span> </span></div>
+						     			<div class="clearfix"> </div>
+						     			<h3>Project title</h3>
+						     		</div>
+						     	</h2>
+						  	</div></a>
+		                </div>
+					</div>		
+					<div class="portfolio web mix_all" data-cat="web" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper">		
+							<a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go  thickbox">
+						     <img class="p-img" src="web/images/w3.jpg" /><div class="b-wrapper">
+						     	<h2 class="b-animate b-from-left    b-delay03 ">
+						     		<div class="work-caption text-center">
+						     			<div class="search-icon" href="#"><span> </span></div>
+						     			<div class="link-icon" href="#"><span> </span></div>
+						     			<div class="clearfix"> </div>
+						     			<h3>Project title</h3>
+						     		</div>
+						     	</h2>
+						  	</div></a>
+		                </div>
+					</div>				
+					<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper">		
+							<a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go  thickbox">
+						     <img class="p-img" src="web/images/w4.jpg" /><div class="b-wrapper">
+						     	<h2 class="b-animate b-from-left    b-delay03 ">
+						     		<div class="work-caption text-center">
+						     			<div class="search-icon" href="#"><span> </span></div>
+						     			<div class="link-icon" href="#"><span> </span></div>
+						     			<div class="clearfix"> </div>
+						     			<h3>Project title</h3>
+						     		</div>
+						     	</h2>
+						  	</div></a>
+		                </div>
+					</div>	
+					<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper">		
+							<a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go  thickbox">
+						     <img class="p-img" src="web/images/w5.jpg" /><div class="b-wrapper">
+						     	<h2 class="b-animate b-from-left    b-delay03 ">
+						     		<div class="work-caption text-center">
+						     			<div class="search-icon" href="#"><span> </span></div>
+						     			<div class="link-icon" href="#"><span> </span></div>
+						     			<div class="clearfix"> </div>
+						     			<h3>Project title</h3>
+						     		</div>
+						     	</h2>
+						  	</div></a>
+		                </div>
+					</div>			
+					<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper">		
+							<a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go  thickbox">
+						     <img class="p-img" src="web/images/w6.jpg" /><div class="b-wrapper">
+						     	<h2 class="b-animate b-from-left    b-delay03 ">
+						     		<div class="work-caption text-center">
+						     			<div class="search-icon" href="#"><span> </span></div>
+						     			<div class="link-icon" href="#"><span> </span></div>
+						     			<div class="clearfix"> </div>
+						     			<h3>Project title</h3>
+						     		</div>
+						     	</h2>
+						  	</div></a>
+		                </div>
+					</div>	
+					<div class="clearfix"> </div>	
+				</div>
+			</div>
+			</div>
+			</div>
+			<!---- works ---->
+			<!---- skills --->
+			<div id="skills" class="skills">
+				<div class="container">
+				<div class="head-section text-center">
+					<h2>Our Skills</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor i</p>
+				</div>
+				<div class="services_grids">
+	 		 	      <div id="canvas">
+							<div class="skill-grids text-center">
+									<div class="col-md-3">	
+										<div class="skill-grid">
+											<div class="circle" id="circles-1"></div>									
+											 <h3>HTML</h3>	
+										 </div>								  
+									</div>
+									<div class="col-md-3">	
+										<div class="skill-grid">
+											<div class="circle" id="circles-2"></div>									
+											 <h3>CSS</h3>	
+										 </div>								  
+									</div>
+									<div class="col-md-3">	
+										<div class="skill-grid">
+											<div class="circle" id="circles-3"></div>									
+											 <h3>Photoshop</h3>	
+										 </div>								  
+									</div>
+									<div class="col-md-3">	
+										<div class="skill-grid">
+											<div class="circle" id="circles-4"></div>									
+											 <h3>Illustrator</h3>	
+										 </div>								  
+									</div>
+									<div class="clearfix"> </div>
+					          </div>
+					   </div>
+				</div>
+				<!---->
+				 <script type="text/javascript" src="web/js/circles.js"></script>
+					         <script>
+								var colors = [
+										['#dddddd', '#888888'], ['#DFDFDF', '#AF48FE'], ['#DFDFDF', '#AF48FE'], ['#DFDFDF', '#AF48FE']
+									];
+								for (var i = 1; i <= 5; i++) {
+									var child = document.getElementById('circles-' + i),
+										percentage = 50 + (i * 10);
+										
+									Circles.create({
+										id:         child.id,
+										percentage: percentage,
+										radius:     80,
+										width:      15,
+										number:   percentage,
+										text:       '%',
+										colors:     colors[i - 1]
+									});
+								}
+						
+				</script>
+				<!--/-->
+			</div>
+			<!---- skills --->
+			<!---- team ---->
+			<div id="team" class="team">
+				<div class="container">
+					<div class="head-section text-center">
+						<h2>Our Team</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor i</p>
+					</div>
+					<!---- team-grids ---->
+					<div class="team-grids text-center">
+						<div class="col-md-4">
+							<div class="team-grid">
+								<img class="img-responsive t-pic" src="web/images/t1.jpg" title="name" />
+								<h3><a href="#">Sophia Black</a></h3>
+								<span>Graphic Designer</span>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </p>
+								<ul class="team-social">
+									<li><a class="facebook" href="#"><span> </span></a></li>
+									<li><a class="google-pluse" href="#"><span> </span></a></li>
+									<li><a class="twitter" href="#"><span> </span></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="team-grid">
+								<img class="img-responsive t-pic" src="web/images/t2.jpg" title="name" />
+								<h3><a href="#">Simon King</a></h3>
+								<span>Development</span>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </p>
+								<ul class="team-social">
+									<li><a class="facebook" href="#"><span> </span></a></li>
+									<li><a class="google-pluse" href="#"><span> </span></a></li>
+									<li><a class="twitter" href="#"><span> </span></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="team-grid">
+								<img class="img-responsive t-pic" src="web/images/t3.jpg" title="name" />
+								<h3><a href="#">Peete Green</a></h3>
+								<span>Marketing</span>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </p>
+								<ul class="team-social">
+									<li><a class="facebook" href="#"><span> </span></a></li>
+									<li><a class="google-pluse" href="#"><span> </span></a></li>
+									<li><a class="twitter" href="#"><span> </span></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<!---- team-grids ---->
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+			<!---- team ---->
+			<!---- contact ---->
+			<div id="contact" class="contact">
+				<div class="container">
+					<div class="head-section text-center">
+							<h2>Get in touch</h2>
+							<p>LLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor i</p>
+					</div>
+					<!---- contact-grids ---->
+					<div class="contact-grids">
+						<div class="contact-map">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3256420.00766152!2d-94.8190527877968!3d37.15037720226864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2sin!4v1405259548831"> </iframe>
+						</div>
+						<div class="contact-inner-info">
+							<!---- contact-form ---->
+							<div class="col-md-8">
+								<div class="contact-form">
+									<form>
+										<div class="text-boxs">
+											<span>
+												<label>Name</label>
+												<input type="text"> 
+											</span>
+											<span>
+												<label>Email</label>
+												<input type="text"> 
+											</span>
+											<div class="clearfix"> </div>
+										</div>
+										<div class="text-area-box">
+											<span>Message</span>
+											<textarea> </textarea>
+										</div>
+										<input type="submit" value="Submit" />
+									</form>
+								</div>
+							</div>
+							<!---- contact-form ---->
+							<!---- contact-form ---->
+							<div class="col-md-4">
+								<div class="contact-form">
+									<div class="contact-address">
+										<h4>Address</h4>
+										<p>Your Company</p>
+										<p>Awesomestreet 77/8</p>
+										<p>1150 City</p>
+										<p>Country</p>
+									</div>
+									<div class="contact-address">
+										<h4>Details</h4>
+										<p>E-mail: <a href="mailto:yourmail@company.at">yourmail@company.at</a></p>
+										<p>Twitter: #company</p>
+										<p>Phone: 0043 783 44 57</p>
+										<p>Fax: 0043 783 44 57 - 2</p>
+									</div>
+									<div class="contact-address">
+										<h4>Social</h4>
+										<ul class="c-social-share">
+											<li><a class="c-face" href="#"> <span> </span></a></li>
+											<li><a class="c-google" href="#"> <span> </span></a></li>
+											<li><a class="c-twitter" href="#"> <span> </span></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix"> </div>
+							<!---- contact-form ---->
+						</div>
+					</div>
+					<!---- contact-grids ---->
+				</div>
+			</div>
+			</div>
+			<!---- contact ---->
+			<div class="clearfix"> </div>
+			<!--- footer ---->
+			<div class="footer">
+				<div class="container">
+					<div class="footer-grids">
+						<div class="col-md-3">
+							<div class="footer-grid">
+								<h3>Who we are</h3>
+								<div class="whoare-u">
+									<a class="footer-logo" href="#">Laso.</a>
+									<p>Magnis modipsae voloratati andigen daepeditem quiate re porem que aut labor. Laceaque eictemperum quiae sitiorem rest non restibusaes maio es dem tumquam.</p>
+									<a class="whoare" href="#">More about us<span> </span></a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="footer-grid">
+								<h3>Latest works</h3>
+								<ul class="f-works">
+									<li><a href="#"><img src="web/images/f1.jpg" title="name" /></a></li>
+									<li><a href="#"><img src="web/images/f2.jpg" title="name" /></a></li>
+									<li><a href="#"><img src="web/images/f2.jpg" title="name" /></a></li>
+									<li><a href="#"><img src="web/images/f1.jpg" title="name" /></a></li>
+									<li><a href="#"><img src="web/images/f1.jpg" title="name" /></a></li>
+									<li><a href="#"><img src="web/images/f2.jpg" title="name" /></a></li>
+									<div class="clearfix"> </div>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="footer-grid">
+								<h3>Get in touch</h3>
+								<div class="intouch">
+									<p>Doloreiur quia commolu ptatemp dolupta oreprerum tibusam eumenis et consent accullignis dentibea autem inisita.</p>
+									<ul>
+										<li><span class="pin"> </span>84 Street, City, State 24813</li>
+										<li><span class="mobile"> </span>+00 (123) 456 78 90</li>
+										<li><span class="msg"> </span><a href="mailto:info@laso.com">info@laso.com</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="footer-grid">
+								<h3>Free updates</h3>
+								<div class="news-update">
+									<p>Conecus iure posae volor remped modis aut lor volor accabora incim resto explabo.</p>
+									<form>
+										<input type="text" value="Enter your email address">
+										<input type="submit" value="Subacribe" />
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+			<!--- footer ---->
+			<!---- sub-footer --->
+			<div class="sub-footer">
+				<div class="container">
+					<div class="copy-right">
+						<p>Template by <a href="http://w3layouts.com/">W3layouts</a></p>
+					</div>
+					<div class="footer-links">
+						<ul>
+							<li><a href="#">Home</a><label>.</label></li>
+							<li><a href="#">Portfolio</a><label>.</label></li>
+							<li><a href="#">Blog</a><label>.</label></li>
+							<li><a href="#">About</a><label>.</label></li>
+							<li><a href="#">Services</a><label>.</label></li>
+							<li><a href="#">Contact</a></li>
+						</ul>
+					</div>
+					<div class="clearfix"> </div>
+					<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+								 		};
+										*/
+										
+										$().UItoTop({ easingType: 'easeOutQuart' });
+										
+									});
+								</script>
+									<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+				</div>
+			</div>
+			<!---- sub-footer --->
+			</div>
+	</body>
+</html>
+

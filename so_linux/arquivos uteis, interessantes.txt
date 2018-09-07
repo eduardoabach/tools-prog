@@ -1,0 +1,18 @@
+
+#Arquivos uteis, logs, configurações
+
+$HOME/.mysql_history
+~/.bash_aliases
+$HISTFILE --do comando history
+~/.bash_history
+
+
+sudo nano /var/log/auth.log
+sudo nano /var/log/kern.log
+
+#Apache
+/var/log/apache2/access.log e /var/log/apache2/error.log.
+
+
+
+

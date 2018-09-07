@@ -1,0 +1,18 @@
+{
+  "name": "Velocimetro",
+  "description": "Velocidade do veículo, shift light, cálculo de gasto em percorrer distáncias.",
+  "permissions": {
+    "geolocation":{}
+   },
+  "launch_path": "/app.html",
+  "icons": {
+    "128": "/images/app_icon_128.png"
+  },
+  "developer": [
+    {
+      "name": "Eduardo Bach",
+      "url": "www.eduardobach.com.br"
+    }
+  ],
+  "default_locale": "pt-BR"
+}

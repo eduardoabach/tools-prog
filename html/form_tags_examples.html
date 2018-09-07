@@ -1,0 +1,48 @@
+<html>
+	<body>
+		
+		<form id="nome-exemplo" action="arquivo.php">
+			
+			<!-- HIDDEN -->
+			<input type="hidden" name='nome_grupo[param_1]' value="1"/>
+			<input type="hidden" name='nome_grupo[param_2]' value="0"/>
+
+			<!-- TEXT SIMPLES -->
+        	<div>
+            	<label for="nome_grupo[campo_1]">Cod</label>            
+                <input type="text" name="nome_grupo[campo_1]" value=""/>
+            </div>
+        	<div>
+            	<label for="nome_grupo[campo_2]">Cod</label>            
+                <input type="text" name="nome_grupo[campo_2]" value="" disabled/>
+            </div>
+            
+            <!-- SELECT -->
+			<div>               
+            	<label for="nome_grupo[opt-1]">Options</label>
+	            <select name="nome_grupo[opt-1]">
+	                <option value="it-1">Item 1</option>
+	                <option value="it-2" selected>Item 2</option>
+	                <option value="it-2">Item 3</option>
+	            </select>
+            </div>
+
+			<!-- RÁDIO -->
+            <div>
+	            <label><b>Tipo Item</b></label><br>
+	            <label><input type="radio" name="nome_grupo[tipo-item]" value="ativo" checked/>Ativo</label><br>
+	            <label><input type="radio" name="nome_grupo[tipo-item]" value="demitido"/>Demitido</label><br>
+	            <label><input type="radio" name="nome_grupo[tipo-item]" value="falecido" checked />Falecido</label>
+            </div>
+            <div class="span6">
+                    <label class="campo input-xxlarge"><b>Ordem</b></label>
+                    <label><input tabindex="6" type="radio" name="data[func][ordem]" value="alfa" checked />Alfabética</label>
+                    <label><input tabindex="7" type="radio" name="data[func][ordem]" value="num" />Numérica</label>
+            </div>
+
+
+
+            <button type="submit">Confirmar</button>
+        </form>
+	</body>
+</html>

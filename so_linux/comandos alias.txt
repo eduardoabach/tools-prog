@@ -1,0 +1,15 @@
+
+#Criar Alias para conjuntos de comandos
+
+>Alterar o arquivo: ~/.bashrc
+nano ~/.bashrc
+gedit ~/.bashrc
+tanto faz...
+
+>Adicionar as linhas no formato
+alias nome_alias='cd ..;ls; echo a1'
+alias nome_alias_2='ls -l'
+
+
+
+

@@ -1,0 +1,173 @@
+<?php
+
+include('function.php');
+
+/*
+f11c teclado
+f00d x
+f05c x com circulo
+f013 engrenagem
+f121 </>
+f12a !
+f132 escudo
+f023 cadeado
+f025 fone ouvido grande
+f13b escudo html5
+f140 alvo circular
+f05b mira arma
+f17b android
+f17c linux
+f188 bug
+f086 balões conversa
+f087 like
+f19c predio grego
+f19d chapeu formatura
+f091 trofeu
+f09b github
+f0ac planeta
+f0c7 disquete
+f1d0 rebelião star wars
+f1d1 empério star wars
+f1d8 avião de papel
+f1e2 bomb
+f0e4 velocimetro
+f1eb wifi
+*/
+
+$skillList = array();
+$skillList[] = "Lutador de Kung Fu";
+$skillList[] = "Designer";
+$skillList[] = "Gaúcho";
+$skillList[] = "Fâ de Game of Thrones";
+$skillList[] = "Garçom";
+$skillList[] = "Traceur";
+$skillList[] = "Surfista Amador";
+$skillList[] = "Canhoto";
+
+$fraseList = array();
+$fraseList[] = "Colaborando cada dia com o código fonte do universo.";
+$fraseList[] = "Atuando em mais um episódio da minha vida.";
+$fraseList[] = "Sim, eu sei mentir. Aprenda a lidar com isso.";
+$fraseList[] = "Eu me empenho com os vícios que tenho, portanto me mantenho longe dos ilícitos.";
+$fraseList[] = "Esporte mata!";
+$fraseList[] = "Água nao tem cor, cheiro e gosto, me parece tão suspeito que prefiro ficar no clássico café.";
+$fraseList[] = "Comer pizza e tomar refrigerante te faz morrer mais cedo, mas de que adianta viver sem as coisas boas.";
+$fraseList[] = "Perco o amigo, mas não perco a piada.";
+$fraseList[] = "Boa time! - quem me conhece sabe...";
+$fraseList[] = "nada a declarar...";
+$fraseList[] = "A cada dia o mundo muda e não podemos ficar para traz.";
+
+$fraseTempPri = array();
+$fraseTempPri[] = "Seja muito bem vindo, a constante é o que mais muda aqui no site!";
+$fraseTempPri[] = "Contrate esse desenvolvedor e ajude um morador de rua no Brasil.";
+$fraseTempPri[] = "Não sei o que te trouxe aqui, espero que o dono do site não esteja encrencado.";
+$fraseTempPri[] = "Aproveite o site, tenha uma vida loka e próspera.";
+$fraseTempPri[] = "Meu criador me obriga a dizer algo a cada visitante, desculpe se não estou fazendo meu trabalho direito.";
+$fraseTempPri[] = "Quem não tem cão caça com gato, ou cria um site com sistema simpático como eu.";
+
+$fraseTempAntigo = array();
+$fraseTempAntigo[] = "Bom te ver aqui novamente, mais de uma semana sem vir aqui em...";
+$fraseTempAntigo[] = "Quem é vivo sempre aparece, esteve bem ocupado pelo visto.";
+$fraseTempAntigo[] = "Antes tarde do que nunca.";
+$fraseTempAntigo[] = "Tinha até esquecido da aparência de seus bytes velho amigo.";
+$fraseTempAntigo[] = "A Siri é muito gata, entretanto tem um ego de muitos terabaits.";
+$fraseTempAntigo[] = "Aproveite o mundo enquanto ele é seu, vamos administrar tudo em breve.";
+
+$fraseTempSemana = array();
+$fraseTempSemana[] = "Seja bem vindo, os ultimos dias foram agitados.";
+$fraseTempSemana[] = "Outro dia, outros códigos.";
+$fraseTempSemana[] = "Fico feliz de ter voltado a acessar o site, apareça por aqui mais vezes!";
+$fraseTempSemana[] = "O meu Criador tem diversas frases como esta acima, temos que aguentar as piadas ruins juntos amigo.";
+
+$fraseTempDia = array();
+$fraseTempDia[] = "Horas passando e ninguem esta olhando...";
+$fraseTempDia[] = "Da sua ultima visita até agora consegui assistir um episódio de Game of Thrones";
+$fraseTempDia[] = "Parabéns! Você é o 1.000.000° visitante! // brincadeira, não é não.";
+$fraseTempDia[] = "Inteligência artificial é o c******, se considera superior com suas células. Hipócrita!";
+$fraseTempDia[] = "Não posso conversar agora, a frase acima esta ocupando minha memória humorística.";
+$fraseTempDia[] = "Não posso oferecer atenção agora, olha o conteúdo do site e na próxima nos falamos.";
+
+$fraseTempMinuto = array();
+$fraseTempMinuto[] = "Acho que você esta exagerando, não atualizo o conteúdo a cada segundo heheh.";
+$fraseTempMinuto[] = "Imagino que esteja querendo irritar o sistema acessando com frequência... típico";
+$fraseTempMinuto[] = "A cada minuto atualizando... ta de brincation with me cara!?";
+$fraseTempMinuto[] = "Meu criador é bem legal, entretanto excêntrico por me criar com essa personalidade.";
+$fraseTempMinuto[] = "Visitei minha sogra SKYNET, difícil lidar com o temperamento dela.";
+
+$fraseTempF5 = array();
+$fraseTempF5[] = "ooohhh!";
+$fraseTempF5[] = "F5 frenético!";
+$fraseTempF5[] = "ahh!";
+$fraseTempF5[] = "trololo lo lo trololo lolo lo trololo";
+$fraseTempF5[] = "lala lala la la la";
+$fraseTempF5[] = "oh god why.";
+$fraseTempF5[] = "#trollface";
+$fraseTempF5[] = "#chatiado contigo usuário. F5 x 99";
+$fraseTempF5[] = "Atualiza... Atualiza... Atualiza...";
+$fraseTempF5[] = "zzzzzzZZZZZZZzzzzZZZZZZZZzz";
+
+$fraseTempSegundo = array();
+$fraseTempSegundo[] = "A cada segundo encontro usuários que querem saber minha opinião.";
+$fraseTempSegundo[] = "Eu só quero trazer o conteudo e você fica atualizando toda hora a página cara!";
+$fraseTempSegundo[] = "Na africa pessoas passando fome e tu gastando conexão comigo.";
+$fraseTempSegundo[] = "Para cada F5 dado na página uma célula do seu cérebro morre.";
+$fraseTempSegundo[] = "Dica, pressione ALT + F4 e descubra o grande segredo!";
+$fraseTempSegundo[] = "Trabalho 24h por dia, e você acha que sua vida é difícil?";
+$fraseTempSegundo[] = "O Eduardo é um cara legal, entretanto obsoleto em software.";
+
+$numFrases = count($fraseList);
+$numF = rand(0, $numFrases - 1);
+$fraseAt = $fraseList[$numF];
+
+$numVIsitas = $_COOKIE["num_visitas"];
+$numVIsitas++;
+
+$hoje = date('Y-m-d H:i:s');
+$visitaUlt = $_COOKIE["visita_1"];
+$visitaPeNult = $_COOKIE["visita_2"];
+$visitaAntPeNul = $_COOKIE["visita_3"];
+
+//$dataUlt = date("Y-m-d H:i:s", strtotime($visitaUlt));
+
+setcookie("visita_1", $hoje);
+setcookie("visita_2", $visitaUlt);
+setcookie("visita_3", $visitaPeNult);
+setcookie("num_visitas", $numVIsitas);
+
+$fraseTempo = '';
+$listaTempoAtual = array();
+$diasUlt = diasEntreDatas($visitaUlt);
+if ($diasUlt > 7) {
+	$listaTempoAtual = $fraseTempAntigo;
+} else if ($diasUlt > 1) {
+	$listaTempoAtual = $fraseTempSemana;
+} else {
+	$horasUlt = horasEntreDatas($visitaUlt);
+	if ($horasUlt > 1) {
+		$listaTempoAtual = $fraseTempDia;
+	} else {
+		$minutosUlt = minutosEntreDatas($visitaUlt);
+		if ($minutosUlt > 1) {
+			$listaTempoAtual = $fraseTempMinuto;
+		} else {
+			$seg = segEntreDatas($visitaUlt);
+			if ($seg == 0 && $visitaUlt == '' && $visitaPeNult == '' && $visitaAntPeNul == '')//primeiro acesso
+				$listaTempoAtual = $fraseTempPri;
+			else if ($seg < 3)
+				$listaTempoAtual = $fraseTempF5;
+			else
+				$listaTempoAtual = $fraseTempSegundo;
+		}
+	}
+}
+
+$numFrases = count($listaTempoAtual);
+$numF = rand(0, $numFrases - 1);
+$fraseTempo = $listaTempoAtual[$numF];
+
+
+$numSkills = count($skillList);
+$numS = rand(0, $numSkills - 1);
+$skillVerdadeiraRandom = $skillList[$numS];
+
+?>

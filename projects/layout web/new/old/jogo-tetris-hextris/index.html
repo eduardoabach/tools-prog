@@ -1,0 +1,432 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <META NAME="description" content="Hextris é um jogo desenvolvido em javascript">
+        <META NAME="author" content="Eduardo Bach">
+        <META NAME="keywords" content="Jogo, Tetris, Hextris">
+        <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+        <title>Hextris</title>
+        <script language="JavaScript1.2">
+            if (navigator.appName != "Microsoft Internet Explorer")
+                document.captureEvents(Event.KEYDOWN)
+            document.onkeydown = NetscapeKeyDown;
+            function NetscapeKeyDown(key)
+            { KeyDown(key.which);
+            }  
+        </script>
+        <script for=document event="onkeydown()" language="JScript">
+            if (window.event) KeyDown(window.event.keyCode);
+        </script>
+        <script language="JavaScript">
+            var i, j, IsOver, MaxX=15, MaxY=29, NextCol, Col, Score, Lines, IsPreview=false, IsHideFocus=true;
+            PosX=new Array(4);
+            PosY=new Array(4);
+            Fld = new Array(MaxX);
+            for (i=0; i < MaxX; i++)
+            { Fld[i]=new Array(MaxY);
+            } 
+            RFld=new Array(MaxY);
+            Pic=new Array(3);
+            for (i=0; i<3; i++)
+            { Pic[i] = new Image(); 
+                Pic[i].src = "hextris"+eval(2-i)+".gif";
+            }
+
+            PatternX=new Array(9);
+            PatternY=new Array(9);
+            PatternX[0]=new Array(0,1,1,2);
+            PatternY[0]=new Array(1,0,1,1);
+            PatternX[1]=new Array(0,1,1,1);
+            PatternY[1]=new Array(1,0,1,2);
+            PatternX[2]=new Array(1,1,1,1);
+            PatternY[2]=new Array(0,1,2,3);
+            PatternX[3]=new Array(0,1,1,2);
+            PatternY[3]=new Array(0,0,1,0);
+            PatternX[4]=new Array(0,0,1,2);
+            PatternY[4]=new Array(0,1,0,0);
+            PatternX[5]=new Array(0,0,1,1);
+            PatternY[5]=new Array(1,2,0,1);
+            PatternX[6]=new Array(1,1,2,2);
+            PatternY[6]=new Array(0,1,1,2);
+            PatternX[7]=new Array(0,1,1,1);
+            PatternY[7]=new Array(2,0,1,2);
+            PatternX[8]=new Array(1,1,1,2);
+            PatternY[8]=new Array(0,1,2,2);
+            function KeyDown(whichkey){ //alert(whichkey);
+                if (IsOver) return;
+                if (PosY<0) return;
+                if (whichkey == 37) Left();
+                if (whichkey == 38) Rotate();
+                if (whichkey == 39) Right();
+                if (whichkey == 40) Down();
+
+                if (whichkey == 50) Down();
+                if (whichkey == 52) Left();
+                if (whichkey == 53) Down();
+                if (whichkey == 54) Right();
+                if (whichkey == 56) Rotate();
+
+                if (whichkey == 65458) Down();
+                if (whichkey == 65460) Left();
+                if (whichkey == 65461) Down();
+                if (whichkey == 65462) Right();
+                if (whichkey == 65464) Rotate();
+            }
+            function Pause(){
+                IsOver=true;
+                alert("Pausa");
+                setTimeout("Init(false)",540);
+            }
+            function New(){
+                IsOver=true;
+                setTimeout("Init(true)",540);
+            }
+            function Init(nn){
+                IsOver=false;
+                if (nn){
+                    for (i=0; i<MaxX; i++){
+                        for (j=0; j<MaxY; j++)
+                            Fld[i][j]=0;
+                    }
+                    PosY[0]=-1;
+                    Score=0;
+                    Level=1;
+                    Lines=0;
+                    window.document.ScoreForm.Score.value = Score;
+                    window.document.ScoreForm.Level.value = Level;
+                    window.document.ScoreForm.Lines.value = Lines;
+                    RefreshScreen();
+                    NextCol=Math.floor(Math.random()*100)%9;
+                }
+                setTimeout("Go()",50*(11-Level));
+                HideFocus();
+            }
+            function Go()
+            { if (IsOver) return;
+                var nn, mm=MaxX*MaxY-Math.floor((MaxX+1)/2);
+                if (PosY[0]<0)
+                { Col=NextCol;
+                    NextCol=Math.floor(Math.random()*100)%9;
+                    for (nn=mm; nn<mm+10; nn++)
+                        document.images[nn].src = Pic[2].src;
+                    if (IsPreview)
+                    { for (nn=0; nn<4; nn++)
+                            document.images[mm+PatternX[NextCol][nn]*4-Math.floor((PatternX[NextCol][nn]+1)/2)+PatternY[NextCol][nn]].src = Pic[1].src;
+                    }
+                    for (nn=0; nn<4; nn++)
+                    { PosX[nn]=PatternX[Col][nn]+6;
+                        PosY[nn]=PatternY[Col][nn]+1;
+                        if (Fld[PosX[nn]][PosY[nn]]>0) IsOver=true;
+                    }
+                    if (IsOver)
+                    { if (CanShift(0,-1))
+                        { for (nn=0; nn<4; nn++)
+                                document.images[PosX[nn]*MaxY-Math.floor((PosX[nn]+1)/2)+PosY[nn]-1].src = Pic[1].src;
+                        }
+                        if (window.opener)
+                        { if (window.opener.SetHighscores)
+                                window.opener.SetHighscores("Hextris","",Score,1);
+                        }
+                        if (confirm("Seu total de pontos foi: "+Score+"! Jogar novamente?")) New();
+                        return;
+                    }
+                    for (nn=0; nn<4; nn++)
+                    { Fld[PosX[nn]][PosY[nn]]=1;
+                        document.images[PosX[nn]*MaxY-Math.floor((PosX[nn]+1)/2)+PosY[nn]].src = Pic[1].src;
+                    }  
+                }
+                else
+                { for (nn=0; nn<4; nn++)
+                        Fld[PosX[nn]][PosY[nn]]=0;
+                    if (CanShift(0,1)) 
+                    { for (nn=0; nn<4; nn++)
+                            Fld[PosX[nn]][PosY[nn]]=1;
+                        Shift(0,1); 
+                    }
+                    else
+                    { for (nn=0; nn<4; nn++)
+                            Fld[PosX[nn]][PosY[nn]]=1;
+                        PosY[0]=-1;
+                        Remove();
+                        window.document.ScoreForm.Score.value = Score;
+                        window.document.ScoreForm.Level.value = Level;
+                        window.document.ScoreForm.Lines.value = Lines;
+                    }
+                }
+                setTimeout("Go()",50*(11-Level));
+            }
+            function GetFld(xx, yy)
+            { if (xx<0) return(-1);
+                if (xx>=MaxX) return(-1);
+                if (yy<0) return(-1);
+                if (yy>=MaxY-1+xx%2) return(-1);
+                return(Fld[xx][yy]);
+            }
+            function Rotate()
+            { if (IsOver) return;
+                var nn, xxm=0, yym=0, xx0, yy0, xx1, yy1, rr=0;
+                //var aa=0.5, bb=-1, cc=0.75, dd=0.5;
+                var aa=0.5, bb=1, cc=-0.75, dd=0.5;
+                for (nn=0; nn<4; nn++)
+                { xxm+=PosX[nn];
+                    yym+=PosY[nn]-(PosX[nn]%2)/2;
+                    Fld[PosX[nn]][PosY[nn]]=0;
+                }      
+                xxm=Math.round(xxm/4);
+                yym=Math.round(yym/4+(xxm%2)/2);
+                if (xxm%2==1)
+                { for (nn=0; nn<4; nn++)
+                    { xx0=PosX[nn]-xxm;
+                        yy0=PosY[nn]-yym+(Math.abs(PosX[nn]-xxm)%2)/2;
+                        xx1=Math.round(xx0*aa+yy0*bb+xxm);
+                        yy1=Math.round(xx0*cc+yy0*dd-(Math.abs(xx1-xxm)%2)/2+yym);
+                        if (GetFld(xx1,yy1)!=0) rr++;
+                    }
+                }
+                else
+                { for (nn=0; nn<4; nn++)
+                    { xx0=PosX[nn]-xxm;
+                        yy0=PosY[nn]-yym-(Math.abs(PosX[nn]-xxm)%2)/2;
+                        xx1=Math.round(xx0*aa+yy0*bb+xxm);
+                        yy1=Math.round(xx0*cc+yy0*dd+(Math.abs(xx1-xxm)%2)/2+yym);
+                        if (GetFld(xx1,yy1)!=0) rr++;
+                    }
+                }
+                if (rr>0)
+                { for (nn=0; nn<4; nn++)
+                        Fld[PosX[nn]][PosY[nn]]=1;
+                    return;
+                }  
+                for (nn=0; nn<4; nn++)
+                    document.images[PosX[nn]*MaxY-Math.floor((PosX[nn]+1)/2)+PosY[nn]].src = Pic[0].src;
+                if (xxm%2==1)
+                { for (nn=0; nn<4; nn++)
+                    { xx0=PosX[nn]-xxm;
+                        yy0=PosY[nn]-yym+(Math.abs(PosX[nn]-xxm)%2)/2;
+                        xx1=Math.round(xx0*aa+yy0*bb+xxm);
+                        yy1=Math.round(xx0*cc+yy0*dd-(Math.abs(xx1-xxm)%2)/2+yym);
+                        PosX[nn]=xx1;
+                        PosY[nn]=yy1;
+                    }
+                }
+                else
+                { for (nn=0; nn<4; nn++)
+                    { xx0=PosX[nn]-xxm;
+                        yy0=PosY[nn]-yym-(Math.abs(PosX[nn]-xxm)%2)/2;
+                        xx1=Math.round(xx0*aa+yy0*bb+xxm);
+                        yy1=Math.round(xx0*cc+yy0*dd+(Math.abs(xx1-xxm)%2)/2+yym);
+                        PosX[nn]=xx1;
+                        PosY[nn]=yy1;
+                    }
+                }  
+                for (nn=0; nn<4; nn++)
+                    document.images[PosX[nn]*MaxY-Math.floor((PosX[nn]+1)/2)+PosY[nn]].src = Pic[1].src;
+            }
+
+            function Left()
+            { if (IsOver) return;
+                if (PosY[0]<0) return;
+                for (nn=0; nn<4; nn++)
+                    Fld[PosX[nn]][PosY[nn]]=0;
+                if (CanShift(-1,0))
+                { for (nn=0; nn<4; nn++)
+                        Fld[PosX[nn]][PosY[nn]]=1;
+                    Shift(-1,0);
+                }
+                else
+                { for (nn=0; nn<4; nn++)
+                        Fld[PosX[nn]][PosY[nn]]=1;
+                }
+            }
+            function Right()
+            { if (IsOver) return;
+                if (PosY[0]<0) return;
+                for (nn=0; nn<4; nn++)
+                    Fld[PosX[nn]][PosY[nn]]=0;
+                if (CanShift(1,0))
+                { for (nn=0; nn<4; nn++)
+                        Fld[PosX[nn]][PosY[nn]]=1;
+                    Shift(1,0);
+                }
+                else
+                { for (nn=0; nn<4; nn++)
+                        Fld[PosX[nn]][PosY[nn]]=1;  
+                }
+            }
+            function Down()
+            { if (IsOver) return;
+                if (PosY[0]<0) return;
+                var dd=0;
+                for (nn=0; nn<4; nn++)
+                    Fld[PosX[nn]][PosY[nn]]=0;
+                while (CanShift(0,dd+1)) dd++;
+                for (nn=0; nn<4; nn++)
+                    Fld[PosX[nn]][PosY[nn]]=1;
+                if (dd>0) Shift(0, dd);
+            }
+            function CanShift(xx, yy)
+            { var nn, cc=true, xxn, yyn;
+                for (nn=0; nn<4; nn++)
+                { xxn=PosX[nn]+xx;
+                    if (xxn<0) return(false);
+                    if (xxn>=MaxX) return(false);
+                    yyn=PosY[nn]+yy;
+                    if (xx!=0) yyn+=xxn%2;
+                    if (yyn>=MaxY-1+xxn%2) return(false);
+                    if (Fld[xxn][yyn]>0) return(false);
+                }
+                return(true); 
+            }
+            function Shift(dx, dy)
+            { var nn;
+                for (nn=0; nn<4; nn++)
+                { Fld[PosX[nn]][PosY[nn]]=0;
+                    document.images[PosX[nn]*MaxY-Math.floor((PosX[nn]+1)/2)+PosY[nn]].src = Pic[0].src;
+                }
+                for (nn=0; nn<4; nn++)
+                { PosX[nn]+=dx;
+                    PosY[nn]+=dy;
+                    if (dx!=0) PosY[nn]+=PosX[nn]%2;
+                    Fld[PosX[nn]][PosY[nn]]=1;
+                    document.images[PosX[nn]*MaxY-Math.floor((PosX[nn]+1)/2)+PosY[nn]].src = Pic[1].src;
+                }
+            }
+            function Remove(){
+                var xx, yy, nn=0;
+                Score+=20;
+                for (yy=0; yy<MaxY; yy++) RFld[yy]=1;
+                for (xx=0; xx<MaxX; xx++){
+                    for (yy=0; yy<MaxY-1; yy++){
+                        if (Fld[xx][yy]==0) RFld[yy]=0;
+                    }
+                }
+                for (yy=MaxY-2; yy>=0; yy--){
+                    if (RFld[yy]>0){
+                        nn++
+                        for (xx=0; xx<MaxX; xx++)
+                            Fld[xx][yy]=0;
+                    }else{
+                        if (nn>0){
+                            for (xx=0; xx<MaxX; xx++){
+                                Fld[xx][yy+nn]=Fld[xx][yy];
+                                Fld[xx][yy]=0;
+                            }  
+                        }
+                    }   
+                }
+                Score+=100*nn;
+                Lines+=nn;
+                if ((Score>=1500*Level)&&(Level<10)) Level++;
+                if (nn>0) RefreshScreen();
+            }
+            function RefreshScreen(){
+                for (i=0; i < MaxX; i++){
+                    for (j=0; j < MaxY-1+i%2; j++)
+                        window.document.images[i*MaxY-Math.floor((i+1)/2)+j].src = Pic[Fld[i][j]].src; 
+                }
+            }
+            function HideFocus(){
+                if(IsHideFocus){
+                    document.ScoreForm.Score.focus();
+                    document.ScoreForm.Score.blur();
+                }
+            }
+        </script>
+    </head>
+    <BODY bgcolor="#EEEEEE" style="margin: 0px; padding: 0px;">
+        <form name="ScoreForm">
+            <DIV ALIGN=center>
+                <table noborder cellpadding="0" cellspacing="0" bgcolor=#C0C0C0>
+                    <tr>
+                        <td>
+                            <script language="JavaScript">
+                                document.open("text/plain");
+                                document.write("<table border=0 cellpadding=4 cellspacing=6 bgcolor=#C0C0C0><tr><td bgcolor=#DDDDDD>");
+                                document.write("<table noborder cellpadding=0 cellspacing=0 bgcolor=#DDDDDD><tr>");
+                                for (j=0; j < MaxX; j++){
+                                    document.write("<td valign=middle width=12>");
+                                    for (i=0; i < MaxY-1+j%2; i++)
+                                        document.write("<IMG src=\"hextris1.gif\" border=0>");
+                                    document.write("</td>");
+                                }
+                                document.write("</tr></table></td></tr></table>");
+
+                                if (navigator.appName == "Konqueror"){
+                                    document.write("</td><td>");
+                                    document.write("<input width=0 height=0 style=\"width:0; height:0\" name=\"KeyCatch\" onBlur=\"KeyCatchFocus()\" onKeyUp=\"KeyCatchChange()\">");
+                                    KeyCatchFocus();
+                                    IsHideFocus=false;
+                                }
+                                function KeyCatchFocus(){
+                                    setTimeout("document.forms[0].KeyCatch.focus()",100);
+                                }
+                                function KeyCatchChange(){
+                                    var vv=""+document.forms[0].KeyCatch.value;
+                                    if (vv=="") return;
+                                    KeyDown(vv.charCodeAt(0));
+                                    document.forms[0].KeyCatch.value="";
+                                }
+
+                                document.close();
+                            </script>
+                        </td>
+                        <td valign=middle style="width: 110px;">
+                            <table cellpadding=1 cellspacing=0  style="width: 120px;"><tr><td>
+                                        <table noborder cellpadding=2 cellspacing=2>
+                                            <tr>
+                                                <td align=left style="font-size:14px">Pontos:<input type=text size="1" disabled style="background: none; border: none;" name="Score" onClick="HideFocus()"></td>
+                                            </tr>
+                                            <tr>
+                                                <td align=left style="font-size:14px">Nível:<input type=text size="1" disabled style="background: none; border: none;" name="Level" onClick="HideFocus()"></td>
+                                            </tr>
+                                            <tr>
+                                                <td align=left style="font-size:14px">Linhas:<input type=text size="1" disabled style="display:inline; background: none; border: none;" name="Lines" onClick="HideFocus()"></td>
+                                            </tr>
+                                            <tr>
+                                                <td align=center>
+                                                    <input type="button" style="width:45%; height: 40px;" value="Pause" onClick="Pause()">
+                                                    <input type=button style="width:45%; height: 40px;" value="Novo" onClick="New()">
+                                                </td>
+                                            </tr>
+                                            <tr><td align=center style="font-size:16px"><input type="checkbox" onClick="IsPreview=this.checked; HideFocus();">Próximo</td></tr>
+                                            <tr>
+                                                <td align=center>
+                                                    <table noborder cellpadding=0 cellspacing=0>
+                                                        <tr>
+                                                            <td valign=middle width=12 style='font-size:1pt;'><IMG src="hextris1.gif" border=0><IMG src="hextris0.gif" border=0><IMG src="hextris0.gif" border=0></td>
+                                                            <td valign=middle width=12 style='font-size:1pt;'><IMG src="hextris1.gif" border=0><IMG src="hextris0.gif" border=0><IMG src="hextris0.gif" border=0><IMG src="hextris0.gif" border=0></td>
+                                                            <td valign=middle width=12 style='font-size:1pt;'><IMG src="hextris1.gif" border=0><IMG src="hextris0.gif" border=0><IMG src="hextris0.gif" border=0></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align=center>
+                                                    <table noborder cellpadding=0 cellspacing=0 bgcolor="#ffffff">
+                                                        <tr>
+                                                            <td ALIGN=center colspan="2"><IMG src="girar.png" style="height: 100px; width: 100px;" onClick="Rotate();"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign=middle><IMG src="seta.gif" style="height: 50px; width: 50px;" onClick="Left();"></td>
+                                                            <td valign=middle><IMG onClick="Right();" style="height: 50px; width: 50px; -webkit-transform:rotate(180deg); -moz-transform:rotate(180deg);" src="seta.gif"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td ALIGN=center colspan="2"><IMG onClick="Down();" style="height: 50px; width: 50px; -webkit-transform:rotate(-90deg); -moz-transform:rotate(-90deg);" src="seta.gif"></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <script language="JavaScript">
+                    Init(true);
+                </script>
+            </DIV>
+        </form>
+    </BODY>
+</HTML>

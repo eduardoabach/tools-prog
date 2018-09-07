@@ -1,0 +1,22 @@
+﻿<?php
+   header("Content-Type: text/html; charset=UTF-8",true);
+	include("config.php");
+	include('function.php');
+   $inf = infIp();
+   $so = getSo();
+   //$engine = getEngineNavegacao();
+   //$idioma = getIdioma();
+?>
+<div class="fechar" onclick="fecharJanela('#info');">x</div>
+<h3>Informações</h3>
+<div>
+   Ip: <?php echo $inf['ip']?><br>
+   Sistema Operacional: <?php echo $so?><br>
+   Navegador: <?php echo $inf['navegador']['navegador']?><br>
+   Versão Navegador: <?php echo $inf['navegador']['versao']?><br>
+   Engine Navegador: <?php echo $engine['nome']?><br>
+   Versão Engine: <?php echo $engine['versao']?><br>
+   Idioma: <?php echo $idioma?><br>
+   País: <?php echo $inf['cidade']?><br>
+   Cidade: <?php echo $inf['cidade']?><br>
+</div>

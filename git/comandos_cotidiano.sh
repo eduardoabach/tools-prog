@@ -1,4 +1,9 @@
 
+#Configurações
+git config -l #ver configurações atuais
+git config user.name "Fulano de Tal"
+git config user.email fulanodetal@tal.com.br
+
 # Início de projeto
 git init
 git remote add origin https://github.com/eduardoabach/repositorio.git
@@ -22,6 +27,12 @@ git checkout dev # vai para o branch dev
 git add item_alterado_exemplo.php
 git commit -m "Exemplo alteracao branch dev"
 git push # fecha ciclo da alteração no branch, mas o master nao tem ela ainda
+
+# Alterar a ultima mensagem de commit
+git commit -m "Exemplo de novo texto do commit, vai substituir o existente anterior" --amend
+
+# Criar um branch local em base de um branch remoto
+git checkout -b tarefa_5545 origin/tarefa_5545
 
 # Branch merge direto com o master, este é mais perigoso, mas para projetos simplórios até pode ser usado
 git checkout master #ir para o master para posterior pull atualizando
@@ -49,6 +60,17 @@ git checkout tags/version 1.0
 
 ########################### SITUAÇÕES ADVERSAS ################################
 
+# Passar alterações de um lugar para outro, usando stash
+git stash
+git checkout nome_branch_destino
+git stash list 
+git stash apply
+
+
+# Discartar alterações
+git add arquivos...
+git checkout -f
+
 # LOG
 git log
 git log --name-only
@@ -71,6 +93,7 @@ rm .git/refs/remotes/origin/master
 git fetch
 
 # Ignorar suas alteracoes e pegar o master
+# ATENÇÃO, isso distroi até o que tem comitado local e não fez push ainda! 
 git fetch
 git reset --hard origin/master
 

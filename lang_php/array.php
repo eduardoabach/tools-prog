@@ -50,4 +50,10 @@ print_r($last_names);
 $frutas = array('melancia', 'banana', 'morango');
 echo end($frutas); // morango
 
+//array_key_exists($item,$list); boolean
+//array_search($item, $list); key do primeiro item encontrado
+//array_keys($list, $item);  array com lista com todas as possibilidades
+
+
+
 ?>

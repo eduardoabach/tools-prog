@@ -25,4 +25,6 @@ echo substr('Ana Maria da Silva', 0, 10); //corta texto, "Ana Maria "
 echo substr('Sábado', 0, 3); //corta texto, "Sá"
 echo mb_substr('Sábado', 0, 3); //corta texto, "Sáb"
 
+echo str_replace('teste', 'novo', 'Algum texto de exemplo: teste.') // Algum texto de exemplo: novo.
+
 ?>
