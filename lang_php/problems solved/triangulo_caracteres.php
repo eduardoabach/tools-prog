@@ -1,6 +1,6 @@
 <?php
 
-$repeticoes = 6;
+$repeticoes = 10;
 $simbolo = '#';
 $linhaOld = null;
 

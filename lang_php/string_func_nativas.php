@@ -21,6 +21,8 @@ echo str_pad($teste, 10); // "Ana       "
 echo str_pad($teste, 10, "=-", STR_PAD_LEFT); // "=-=-=-=Ana"
 echo str_pad($teste, 10, "_", STR_PAD_BOTH); // "___Ana____"
 
-echo substr('Ana Maria da Silva', 0, '10'); //corta texto, "Ana Maria "
+echo substr('Ana Maria da Silva', 0, 10); //corta texto, "Ana Maria "
+echo substr('Sábado', 0, 3); //corta texto, "Sá"
+echo mb_substr('Sábado', 0, 3); //corta texto, "Sáb"
 
 ?>
