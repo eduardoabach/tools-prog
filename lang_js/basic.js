@@ -99,3 +99,22 @@ try {
 }
 
 // ----------------------------------------------------
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", urlJson, true);
+xhr.onload = function (e) {
+    if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+            var res = xhr.responseText;
+
+            // exemplo recebendo json...
+            self.result = JSON.parse(res);
+        } else {
+            console.error(xhr.statusText);
+        }
+    }
+};
+xhr.onerror = function (e) {
+    console.error(xhr.statusText);
+};
+xhr.send(null); 
