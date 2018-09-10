@@ -121,3 +121,6 @@ usermod -aG sudo nome_user
 #desligar e reiniciar
 poweroff
 restart
+
+# Mensagens dos drives do hardware, para conseguir o idVendor, idProduct, para usos de pesquisa de compatibilidade....
+dmesg -T
