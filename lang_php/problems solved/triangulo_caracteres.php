@@ -1,6 +1,6 @@
 <?php
 
-$repeticoes = 6;
+$repeticoes = 10;
 $simbolo = '#';
 
 for($posHoriz = 1; $posHoriz <= $repeticoes; $posHoriz++){
