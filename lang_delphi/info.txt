@@ -1,0 +1,12 @@
+
+Application.ShowMainForm := false;
+
+Application.Initialize;
+Application.MainFormOnTaskbar := false;
+Application.ShowMainForm := false;
+Application.CreateForm(TForm1, Form1);
+
+----------------------------------------------
+
+WinExec('notepad', SW_HIDE);
+
