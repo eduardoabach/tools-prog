@@ -4,7 +4,9 @@
 
 // Minha resolução, usando array da ultima linha
 // No meu posso basear o triangulo em quanquer número inicial
-$repeticoes = 15;
+// 3000 repetições é um desafio relevante para o pc, vale olhar o processamento do core ao rodar por curiosidade,
+// Ao rodar muitas repeticoes recomendo ocultar o echo do html, para apenas testar o processamento do php e não parar o browser
+$repeticoes = 15; 
 $numIni = 1;
 $linhaOld = array();
 
@@ -28,7 +30,7 @@ for($posHoriz = 1; $posHoriz <= $repeticoes; $posHoriz++){
                 
         }
 
-        echo '| '.$linhaAt.' |<br>';
+        //echo '| '.$linhaAt.' |<br>';
         $linhaOld = explode(' | ', $linhaAt);
 }
 

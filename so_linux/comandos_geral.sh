@@ -33,6 +33,8 @@ df -h
 
 # Infos do sistema operacional, versão do kernel, nome do computador
 uname -a
+# Infos mais completo
+cat /etc/*release*
 
 # Instalar
 apt-get install aaa #debian, ubuntu

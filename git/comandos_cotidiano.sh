@@ -65,7 +65,8 @@ git stash
 git checkout nome_branch_destino
 git stash list 
 git stash apply
-
+# Para multiplos stash na lista
+git stash apply --2 #o numero de identificacao da lista de stash...
 
 # Discartar alterações
 git add arquivos...

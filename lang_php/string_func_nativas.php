@@ -27,4 +27,8 @@ echo mb_substr('Sábado', 0, 3); //corta texto, "Sáb"
 
 echo str_replace('teste', 'novo', 'Algum texto de exemplo: teste.') // Algum texto de exemplo: novo.
 
+// Exibir caracteres unicode
+echo json_decode('"\u001B"');
+
+
 ?>

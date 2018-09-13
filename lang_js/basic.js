@@ -118,3 +118,29 @@ xhr.onerror = function (e) {
     console.error(xhr.statusText);
 };
 xhr.send(null); 
+
+
+var fibRef = 1;
+var fibProx = 2;
+for(var loop=0; loop < 15; loop++){
+    console.log(fibRef);
+    var fibProxOld = fibProx;
+    fibProx += fibRef;
+    fibRef = fibProxOld;
+}
+
+
+function fibonacci(loop){
+    var fibRef = 1, fibProx = 2, temp;
+
+    while(loop > 0){
+        console.log(fibRef);
+        var temp = fibProx;
+        fibProx += fibRef;
+        fibRef = temp;
+        loop--;
+    }
+    //return 
+}
+
+
