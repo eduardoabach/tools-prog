@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    p {
+      text-align: center;
+      font-size: 10px;
+      margin-top:0px;
+    }
+    </style>
+</head>
+<body>
+
+    <script>
+        var CicloTempo = {
+            func: null,
+            ciclo: 1000,
+            contTime: null,
+            ativo: true,
+            Init: function(funcCiclo, tempoCiclo){
+                this.func = funcCiclo;
+                if(tempoCiclo != undefined)
+                    this.ciclo = tempoCiclo;
+            },
+            Contar: function(){
+                var self = this;
+                self.contTime = setInterval(function() {
+
+                    if('function' === typeof self.func){
+                        self.func();
+                    }
+
+                    if(self.ativo === false)
+                        clearInterval(self.contTime);
+                }, self.ciclo);
+            },
+            Pause: function(){
+                this.ativo = false;
+            },
+            Play: function(){
+                this.ativo = true;
+                this.Contar();
+            },
+            Avancar: function(){
+                this.ativo = false;
+                self.func();
+            }
+        };
+    </script>
+    <script>
+        var Cont1 = Object.create(CicloTempo);
+        Cont1.Init(function(){
+            view_cont_1.innerHTML += 'A';
+        });
+
+        var Cont2 = Object.create(CicloTempo);
+        Cont2.Init(function(){
+            view_cont_2.innerHTML += 'B';
+        },2500);
+
+        var Cont3 = Object.create(CicloTempo);
+        Cont3.Init(function(){
+            view_cont_3.innerHTML = parseInt(view_cont_3.innerHTML) + 1;
+        },10);
+        Cont3.Play();
+    </script>
+
+
+    <p id="view_cont_1"></p>
+    <p id="view_cont_2"></p>
+    <p id="view_cont_3">0</p>
+
+
+    <input type="button" value="Play 1" onclick="Cont1.Play();" />
+    <input type="button" value="Pause 1" onclick="Cont1.Pause();" />
+    <input type="button" value="Avancar 1" onclick="Cont1.Avancar();" />
+
+    <br>
+
+    <input type="button" value="Play 2" onclick="Cont2.Play();" />
+    <input type="button" value="Pause 2" onclick="Cont2.Pause();" />
+
+</body>
+</html>

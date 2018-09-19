@@ -10,31 +10,27 @@
   </ul>
 
 <script>
-  
   var button = document.querySelector('button');
-  var evt = new EventSource('sse.php');
-  
-  // console.log(evt.withCredentials);
-  // console.log(evt.readyState);
-  // console.log(evt.url);
-  
-  var eList = document.querySelector('ul');
-  evt.onopen = function() {
+  var evtSource = new EventSource('sse.php');
+  console.log(evtSource.withCredentials);
+  console.log(evtSource.readyState);
+  console.log(evtSource.url);
+  var eventList = document.querySelector('ul');
+  evtSource.onopen = function() {
     console.log("Connection to server opened.");
   };
-
-  evt.onmessage = function(e) {
-    var obj = JSON.parse(JSON.parse(e.data));
-    eList.innerHTML += "<hr>"+obj.nick + ": " + obj.msg + "<br><small>" + obj.data + "</small>";
+  evtSource.onmessage = function(e) {
+    var newElement = document.createElement("li");
+    newElement.textContent = "message: " + e.data;
+    eventList.appendChild(newElement);
   }
-  evt.onerror = function() {
+  evtSource.onerror = function() {
     console.log("EventSource failed.");
   };
   button.onclick = function() {
     console.log('Connection closed');
-    evt.close();
+    evtSource.close();
   }
-
   // evtSource.addEventListener("ping", function(e) {
   //   var newElement = document.createElement("li");
   //
