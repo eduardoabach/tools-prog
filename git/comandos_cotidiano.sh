@@ -103,6 +103,8 @@ git diff branch_origem branch_destino # antes de fazer o merge das alterações,
 git tag 1.0.0 1b2e1d63ff #criar rótulos para releases de software
 git config color.ui true # usar saídas do git coloridas
 
+#Revert de alteracoes - nunca fiz, apenas teorico
+git revert f44db3
 
 #ferramentas
 sudo apt install gitk
