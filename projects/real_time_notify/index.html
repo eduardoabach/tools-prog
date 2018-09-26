@@ -1,47 +1,74 @@
 <html>
 <head>
    <meta charset="UTF-8">
-   <title>Server-sent events demo</title>
+   <title>Msg</title>
+
+   <style>
+   		.box{
+   			font-size: 12px;
+   			width: 40%;
+   		}
+   		.chat{
+   			border: 3px solid #999999;
+   			padding: 10px;
+   		}
+   		#conversa_box{
+   			height: 50%;
+   			max-height: 50%;
+   			overflow-y: auto;
+   			border: 1px solid #999999;
+   		}
+   		#conversa_box hr{
+   			 border: 0; 
+   			 height: 0; 
+   			 border-top: 1px solid rgba(0, 0, 0, 0.1); 
+   			 border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+   		}
+   		#conversa_box small{
+   			font-size: 8px;
+   		}
+   		#msg_send_box{
+   			height: 20%;
+   			width: 100%;
+   			border: 1px solid #999999;
+   		}
+   </style>
 </head>
 <body>
-  <button>Close the connection</button>
 
-  <ul>
-  </ul>
+	<div class="box">
+		<div class="chat">
+			<div class="chat_menu" >
+				Sala: <input type="text" id="msg_sala" size="5" value="home" onchange="chat.SetSala(this.value);">
+				Nome: <input type="text" id="msg_nick" size="5" value="Jack" onchange="chat.SetNick(this.value);">
+				<input type="button" value="Conectar" onclick="chat.Conect();">
+				<input type="button" value="Conectar" onclick="chat.Disconect();">
+			</div>
+			<div id="conversa_box" ></div>
+			<br>
+			<div>
+				<textarea id="msg_send_box" onkeydown="if(event.keyCode == 13 || event.which == 13) chat.SendMsg(msg_send_box.value)"></textarea>
+				<input type="button" value="Enviar" onclick="chat.SendMsg(msg_send_box.value);">
+			</div>
+		</div>
+	</div>
 
-<script>
-  
-  var button = document.querySelector('button');
-  var evt = new EventSource('sse.php');
-  
-  // console.log(evt.withCredentials);
-  // console.log(evt.readyState);
-  // console.log(evt.url);
-  
-  var eList = document.querySelector('ul');
-  evt.onopen = function() {
-    console.log("Connection to server opened.");
-  };
+	<script src="js/messenger.js"></script>
+	<script>
+	 	var chat = Object.create(Messenger);
+	 	chat.Init('sse.php', 'msg.php', conversa_box);
+	 	chat.SetSala(msg_sala.value);
+	 	chat.SetNick(msg_nick.value);
+	 	chat.SetCallbackSend(function(){
+	 		conversa_box.scrollTop = conversa_box.scrollHeight;
+	 		msg_send_box.value = '';
+	 		msg_send_box.focus();
+	 	});
+	 	chat.SetCallbackReceive(function(){
+	 		conversa_box.scrollTop = conversa_box.scrollHeight;
+	 	});
 
-  evt.onmessage = function(e) {
-    var obj = JSON.parse(JSON.parse(e.data));
-    eList.innerHTML += "<hr>"+obj.nick + ": " + obj.msg + "<br><small>" + obj.data + "</small>";
-  }
-  evt.onerror = function() {
-    console.log("EventSource failed.");
-  };
-  button.onclick = function() {
-    console.log('Connection closed');
-    evt.close();
-  }
+	</script>
 
-  // evtSource.addEventListener("ping", function(e) {
-  //   var newElement = document.createElement("li");
-  //
-  //   var obj = JSON.parse(e.data);
-  //   newElement.innerHTML = "ping at " + obj.time;
-  //   eventList.appendChild(newElement);
-  // }, false);
-</script>
 </body>
 </html>
