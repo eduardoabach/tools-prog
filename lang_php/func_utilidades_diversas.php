@@ -113,5 +113,13 @@
 		return $engine;
 	}
 
+	//func get args
+	function coalesce(){//considera NULL e '' como 'vazio
+	   for ($i = 0; $i < func_num_args(); $i++){
+	      if (func_get_arg($i) || func_get_arg($i)===0){
+	         return func_get_arg($i);
+	      }
+	   }
+	}
 
 ?>

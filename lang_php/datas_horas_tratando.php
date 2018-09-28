@@ -201,6 +201,40 @@ function tempoEntreDatas($data1, $data2) {
 	return $val.' '.$unidade;
 }
 
+
+function data_hora_resumo($timestamp, $use_gmt = false){
+	if (is_string($timestamp)) {
+		$timestamp = strtotime($timestamp);
+	}
+
+	$now = ($use_gmt) ? mktime() : time();
+	$diff = $now - $timestamp;
+	$day_diff = floor($diff / 86400);
+
+	if ($day_diff < 0) {
+		return 'agora';
+	}
+
+	if ($diff < 60) {
+		return 'agora';
+	} else if ($diff < 120) {
+		return '1 minuto atrás';
+	} else if ($diff < 3600) {
+		return floor($diff / 60) . ' minutos atrás';
+	} else if ($diff < 7200) {
+		return '1 hora atrás';
+	} else if ($diff < 86400) {
+		return floor($diff / 3600) . ' horas atrás';
+	} else if ($day_diff == 1) {
+		return 'ontem';
+	} else if ($day_diff < 7) {
+		return $day_diff . " dias atrás";
+	} else {
+		return ceil($day_diff / 7) . ' semanas atrás';
+	}
+
+}
+
 // get_dias_uteis_entre_datas(date_create('2017-01-01'), date_create('2017-02-01'));
 // get_dias_uteis_entre_datas(date_create(date('Y-m-01')), date_create(date('Y-m-t')));
 function get_dias_uteis_entre_datas(DateTime $dataInicial, DateTime $dataFinal){

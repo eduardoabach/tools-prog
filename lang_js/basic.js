@@ -1,4 +1,8 @@
 
+
+// quantidade de elementos no DOM
+document.getElementsByTagName('*').length
+
 alert('test');
 
 
