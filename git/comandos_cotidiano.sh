@@ -28,6 +28,9 @@ git add item_alterado_exemplo.php
 git commit -m "Exemplo alteracao branch dev"
 git push # fecha ciclo da alteração no branch, mas o master nao tem ela ainda
 
+#Criar branch baseado em outro existente
+git checkout -b tarefa_xx origin/tarefa_yy
+
 # Alterar a ultima mensagem de commit
 git commit -m "Exemplo de novo texto do commit, vai substituir o existente anterior" --amend
 
@@ -92,6 +95,15 @@ git merge dev
 # Para resolver deve retirar o arquivo e com o fetch volta a funcionar
 rm .git/refs/remotes/origin/master
 git fetch
+
+#Erro de contagem de objetos, enumerate objects
+# entrar na pasta .git e apagar todo o conteudo dos objetos:
+rm objects/* -R -q
+git pull #atualizou para o master novamente, mas apresentou erros no branch e no stash
+git fetch
+git reset --hard origin/master #marcamos o master para referência do projetos
+git pull
+git stash clean #limpo o stash
 
 # Ignorar suas alteracoes e pegar o master
 # ATENÇÃO, isso distroi até o que tem comitado local e não fez push ainda! 

@@ -129,12 +129,15 @@ SELECT repeat('Pg', 4); --out: PgPgPgPg, loop em string
 SELECT replace('um {aplic} padrão.', '{aplic}', 'teste'); --out: um teste padrão. substituir parte de string
 
 -- Concatenar, unir strings, atenção para a diferença da function concat e os simples || com valores nulos.
+-- Concat está disponível depois do postgres versão 9.1
 SELECT concat('a', 'b') --out:ab
 SELECT concat('a', 'b', 'c') --out:abc
 SELECT concat('a', null, 'c') --out:ac
 SELECT 'a' || 'b' --out:ab
 SELECT 'a' || 'b' || 'c' --out:abc
 SELECT 'a' || null || 'c' --out: null
+SELECT 'c ' || COALESCE(null,'') || COALESCE(' de.','') --out: "c  de." pode usar em substituicao ao concat() em versoes mais antigas, || com COALESCE
+
 
 -- Delimitando valor entre string
 SELECT split_part('abc(@)def(@)ghi(@)jkl', '(@)', 1) --out: abc

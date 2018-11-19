@@ -82,7 +82,8 @@ sudo nmap -sS -A -O -P0 -v hostname.domain
 #Scan de algumas possiveis vulnerabilidades, pontos de interesse
 sudo nmap -Pn --script vuln 127.0.0.1
 
-
+#Para abrir gerenciador de arquivos do linux ubuntu como root
+sudo nautilus
 
 #Lista o ip na rede
 ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'
