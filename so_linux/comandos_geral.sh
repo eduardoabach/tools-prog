@@ -118,6 +118,9 @@ htop
 #adicionar um usuario
 adduser nome_user
 
+#remover um usuario, o -r remove o diretório
+userdel -r vivek
+
 #Transformar usuário em root, para funcionar deve estar logado no terminal como root
 usermod -aG sudo nome_user
 
