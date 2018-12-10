@@ -15,6 +15,9 @@ SELECT pg_catalog.pg_size_pretty(pg_database_size(current_database()));
 /*Listar bases*/
 SELECT datname FROM pg_database WHERE datistemplate = false ORDER BY datname;
 
+/*Alterar o schema atual*/
+SET search_path TO nome_schema_padrao_desejado;
+
 /*Nome do schema atual*/
 show search_path;
 SELECT catalog_name FROM information_schema.information_schema_catalog_name;

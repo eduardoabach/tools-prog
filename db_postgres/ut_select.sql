@@ -1,4 +1,7 @@
 
+/*Alterar o schema atual*/
+SET search_path TO nome_schema_padrao_desejado;
+
 -- Paginação com LIMIT e OFFSET
 SELECT coluna FROM tabela LIMIT 15 OFFSET 60; --15 itens, página 4 (15*4)
 
@@ -17,6 +20,9 @@ WHERE codigo IS NOT NULL
             ELSE NULL
         END
     ) IS NOT NULL
+
+-- Order crescente normal, mas com os valores NULL primeiro
+SELECT nome, data_inscricao FROM tabela_exemplo ORDER BY data_inscricao NULLS FIRST
 
 -- Order de um varchar, mas focando na ordem numérica
 SELECT * FROM tabela_exemplo ORDER BY NULLIF(regexp_replace(nome_coluna_varchar, '\D', '', 'g'), '')::int
