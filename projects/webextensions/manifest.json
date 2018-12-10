@@ -1,0 +1,26 @@
+{
+
+  "manifest_version": 2,
+  "name": "Borderify",
+  "version": "1.1",
+
+  "description": "Adiciona uma borda vermelha a todas as páginas da Web correspondentes a mozilla.org.",
+
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "borderify@example.com"
+    }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.google.com/*"],
+      "js": ["borderify.js"]
+    }
+  ]
+
+}
