@@ -41,9 +41,21 @@ apt-get install aaa #debian, ubuntu
 yum install mysql-server #centos, fedora
 yum install php-pgsql
 
+# Debian / Ubuntu, pacotes, atualizações, desinstalar...
+apt-get update
+apt-get upgrade
+apt-get install
+apt-get --purge remove postgresql postgresql-doc postgresql-common
+apt-get autoremove
+
+# Listar pacotes instalados
+dpkg -l | grep postgres
+
 # Manipular serviços
-/etc/init.d/apache2 restart #debian, ubuntu
-service httpd restart #centos, fedora
+/etc/init.d/apache2 restart
+service httpd restart
+service postgresql restart
+
 
 # Adicionar comando ao iniciar OS, editar arquivo como preferir, usando o nano no exemplo
 nano /etc/rc.d/rc.local

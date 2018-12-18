@@ -12,3 +12,8 @@ pg_dump -f nome_arquivo_db.dump --username=postgres --host=10.1.1.99 nome_da_bas
 
 //Restaurar arquivo de base com arquivo
 psql -h 127.0.0.1 -U username -d nomebase -f ./arquivo_destino_da_base
+
+//Alterar senha do db
+su - postgres
+psql -d template1 -c "ALTER USER postgres WITH PASSWORD 'newpassword';"
+

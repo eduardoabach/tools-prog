@@ -5,6 +5,11 @@ SET search_path TO nome_schema_padrao_desejado;
 -- Paginação com LIMIT e OFFSET
 SELECT coluna FROM tabela LIMIT 15 OFFSET 60; --15 itens, página 4 (15*4)
 
+-- ctid é uma coluna de identificação usada pelo banco de dados, 
+-- pode ser usada para identificar registros em tabelas sem chave primária única
+SELECT ctid, * from movimentos limit 10
+
+
 -- Fields com case
 SELECT (case when campo_exemplo = 'teste' then 'result_1' else 'result_2' end) as teste_case_campo FROM tabela_exemplo
 
@@ -175,9 +180,11 @@ SELECT chr(165); --out: ¥
 SELECT chr(181); --out: µ
 SELECT chr(208); --out: Ð
 
--- Mostrar campo nome que não estão no group by
--- reunir vários registros, ao estilo SUM concatenando strings
-SELECT string_agg(nome, ', '), count(1) FROM produtos GROUP BY categoria; 
+-- Mostrar campo string que não está no group by, agrupando eles em um row
+-- reunir vários registros, ao estilo de uso do SUM
+-- pode usar o DISTINCT para ignorar duplicados
+SELECT string_agg(fabricante, ', ') as fabricantes_disponiveis, sum(qtd) as estoque FROM produtos GROUP BY categoria; 
+SELECT string_agg(DISTINCT fabricante, ', ') as fabricantes_disponiveis, sum(qtd) as estoque FROM produtos GROUP BY categoria; 
 
 -- Count simples, soma para contagem por situação em IF
 SELECT

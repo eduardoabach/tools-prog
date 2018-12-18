@@ -60,51 +60,21 @@ DECLARE
 BEGIN
     FOR row IN SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public' AND (substr(tablename, 1, 3) IN ('fg_'))
     LOOP
-        EXECUTE 'ALTER TABLE public.' || quote_ident(row.tablename) || ' SET SCHEMA solucoesglobais;';
+        EXECUTE 'ALTER TABLE public.' || quote_ident(row.tablename) || ' SET SCHEMA outro_nome_schema;';
     END LOOP;
 END;
 $$ LANGUAGE PLPGSQL;
 
-UPDATE solucoesglobais.cadcli set aposentadoria_multi = 'M' --P
+-------------------------------------------------------------------
 
+create or replace function bytea_import(p_path text, p_result out bytea) 
+                   language plpgsql as $$
+declare
+  l_oid oid;
+begin
+  select lo_import(p_path) into l_oid;
+  select lo_get(l_oid) INTO p_result;
+  perform lo_unlink(l_oid);
+end;$$;
 
--- funcional 2
-
-
-DO
-$$
-DECLARE
-    row record;
-    aux record;
-BEGIN
-    --se existem as duas tabelas, apenas a un_cadcli deve ficar
-    EXECUTE 'SELECT count(*) as qtd FROM pg_catalog.pg_tables WHERE schemaname = ''public'' AND tablename in(''un_cadcli'',''fg_clientes'')' INTO aux;
-    IF(aux.qtd = 2) THEN
-    EXECUTE 'DROP TABLE public.fg_clientes;';
-    END IF;
-
-    ALTER TABLE public.un_agencias RENAME TO fg_agencias;
-    ALTER TABLE public.un_bairros RENAME TO fg_bairros;
-    ALTER TABLE public.un_bancos RENAME TO fg_bancos;
-    ALTER TABLE public.un_cadcli RENAME TO fg_clientes;
-    ALTER TABLE public.un_cidades RENAME TO fg_cidades;
-    ALTER TABLE public.un_ruas RENAME TO fg_ruas;
-    ALTER TABLE public.un_unico RENAME TO fg_unico;
-
-    FOR row IN SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public' AND (substr(tablename, 1, 3) IN ('fg_'))
-    LOOP
-    EXECUTE 'SELECT count(*) as qtd FROM pg_catalog.pg_tables WHERE schemaname = ''solucoesglobais'' AND tablename = ''' || quote_ident(row.tablename) || '''' INTO aux;
-    IF(aux.qtd > 0) THEN
-        EXECUTE 'DROP TABLE solucoesglobais.' || quote_ident(row.tablename) || ';';
-    END IF;
-    EXECUTE 'ALTER TABLE public.' || quote_ident(row.tablename) || ' SET SCHEMA solucoesglobais;';
-    END LOOP;
-
-    EXECUTE 'SELECT count(*) as qtd FROM pg_catalog.pg_tables WHERE schemaname = ''public'' AND (substr(tablename, 1, 3) IN (''fg_''))' into aux;
-    IF(aux.qtd > 0) THEN
-    UPDATE solucoesglobais.cadcli set aposentadoria_multi = 'P'; --P
-    ELSE
-    UPDATE solucoesglobais.cadcli set aposentadoria_multi = 'M'; --P
-    END IF;
-END;
-$$ LANGUAGE PLPGSQL;
+--insert into my_table(bytea_data) select bytea_import('/my/file.name');

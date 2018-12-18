@@ -53,6 +53,7 @@ SELECT datname,usename,client_addr,client_port FROM pg_stat_activity;
 select setting from pg_settings where name = 'port'
 SHOW ALL;
 SHOW port;
+SHOW data_directory;
 SHOW search_path;
 SHOW server_encoding;
 SHOW server_version;
