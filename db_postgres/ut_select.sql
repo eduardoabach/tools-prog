@@ -13,6 +13,14 @@ SELECT ctid, * from movimentos limit 10
 -- Fields com case
 SELECT (case when campo_exemplo = 'teste' then 'result_1' else 'result_2' end) as teste_case_campo FROM tabela_exemplo
 
+-- WHERE com count, apenas número maior que x, usando sub select
+-- nesse exemplo, procurando por rg duplicados
+SELECT * FROM (
+	SELECT count(*) as qtd, rg
+	FROM pessoas 
+	GROUP BY rg
+) as tb WHERE tb.qtd > 1
+
 -- Where com case
 SELECT * FROM tabela_exemplo 
 WHERE codigo IS NOT NULL
@@ -32,7 +40,7 @@ SELECT nome, data_inscricao FROM tabela_exemplo ORDER BY data_inscricao NULLS FI
 -- Order de um varchar, mas focando na ordem numérica
 SELECT * FROM tabela_exemplo ORDER BY NULLIF(regexp_replace(nome_coluna_varchar, '\D', '', 'g'), '')::int
 
--- SUB SELECT
+-- SUB SELECT, tabelas simuladas usando values
 SELECT meses.cod, meses.mes, busca.*
 FROM (values(1,'Jan'),(2,'Fev'),(3,'Mar')) as meses (cod,mes)
 LEFT JOIN (
@@ -119,8 +127,21 @@ SELECT RPAD(numcol::text, 3, '0'), LPAD(numcol::text, 3, '0') FROM my_table
 
 -- Contar quantidade de letras...
 SELECT length(cast ('125556' as text)); --out: 6
+SELECT length('AAA'); -- out 3
+SELECT length(' A '); -- out 3
+SELECT length('1A '); -- out 3
+SELECT length('1A'); -- out 2
+SELECT length(''); -- out 0
+SELECT length(null); -- out null
+SELECT length('1A') > 0; -- out true
+SELECT length('0') > 0; -- out true (1)
+SELECT length('') > 0; -- out false
+SELECT length(null) > 0; -- out null
+SELECT null IS NOT NULL AND length(null) > 0; -- out false, usar esse.
 SELECT char_length(cast ('125556' as text)); --out: 6
 SELECT strpos('algum no texto, continuação do texto.', 'text'); --out: 10
+SELECT strpos('algum no texto, continuação do texto.', 'algum'); --out: 1
+SELECT strpos('algum no texto, continuação do texto.', 'teste'); --out: 0
 
 -- Manipulando string
 SELECT lower('Tom'); --out: tom
@@ -298,3 +319,8 @@ SELECT 'SELECT ' || array_to_string(ARRAY(SELECT 'f' || '.' || c.column_name
             WHERE table_name = 'nome_tabela'  and schema = 'public'
             AND  c.column_name NOT IN('id')
     ), ',') || ' FROM public.nome_tabela as t' As sqlstmt
+
+
+SELECT * FROM pg_indexes 
+	WHERE tablename = 'nome_tabela' 
+	and schemaname = 'nome_schema' 
