@@ -34,6 +34,22 @@ for($posHoriz = 1; $posHoriz <= $repeticoes; $posHoriz++){
         $linhaOld = explode(' | ', $linhaAt);
 }
 
+// ---------------------------------------------------------------
+
+function pascal_triangle($c, $r){
+    if ($c == 0 || $c == $r) {
+        return 1;
+    } else {
+        return pascal_triangle($c-1, $r-1) + pascal_triangle($c, $r - 1);
+    }
+}
+
+echo pascal_triangle(1,3), "\n";
+
+
+
+
+
 ?>
 </div>
 
