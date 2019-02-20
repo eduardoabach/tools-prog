@@ -2,9 +2,20 @@
 
 trigger_error("Unable to load class: $class", E_USER_WARNING);
 
+// ----------------------------------------------------------
+
+$list = array(
+  'nome' => 'Ana',
+  'idade' => 28
+);
+echo (array_key_exists('nome', $list)) ? $list['nome'] : '';
+
+// ----------------------------------------------------------
+
 $b64Test = base64_encode('string');
 echo base64_decode($b64Test); // echo 'string'
 
+// ----------------------------------------------------------
 
 // Nome de variável dinâmico
 for($i=0; $i<10;$i++){
@@ -12,6 +23,8 @@ for($i=0; $i<10;$i++){
 }
 echo $ex0; // out: Exemplo 0
 echo $ex8; // out: Exemplo 8
+
+// ----------------------------------------------------------
 
 var_dump(property_exists('myClass', 'exemplo')); //true
 var_dump(property_exists(new myClass, 'exemplo')); //true
@@ -27,7 +40,7 @@ var_dump(method_exists($directory,'read'));
 if(function_exists('imap_open'))
 	die('existe');
 
-
+// ----------------------------------------------------------
 
 print_r(get_declared_classes());
 /* Array(
@@ -60,6 +73,8 @@ print_r($arr["_SERVER"]);
 
 // mostra todos os indíces possíveis para a matriz de variáveis
 print_r(array_keys(get_defined_vars()));
+
+// ----------------------------------------------------------
 
 print_r(get_loaded_extensions());
 /* Array(
@@ -102,11 +117,14 @@ $var = "";
 settype($var, 'bool');
 var_dump($var); // false
 
+// ----------------------------------------------------------
+
 
 // VER TODOS OS ERROS
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 
+// ----------------------------------------------------------
 
 // Constantes pré-definidas
 PHP_VERSION //(string) 

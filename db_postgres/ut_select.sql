@@ -266,35 +266,58 @@ SELECT least(5, 100, 8.8) --out 5
 SELECT least(5, 0, -1, 0.9) --out -1
 SELECT least(5, 0, -1, -1.01) --out -1.01
 
+-- Replace para NULL quando valor for igual ao segundo parametro
+SELECT NULLIF (1, 1); -- return NULL
+SELECT NULLIF (1, 0); -- return 1
+SELECT NULLIF ('A', 'B'); -- return A
+SELECT NULLIF ('A', 'A'); -- return NULL
+SELECT NULLIF ('', ''); -- return NULL
+
 
 -- TESTES GERAIS ------------------
 
-select null = null; -- null
-select '' = null; -- null
-select 10 = null; -- null
-select false = null; -- null
-select true = null; -- null
+SELECT null = null; -- null
+SELECT '' = null; -- null
+SELECT 10 = null; -- null
+SELECT false = null; -- null
+SELECT true = null; -- null
 
-select null is null; -- true
-select '' is null; -- false
-select 10 is null; -- false
-select false is null; -- false
-select true is null; -- false
+SELECT null is null; -- true
+SELECT '' is null; -- false
+SELECT 10 is null; -- false
+SELECT false is null; -- false
+SELECT true is null; -- false
 
-select null > 0; -- null
-select 4 > null; -- null
+SELECT null > 0; -- null
+SELECT 4 > null; -- null
 
-select '4'::int > 0; -- true
-select '4'::int = 4; -- true
-select '5' > '4'; -- true
-select '5' > '4,55'; -- true
-select '5' > '4.55'; -- true
-select '5,11' > '4.55'; -- true
-select 5.11 > '4.55'; -- true
-select 5.11 > '4.55'; -- true
-select 5.11 > '0'; -- true
-select 5.11 > ''; -- erro
-select 5.11 > ''::int; -- erro
+SELECT '4'::int > 0; -- true
+SELECT '4'::int = 4; -- true
+SELECT '5' > '4'; -- true
+SELECT '5' > '4,55'; -- true
+SELECT '5' > '4.55'; -- true
+SELECT '5,11' > '4.55'; -- true
+SELECT 5.11 > '4.55'; -- true
+SELECT 5.11 > '4.55'; -- true
+SELECT 5.11 > '0'; -- true
+SELECT 5.11 > ''; -- erro
+SELECT 5.11 > ''::int; -- erro
+
+---------------------------------
+
+-- Usar campo string / varchar / text como um campo integer
+SELECT NULLIF(REGEXP_REPLACE(null, '[^[:digit:]]*', '', 'g'), '')::integer --null
+SELECT NULLIF(REGEXP_REPLACE('teste', '[^[:digit:]]*', '', 'g'), '')::integer --null
+SELECT NULLIF(REGEXP_REPLACE('asd@!ad 55. as\da#+!@s.', '[^[:digit:]]*', '', 'g'), '')::integer -- out 55
+SELECT NULLIF(REGEXP_REPLACE('5487', '[^[:digit:]]*', '', 'g'), '')::integer --5487
+
+-- Apenas letras de uma string
+SELECT REGEXP_REPLACE('_A.BC12345xy.z_','[^[:alpha:]]','','g'); --out "ABCxyz"
+SELECT REGEXP_REPLACE('_A.BC12345xy.z_','[[:alpha:]]','','g'); --out "_.12345._" (remove apenas as letras, o oposto)
+-- Apenas numeros de uma string
+SELECT REGEXP_REPLACE('_A.BC12345xy.z_','[^[:digit:]]','','g'); --out "12345"
+SELECT REGEXP_REPLACE('_A.BC12345xy.z_','[[:digit:]]','','g'); --out "_A.BCxy.z_" (remove apenas os numeros, o oposto)
+
 
 ---------------------------------
 

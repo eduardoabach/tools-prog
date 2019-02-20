@@ -1,5 +1,4 @@
 
-
 -- Simples
 INSERT INTO nome_tabela_exemplo (nome_coluna) VALUES ('Carlos');
 

@@ -12,6 +12,7 @@ git pull origin master
 # Processo de trabalho normal
 git status
 git add pasta/arquivo
+git add --all
 git commit -m "#21 O que foi feito nos arquivos envolvidos..."
 git pull
 git push
@@ -20,7 +21,7 @@ git push
 # os comites e alterações no branch ficam nele
 # ao trocar, volta a situação do anterior
 git branch # lista de existentes local
-git branch -a #lsita existentes local e remoto
+git branch -a #lista existentes local e remoto
 git checkout -b nome_nome_exemplo # para criar um novo branch chamado 'nome_nome_exemplo'
 git branch -d nome_nome_exemplo # exclui o branch
 git checkout dev # vai para o branch dev
@@ -54,6 +55,11 @@ git pull # atualizar novamente o master, aqui alguem pode ter sincronizado antes
 git merge dev # enfim a alteraao chega no master, caso tenha feito tudo correto, nada vai dar errado aqui :)
 git push # tudo resolvido, mandar alteracao para todos
 
+
+# Trabalhando com branch, para atualizar os excluidos
+git pull --prune
+# ou para simplificar
+git pull -p
 
 # Tags e versoes
 git fetch --all --tags --prune
