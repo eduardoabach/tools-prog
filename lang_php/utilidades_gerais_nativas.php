@@ -117,8 +117,192 @@ $var = "";
 settype($var, 'bool');
 var_dump($var); // false
 
+
 // ----------------------------------------------------------
 
+
+//Uso do DateTime = http://php.net/manual/pt_BR/datetime.createfromformat.php
+echo DateTime::createFromFormat('h:i:sA','4:15:03PM')->format('H:i:s'); // 16:15:03
+echo DateTime::createFromFormat('H\h i\m s\s','23h 15m 03s')->format('H:i:s'); // 23:15:03
+echo DateTime::createFromFormat('Y-m-d H:i:s', '2009-02-15 15:16:17')->format('d/m/Y h:i:s A'); // 15/02/2009 03:16:17 PM
+echo DateTime::createFromFormat('Y-m-d H:i:s', '2009-02-15 15:16:17')->add('P7Y5M4DT4H3M2S')->format('d/m/Y h:i:s A'); // 15/02/2009 03:16:17 PM
+echo DateTime::createFromFormat('Y-m-d H:i:s', '2009-02-15 15:16:17')->add(new DateInterval('PT10H30S'))->format('d/m/Y h:i:s A'); // 16/02/2009 01:16:47 AM
+
+$date = new DateTime('2000-01-01');
+$date->add(new DateInterval('PT10H30S'));
+echo $date->format('Y-m-d H:i:s') . "\n";
+
+// ----------------------------------------------------------
+
+
+echo strtoupper('Teste de 3 tenTATIvas.'); // TESTE DE 3 TENTATIVAS.
+echo strtoupper('teste de 3 tentativas.'); // TESTE DE 3 TENTATIVAS.
+echo strtoupper('TESTE DE 3 TENTATIVAS.'); // TESTE DE 3 TENTATIVAS.
+
+echo strtolower('Teste de 3 tenTATIvas.'); // teste de 3 tentativas.
+echo strtolower('teste de 3 tentativas.'); // teste de 3 tentativas.
+echo strtolower('TESTE DE 3 TENTATIVAS.'); // teste de 3 tentativas.
+
+echo ucfirst('Teste de 3 tenTATIvas.'); // Teste de 3 tenTATIvas.
+echo ucfirst('teste de 3 tentativas.'); // Teste de 3 tentativas.
+echo ucfirst('TESTE DE 3 TENTATIVAS.'); // TESTE DE 3 TENTATIVAS.
+
+echo ucwords('Teste de 3 tenTATIvas.'); // Teste De 3 TenTATIvas.
+echo ucwords('teste de 3 tentativas.'); // Teste De 3 Tentativas.
+echo ucwords('TESTE DE 3 TENTATIVAS.'); // TESTE DE 3 TENTATIVAS.
+
+$teste = 'Ana';
+echo str_pad($teste, 10); // "Ana       "
+echo str_pad($teste, 10, "=-", STR_PAD_LEFT); // "=-=-=-=Ana"
+echo str_pad($teste, 10, "_", STR_PAD_BOTH); // "___Ana____"
+
+echo substr('Ana Maria da Silva', 0, 10); //corta texto, "Ana Maria "
+echo substr('Sábado', 0, 3); //corta texto, "Sá"
+echo mb_substr('Sábado', 0, 3); //corta texto, "Sáb"
+
+echo str_replace('teste', 'novo', 'Algum texto de exemplo: teste.') // Algum texto de exemplo: novo.
+
+// Exibir caracteres unicode
+echo json_decode('"\u001B"');
+
+// ----------------------------------------------------------
+
+// ## NÚMEROS #########################################################################
+
+$num = 25;
+
+$raizQuadrada = sqrt($num); // 5
+
+$potencia = 2;
+$potencia = pow($num,$potencia); // 625
+
+$graus = 45; // inclinação...
+$radianos = deg2rad($graus); // 0.785398163397
+$grausNovamente = rad2deg($radianos);
+$seno = sin($radianos);
+$cosseno = cos($radianos);
+$tangente = tan($radianos);
+
+echo pi(); // 3.1415926535898
+echo M_PI; // 3.1415926535898
+echo M_SQRTPI; // raiz de pi, 1.77245385090551602729
+
+$hipotenusa = hypot(3,4); // 5, = sqrt(3*3+4*4);
+
+$numDecimal = 256;
+$numBinario = base_convert($numDecimal, 10, 2);
+$numHexa = base_convert($numDecimal, 10, 16);
+
+echo log(8, 2); // logaritmo, o result é 3, 2*2*2 = 8
+echo log(25, 5); // result é 2, 5*5 = 25
+
+
+// COMPARANDO DECIMAIS NO PHP
+// Isso ocorre porque, internamente, o PHP não arredonda automaticamente as casas decimais em suas operações matemáticas
+// e se isso for somado ao fato dos processadores dos computadores apresentarem pontos flutuantes em algumas operações
+// certamente essa flutuação (ou variação, se preferir) aparecerá em algum momento se não for corrigida.
+
+// Conta #1 - Comparando 0.25 e 0.25: valores iguais
+$varA = 0.25;
+$varB = 1 - 0.75; // 0.25
+$resultadoConta2 = ($varA == $varB) ? 'valores iguais' : 'valores diferentes';
+echo 'Conta #1 - Comparando '.$varA.' e '.$varB.': '.$resultadoConta2.'<br>';
+
+// Conta #2 - Comparando 0.23 e 0.23: valores diferentes
+$varA = 0.23;
+$varB = 1 - 0.77; // 0.23
+$resultadoConta2 = ($varA == $varB) ? 'valores iguais' : 'valores diferentes';
+echo 'Conta #2 - Comparando '.$varA.' e '.$varB.': '.$resultadoConta2.'<br>';
+
+// Conta #3 - Comparando 0.23 e 0.23: valores iguais
+$varA = round(0.23, 2);
+$varB = round(1 - 0.77, 2); // 0.23
+$resultadoConta2 = ($varA == $varB) ? 'valores iguais' : 'valores diferentes';
+echo 'Conta #3 - Comparando '.$varA.' e '.$varB.': '.$resultadoConta2.'<br>';
+
+// ----------------------------------------------------------
+
+// ## JSON #########################################################################
+
+
+echo json_encode("teste");
+
+$string = "minha string";
+$fp = fopen('arquivo.json', 'w');
+fwrite($fp, json_encode($string));
+fclose($fp);   
+
+$noticias = array(
+array(
+    "titulo" => "noticia 1",
+    "corpo" => "corpo da noticia 1",
+    "data" => "02/07/2014"
+    ),
+
+array(
+    "titulo" => "noticia 2",
+    "corpo" => "corpo da noticia 2",
+    "data" => "02/07/2014"
+),
+
+array(
+    "titulo" => "noticia 3",
+    "corpo" => "corpo da noticia 3",
+    "data" => "02/07/2014"
+),
+
+array(
+    "titulo" => "noticia 4",
+    "corpo" => "corpo da noticia 4",
+    "data" => "02/07/2014"
+)
+);
+
+echo json_encode($noticias);
+ 
+// Atribui o conteúdo do arquivo para variável $arquivo
+$arquivo = file_get_contents('cadastro.json');
+ 
+// Decodifica o formato JSON e retorna um Objeto
+$json = json_decode($arquivo);
+ 
+// Loop para percorrer o Objeto
+foreach($json as $registro):
+    echo 'Código: ' . $registro->codigo . ' - Nome: ' . $registro->nome . ' - Telefone: ' . $registro->telefone . '<br>';
+endforeach;
+
+// ----------------------------------------------------------
+
+
+$cpf = preg_replace("/[^0-9]/", '', '165.083.943-04'); //out: 16508394304
+
+// ----------------------------------------------------------
+
+convBase('123', '0123456789', '01234567');
+//Convert '123' from decimal (base10) to octal (base8).
+//result: 173
+
+convBase('70B1D707EAC2EDF4C6389F440C7294B51FFF57BB', '0123456789ABCDEF', '01');
+//Convert '70B1D707EAC2EDF4C6389F440C7294B51FFF57BB' from hexadecimal (base16) to binary (base2).
+//result:
+//111000010110001110101110000011111101010110000101110
+//110111110100110001100011100010011111010001000000110
+//001110010100101001011010100011111111111110101011110
+//111011
+
+convBase('1324523453243154324542341524315432113200203012', '012345', '0123456789ABCDEF');
+//Convert '1324523453243154324542341524315432113200203012' from senary (base6) to hexadecimal (base16).
+//result: 1F9881BAD10454A8C23A838EF00F50
+
+convBase('355927353784509896715106760','0123456789','Christopher');
+//Convert '355927353784509896715106760' from decimal (base10) to undecimal (base11) using "Christopher" as the numbers.
+//result: iihtspiphoeCrCeshhorsrrtrh
+
+convBase('1C238Ab97132aAC84B72','0123456789aAbBcCdD', '~!@#$%^&*()');
+//Convert'1C238Ab97132aAC84B72' from octodecimal (base18) using '0123456789aAbBcCdD' as the numbers to undecimal (base11) using '~!@#$%^&*()' as the numbers.
+//result: !%~!!*&!~^!!&(&!~^@#@@@&
+
+// ----------------------------------------------------------
 
 // VER TODOS OS ERROS
 ini_set('error_reporting', E_ALL);

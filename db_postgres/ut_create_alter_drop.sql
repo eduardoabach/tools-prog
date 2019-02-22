@@ -56,3 +56,6 @@ ALTER TABLE nome_tabela DROP COLUMN tipo;
 
 ALTER TABLE nome_tabela ADD COLUMN remuneracao numeric(6,2);
 ALTER TABLE nome_tabela ALTER COLUMN remuneracao TYPE numeric(8,4);
+
+ALTER TABLE nome_tabela ALTER COLUMN nome_cliente DROP NOT NULL; -- remover not null de campo
+
