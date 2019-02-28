@@ -190,8 +190,8 @@ SELECT convert_to('algum texto...', 'UTF8');
 SELECT encode('teste', 'base64'); -- out: dGVzdGU=
 SELECT decode('dGVzdGU=', 'base64'); -- out: teste
 SELECT to_hex(255); --out: ff
-SELECT translate(upper('texto de exemplo.'), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 'CDEFGHIJKLMNOPQRSTUVWXYZAB2345678901'); --out: VGZVQ FG GZGORNQ.
-SELECT translate('VGZVQ FG GZGORNQ.', 'CDEFGHIJKLMNOPQRSTUVWXYZAB2345678901', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'); --out: TEXTO DE EXEMPLO.
+SELECT translate(upper('texto de exemplo.'), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,', '?DEFGHIJKLMNOPQRSTUVWXYZAB2345678901C~!'); --out: "VGZVQCFGCGZGORNQ~"
+SELECT translate('VGZVQCFGCGZGORNQ~', '?DEFGHIJKLMNOPQRSTUVWXYZAB2345678901C~!', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,'); --out: "TEXTO DE EXEMPLO."
 
 -- Exibir caract UTF8 usando código
 SELECT chr(65); --out: A
@@ -258,7 +258,7 @@ SELECT round(5.500001) --out: 6
 SELECT round(5.9999) --out: 6
 
 -- maior número
-SELECT greatest(0, 5) --out: 5 // bom para evita números negativos, ou apenas maiores que X
+SELECT greatest(0, 5) --out: 5 // bom para evitar números negativos, ou apenas maiores que X
 SELECT greatest(0, -5) --out: 0
 
 -- menor número
