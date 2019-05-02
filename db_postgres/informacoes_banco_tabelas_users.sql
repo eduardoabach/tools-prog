@@ -36,6 +36,48 @@ FROM information_schema.tables
 WHERE table_type = 'BASE TABLE' AND table_schema not IN('information_schema', 'pg_catalog')
 ORDER BY table_schema, table_name; --table_type = 'VIEW'
 
+/* Listar FOREIGN KEY(fks) de uma tabela */
+SELECT
+    tc.table_schema, 
+    tc.constraint_name, 
+    tc.table_name, 
+    kcu.column_name, 
+    ccu.table_schema AS foreign_table_schema,
+    ccu.table_name AS foreign_table_name,
+    ccu.column_name AS foreign_column_name
+FROM 
+    information_schema.table_constraints AS tc 
+	JOIN information_schema.key_column_usage AS kcu 
+		ON tc.constraint_name = kcu.constraint_name AND tc.table_schema = kcu.table_schema
+	JOIN information_schema.constraint_column_usage AS ccu
+		ON ccu.constraint_name = tc.constraint_name AND ccu.table_schema = tc.table_schema
+WHERE tc.constraint_type = 'FOREIGN KEY' AND tc.table_name='nome_tabela';
+/* OUTRA VERSÃO de consulta com esse objetivo */
+select 
+	att2.attname as "child_column", 
+	cl.relname as "parent_table", 
+	att.attname as "parent_column",
+	conname
+from
+	(select 
+	    unnest(con1.conkey) as "parent", 
+	    unnest(con1.confkey) as "child", 
+	    con1.confrelid, 
+	    con1.conrelid,
+	    con1.conname
+	from 
+	    pg_class cl
+	    join pg_namespace ns on cl.relnamespace = ns.oid
+	    join pg_constraint con1 on con1.conrelid = cl.oid
+	where
+	    cl.relname = 'al_movimento'
+	    and ns.nspname = 'solucoesglobais'
+	    and con1.contype = 'f'
+	) con
+	join pg_attribute att on att.attrelid = con.confrelid and att.attnum = con.child
+	join pg_class cl on cl.oid = con.confrelid
+	join pg_attribute att2 on att2.attrelid = con.conrelid and att2.attnum = con.parent
+
 /*Listar triggers*/
 SELECT 
 	event_manipulation, 
@@ -90,3 +132,11 @@ SELECT * FROM information_schema.attributes;
 SELECT column_name,data_type 
 FROM information_schema.columns 
 WHERE table_name = 'nome_da_tabela';
+
+-- SEQUENCE, alterar e cunsultar
+select pg_catalog.pg_get_serial_sequence('nome_schema.nome_tabela', 'codigo') --nome_sequence
+select nextval('nome_schema.nome_sequence')
+select pg_catalog.setval(
+	pg_catalog.pg_get_serial_sequence('nome_schema.nome_tabela', 'codigo'), 
+	(select codigo from nome_schema.nome_tabela order by codigo desc limit 1)+1
+)
