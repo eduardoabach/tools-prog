@@ -6,6 +6,8 @@ document.getElementsByTagName('*').length
 alert('test');
 
 
+// ----------------------------------------------------
+
 var respostaDeletar = confirm("Deseja deletar?");
 if (respostaDeletar == true) {
 } else {
@@ -16,13 +18,67 @@ if(idade > 18) {
 }
 
 history.back();
-history.go(-1);   
+history.go(-1);
 
+// carregar esperando tela carregar tudo antes
+document.onreadystatechange = function () {
+    if (document.readyState == "complete") {
+        initApplication();
+    }
+}
+
+//infos do browser
+alert(location);
+alert(location.pathname);
+alert(location.origin); //ultimo endereço no voltar do nav.
+alert(location.protocol);   
+alert(location.port);
+alert(location.host);
+
+//location.replace("http://www.w3schools.com"); // alterar tela sem opt de voltar, parece estar na mesma, nao mostra no historico ultima
+//navigator.plugins; // objeto lista
+//navigator.plugins['Shockwave Flash']; // objeto
+alert(navigator.plugins['Shockwave Flash'].version);
+
+//document.links //lista links tela
+//document.images //lista imgs...
+
+alert(document.lastModified);
+alert(document.cookie);
+document.cookie = "favorite_food=tripe";
+
+
+//listar plugins navegador
+var qtdPlug = navigator.plugins.length;
+
+alert(
+  qtdPlug.toString() + " Plugin(s)<br>" +
+  "Name | Filename | description<br>"
+);
+
+for(var i = 0; i < qtdPlug; i++) {
+  alert(
+    navigator.plugins[i].name +
+    " | " +
+    navigator.plugins[i].filename +
+    " | " +
+    navigator.plugins[i].description +
+    " | " +
+    navigator.plugins[i].version +
+    "<br>"
+  );
+}
+
+
+
+// ----------------------------------------------------
 
 // criar array
 var arrExemplo1 = [];
+console.log(arrExemplo1.length); // mostra 0
 arrExemplo1.push("teste"); // ["teste"], index 0
 console.log(arrExemplo1[0]); // mostra teste
+console.log(arrExemplo1.length); // mostra 1
 
 //remover itens de um array
 var arrayExemplo = ["bar", "baz", "foo", "qux"]; // index = 0,1,2,3
@@ -54,6 +110,23 @@ document.getElementById('anchor').addEventListener('click', function() {
 	console.log('anchor');
 });
 
+//verificar se existe a key no json
+if(j.hasOwnProperty('msg')){
+    alert(j.msg);
+}
+
+// ************************************************
+
+// Identificando o nome de uma class / objeto / function
+function Animal() {}
+var cachorro = new Animal();
+
+typeof Animal;        // == "function"
+typeof cachorro;      // == "object"
+
+cachorro instanceof Animal;     // == true
+cachorro.constructor.name;      // == "Animal"
+Animal.name                     // == "Animal"    
 
 // ************************************************
   
@@ -86,6 +159,67 @@ Object.assign(RoboTeste, {
 RoboTeste.nome = 'Bender';
 RoboTeste.apresentar(); //Olá, meu nome é Bender e eu sou um robô.
 RoboTeste.carregar(5); //Bender está completamente carregado.
+
+
+//http://loopinfinito.com.br/2013/02/05/heranca-em-javascript-parte-2/
+var animal = {
+  respirar: function() { alert('respirar') },
+  reproduzir: function() { alert('reproduzir') }
+};
+
+var cachorro = Object.create(animal, {
+  latir: {
+    value: function() { alert('latir') }
+  }
+});
+
+cachorro.respirar(); // método herdado
+cachorro.latir(); // método adicionado
+
+
+// *********************************
+
+var pessoa = { nome: 'Pedro', sobrenome: 'Machado' };
+function showFullName() {
+    console.log(this.nome + " " + this.sobrenome);
+}
+showFullName.call(pessoa); // Pedro Machado
+showFullName.apply(pessoa); // Pedro Machado
+
+
+var pessoa = { idade: 26 };
+function maisJovemQue() {
+    for (var i = 0; i < arguments.length; i++) {
+        console.log(this.idade < arguments[i]);
+    }
+}
+maisJovemQue.call(pessoa, 30, 40, 15); // true true false
+maisJovemQue.apply(pessoa, [30, 40, 15]); // true true false
+
+// *********************************
+
+// Uso de callback
+function tryMe (param1, param2) {
+    alert (param1 + " and " + param2);
+}
+
+function callbackTester (callback, param1, param2) {
+    callback (param1, param2);
+}
+
+callbackTester (tryMe, "hello", "goodbye");
+
+// *********************************
+
+
+/* número min/max em um array */
+var numeros = [5, 6, 2, 3, 7];
+
+/* utilizando Math.min/Math.max apply */
+var max = Math.max.apply(null, numeros); //Igual a Math.max(numeros[0], ...) ou Math.max(5, 6, ...)
+var min = Math.min.apply(null, numeros);
+
+
 
 // ****************************************************
 
@@ -123,6 +257,7 @@ xhr.onerror = function (e) {
 };
 xhr.send(null); 
 
+// ----------------------------------------------------
 
 var fibRef = 1;
 var fibProx = 2;
@@ -147,4 +282,198 @@ function fibonacci(loop){
     //return 
 }
 
+// ----------------------------------------------------
 
+// ARROW FUNCTION
+var soma = (a, b) => a + b;
+alert(soma(5,2)); // 7
+
+var somaF = function(a, b){ return a + b };
+alert(somaF(5,2)); // 7
+
+// uso de arguments, parametro multiplo
+(function () {console.log(arguments)})(1, 2);
+
+// ----------------------------------------------------
+
+// Closures
+function makeAdder(x) {
+  return function(y) {
+    return x + y;
+  };
+}
+
+var add5 = makeAdder(5);
+var add10 = makeAdder(10);
+
+print(add5(2));  // 7
+print(add10(2)); // 12
+
+// -----
+
+function makeSizer(size) {
+  return function() {
+    document.body.style.fontSize = size + 'px';
+  };
+}
+
+var size12 = makeSizer(12);
+var size14 = makeSizer(14);
+var size16 = makeSizer(16);
+
+document.getElementById('size-12').onclick = size12;
+document.getElementById('size-14').onclick = size14;
+
+/*
+<a href="#" id="size-12">12</a>
+<a href="#" id="size-14">14</a>
+*/
+
+
+// -----
+
+var makeCounter = function() {
+  var privateCounter = 0;
+  function changeBy(val) {
+    privateCounter += val;
+  }
+  return {
+    increment: function() {
+      changeBy(1);
+    },
+    decrement: function() {
+      changeBy(-1);
+    },
+    value: function() {
+      return privateCounter;
+    }
+  }  
+};
+
+var Counter1 = makeCounter();
+var Counter2 = makeCounter();
+alert(Counter1.value()); /* Alerts 0 */
+Counter1.increment();
+Counter1.increment();
+alert(Counter1.value()); /* Alerts 2 */
+Counter1.decrement();
+alert(Counter1.value()); /* Alerts 1 */
+alert(Counter2.value()); /* Alerts 0 */
+
+// ########################################################## JQUERY ########################################################
+
+// Pegar o elemento javascript de um Jquery
+var elJs = $('#nome_elemento').get(0);
+
+// Sobe nos elementos html para a tr 
+$('#id_exemplo').closest('tr');
+
+// Desativar e Ativar o botão
+if ($(this).val() == '') {
+    $('.enableOnInput').prop('disabled', true);
+} else {
+    $('.enableOnInput').prop('disabled', false);
+}
+
+
+$('#id_form').serialize();
+
+//buscas de elementos dentro de outro
+var Form = $('#id_form');
+Form.find('#campo_a').change(function(){
+    alert('alterado');
+});
+
+//verificar se um checkbox esta marcado
+var campoMarcado = (Form.find('#id_campo_checkbox').attr('checked') == undefined);
+
+div.find('.class-test').each(function(){
+    alert($(this).html());
+});
+
+// verificar quantidade de registros
+if($( "#myDiv" ).length > 5){
+
+}
+
+// Observar o click de uma div, vai aplicar o gatilho a todos os campos internos
+var elDivForm = $('#nome-div-form');
+elDivForm.on('click',function(e){
+  console.log(this); //vem a div, objeto original da busca
+  console.log(e.target); // aqui consegue pegar o item individual que sofreu o evento
+  // lembrando que esses dois objetos são javascrit, e para manipular com jquery vai usar: $(this), $(e.target)...
+});
+
+
+// ----------------------------------------------------
+
+$(function(){
+    var list = [
+        {"titulo":"noticia 1","corpo":"corpo da noticia 1","data":"02\/07\/2014"},
+        {"titulo":"noticia 2","corpo":"corpo da noticia 2","data":"02\/07\/2014"},
+        {"titulo":"noticia 3","corpo":"corpo da noticia 3","data":"02\/07\/2014"},
+        {"titulo":"noticia 4","corpo":"corpo da noticia 4","data":"02\/07\/2014"}
+    ];
+
+    $.each(list, function(i, item){
+        $('.noticias').append("<li>"+ item.data +" - " +item.titulo + "</li>");
+    });
+});
+
+jsonObj.members.viewers['key_name'] = 'valor...';
+
+// ----------------------------------------------------
+
+$.ajax({
+    url: 'js/vendor/testedb.json',
+    dataType: 'json',
+    success: function(data) {
+        var item = [];
+
+        $.each(data, function(key,val) {
+            item.push('<li id="' + key + '">' + val + '</li>');
+        });
+
+        $('<ul/>',{
+            'class': 'myclass',
+            html: item.join('')
+        }).appendTo('body');
+    },
+    statusCode: {
+        404: function() {
+            alert("some problem");
+        }
+    }
+});
+
+// ----
+
+// cancelar requisição ajax anterior
+var gettopic;
+$(".buttons").click(function(){
+    if (gettopic){
+        gettopic.abort();
+    }
+    gettopic=$.post("topic.php", {id: topicId}, function(result){
+       // codes for handling returned result
+    });
+});
+
+var xhr = $.ajax({
+    type: "POST",
+    url: "some.php",
+    data: "name=John&location=Boston",
+    success: function(msg){
+        alert( "Data Saved: " + msg );
+    }
+});
+xhr.abort();
+
+
+// ----------------------------------------------------
+
+$.getJSON(url_do_json, function(dados) {
+    for(var i=0; i<dados.length; i++) {
+        $(document.body).append('<div>' + dados[i].titulo + ', ' + dados[i].duracao + '</div>');
+    }
+});
