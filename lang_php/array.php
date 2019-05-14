@@ -1,5 +1,19 @@
 <?php
 
+var_dump(array());
+var_dump(array(1));
+var_dump(array('casa'=>'pessoas'));
+var_dump(array(
+    'carro'=>array('pneu','volante')
+));
+
+var_dump([]);
+var_dump([1]);
+var_dump(['casa'=>'pessoas']);
+var_dump([ 'carro' => ['pneu','volante'] ]);
+
+// ***************************************************
+
 //array_column ( array $input , mixed $column_key [, mixed $index_key = null ] )
 $records = array(
     array(

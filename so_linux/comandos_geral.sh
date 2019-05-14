@@ -49,12 +49,22 @@ apt-get --purge remove postgresql postgresql-doc postgresql-common
 apt-get autoremove
 
 # Listar pacotes instalados
-dpkg -l | grep postgres
+dpkg -l | grep NOME_BUSCA
+apt list --installed | grep NOME_BUSCA
 
 # Manipular serviços
 /etc/init.d/apache2 restart
+service apache2 restart
 service httpd restart
 service postgresql restart
+
+# Verificar status de serviço
+systemctl status apache2
+
+# Verifica status de um modulo
+a2enmod php7.2
+# Desativa um modulo
+a2dismod php7.2
 
 
 # Adicionar comando ao iniciar OS, editar arquivo como preferir, usando o nano no exemplo
@@ -96,6 +106,11 @@ sudo nmap -Pn --script vuln 127.0.0.1
 
 #Para abrir gerenciador de arquivos do linux ubuntu como root
 sudo nautilus
+
+#htop, monitor de processos, gasto de processador e memória ram
+apt-get install htop
+htop
+
 
 #Lista o ip na rede
 ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'

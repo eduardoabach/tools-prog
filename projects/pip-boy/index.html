@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="mobile-web-app-capable" content="yes">
+	
+	<link rel="stylesheet" href="custom.css">
+</head>
+<body>
+	<!-- Inspired by Karl Solgård project-->
+
+	<div class="overlay"></div>
+	<div class="overlay2"></div>
+	<div id="app">
+		<div class="container">
+			<div class="header">
+				<div class="stats">
+					<div class="separator left-side"></div>
+					<div class="title">Position</div>
+					<div class="separator right-side"></div>
+				</div>
+				<div class="hp">
+					<div class="label">HP</div>
+					<div class="value">170/170</div>
+				</div>
+				<div class="ap">
+					<div class="label">AP</div>
+					<div class="value">8/8</div>
+				</div>
+				<div class="xp">
+					<div class="label">XP</div>
+					<div class="value">10/1000</div>
+				</div>
+			</div>
+			<div class="main-content">
+				<div class="list-view">
+					<ul>
+						<li class="active menu-option">Coordinates</li>
+						<li class="menu-option">Time Zone</li>
+					</ul>
+				</div>
+				<div class="main-view">
+					<div class="container-main">
+						<div class="center">
+							<div class="title">Coordinates</div>
+							<div class="value">
+								lat: -29.771409100000003 lon: -51.142868299999996	
+							</div>
+						</div>
+					</div>
+					<div class="description">The Geolocation.getCurrentPosition() method is used to get the current position of the device.</div>
+				</div>
+			</div>
+			<div class="footer">
+				<div class="container-bottom">
+					<div class="separator left-side"></div>
+					<div class="active menu-option">Position</div>
+					<div class="menu-option">Device</div>
+					<div class="separator right-side"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--
+	<script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.min.js" ></script>
+	<script type="text/javascript">
+		
+          class Battery {
+			  constructor(isactive = false) {
+			    this.displayName = "Battery";
+			    this.dataDescription = this.getDescription();
+			    this.active = isactive;
+			  }
+
+			  generateData() {
+			    return new Promise((resolve, reject) => {
+			      navigator.getBattery().then(batterydata => {
+			        resolve(`${batterydata.level * 100} %`);
+			      });
+			    });
+			  }
+
+			  getDescription() {
+			    return "The navigator.getBattery method returns a battery promise that is resolved in a BatteryManager interface which you can use to interact with the Battery Status API.";
+			  }}
+
+			class Language {
+			  constructor(isactive = false) {
+			    this.displayName = "Language";
+			    this.dataDescription = this.getDescription();
+			    this.active = isactive;
+			  }
+
+			  generateData() {
+			    return new Promise((resolve, reject) => {
+			      resolve(navigator.language);
+			    });
+			  }
+
+			  getDescription() {
+			    return 'The language property returns the language version of the browser. Examples of valid language codes are: "en", "en-US", "de", "fr", etc.';
+			  }}
+
+			class Coordinates {
+			  constructor(isactive = false) {
+			    this.displayName = "Coordinates";
+			    this.dataDescription = this.getDescription();
+			    this.active = isactive;
+			  }
+
+			  generateData() {
+			    return new Promise((resolve, reject) => {
+			      if (navigator.geolocation) {
+			        navigator.geolocation.getCurrentPosition(position => {
+			          resolve(
+			          `lat: ${position.coords.latitude} \n lon: ${
+			          position.coords.longitude
+			          }`);
+
+			        });
+			      } else {
+			        alert("Geolocation is not supported by this browser.");
+			      }
+			    });
+			  }
+
+			  getDescription() {
+			    return "The Geolocation.getCurrentPosition() method is used to get the current position of the device.";
+			  }}
+
+			class TimeZone {
+			  constructor(isactive = false) {
+			    this.displayName = "Time Zone";
+			    this.dataDescription = this.getDescription();
+			    this.active = isactive;
+			  }
+
+			  generateData() {
+			    return new Promise((resolve, reject) => {
+			      resolve(new Date().toString().match(/([A-Z]+[\+-][0-9]+)/)[1]);
+			    });
+			  }
+
+			  getDescription() {
+			    return "The Date object is a datatype built into the JavaScript language. Date objects are created with the new Date()";
+			  }}
+
+			let Collection = {
+			  categories: [
+			  {
+			    name: "Position",
+			    active: true,
+			    items: [new Coordinates(true), new TimeZone()] },
+
+			  {
+			    name: "Device",
+			    active: false,
+			    items: [new Battery(true), new Language()] }] };
+
+
+
+			class Page extends React.Component {
+			  constructor() {
+			    super();
+			    this.state = Collection;
+			  }
+			  setFooterActive(i) {
+			    this.state.categories.map(c => {
+			      c.active = false;
+			    });
+			    this.state.categories[i].active = true;
+
+			    this.setState({ categories: this.state.categories });
+			  }
+
+			  setItemActive(i) {
+			    let activecategoryindex = this.state.categories.
+			    map(e => {
+			      return e.active;
+			    }).
+			    indexOf(true);
+
+			    this.state.categories[activecategoryindex].items.map(c => {
+			      c.active = false;
+			    });
+			    this.state.categories[activecategoryindex].items[i].active = true;
+
+			    this.setState({ categories: this.state.categories });
+			  }
+
+			  render() {
+			    let activecategory = this.state.categories.filter(category => {
+			      return category.active;
+			    })[0];
+			    return (
+			      React.createElement("div", { className: "container" },
+			      React.createElement(Header, { activeCategory: activecategory }),
+			      React.createElement(MainView, {
+			        setActive: this.setItemActive.bind(this),
+			        activeCategory: activecategory }),
+
+			      React.createElement(Footer, {
+			        setActive: this.setFooterActive.bind(this),
+			        categories: this.state.categories })));
+
+
+
+			  }}
+
+			class Footer extends React.Component {
+			  render() {
+			    return (
+			      React.createElement("div", { className: "footer" },
+			      React.createElement("div", { className: "container-bottom" },
+			      React.createElement("div", { className: "separator left-side" }),
+			      this.props.categories.map((category, index) => {
+			        let setActive = this.props.setActive.bind(this, index);
+			        return (
+			          React.createElement("div", {
+			            onClick: setActive,
+			            className:
+			            category.active ? "active menu-option" : "menu-option" },
+
+
+			          category.name));
+
+
+			      }),
+			      React.createElement("div", { className: "separator right-side" }))));
+
+
+
+			  }}
+
+			class Header extends React.Component {
+			  render() {
+			    return (
+			      React.createElement("div", { className: "header" },
+			      React.createElement("div", { className: "stats" },
+			      React.createElement("div", { className: "separator left-side" }),
+			      React.createElement("div", { className: "title" }, this.props.activeCategory.name),
+			      React.createElement("div", { className: "separator right-side" })),
+
+			      React.createElement("div", { className: "hp" },
+			      React.createElement("div", { className: "label" }, "HP"),
+			      React.createElement("div", { className: "value" }, "170)),
+
+			      React.createElement("div", { className: "ap" },
+			      React.createElement("div", { className: "label" }, "AP"),
+			      React.createElement("div", { className: "value" }, "8/8")),
+
+			      React.createElement("div", { className: "xp" },
+			      React.createElement("div", { className: "label" }, "XP"),
+			      React.createElement("div", { className: "value" }, "10/))));
+
+
+
+			  }}
+
+			class MainView extends React.Component {
+			  constructor() {
+			    super();
+			    this.state = {
+			      datavalue: "" };
+
+			  }
+			  componentDidMount() {
+			    this.updateDatavalue();
+			  }
+			  componentDidUpdate(prevProps, prevState) {
+			    if (prevState.datavalue === this.state.datavalue) {
+			      this.updateDatavalue();
+			    }
+			  }
+
+			  updateDatavalue() {
+			    let activeitem = this.props.activeCategory.items.filter(item => {
+			      return item.active;
+			    })[0];
+			    let self = this;
+			    activeitem.generateData().then(datavalue => {
+			      self.setState({ datavalue: datavalue });
+			    });
+			  }
+			  render() {
+			    let activeitem = this.props.activeCategory.items.filter(item => {
+			      return item.active;
+			    })[0];
+			    return (
+			      React.createElement("div", { className: "main-content" },
+			      React.createElement("div", { className: "list-view" },
+			      React.createElement("ul", null,
+			      this.props.activeCategory.items.map((item, index) => {
+			        let setActive = this.props.setActive.bind(this, index);
+			        return (
+			          React.createElement("li", {
+			            onClick: setActive,
+			            className: item.active ? "active menu-option" : "menu-option" },
+
+			          item.displayName));
+
+
+			      }))),
+
+
+			      React.createElement("div", { className: "main-view" },
+			      React.createElement("div", { className: "container-main" },
+			      React.createElement("div", { className: "center" },
+			      React.createElement("div", { className: "title" }, activeitem.displayName),
+			      React.createElement("div", { className: "value" }, this.state.datavalue))),
+
+
+			      React.createElement("div", { className: "description" }, activeitem.dataDescription))));
+
+
+
+			  }}
+
+			React.render(React.createElement(Page, null), document.getElementById("app"));
+          //# sourceURL=pen.js
+        
+	</script>
+	-->
+
+	<!--
+	<script type='text/javascript'>
+		window.scrollTo(0,1);
+	</script>
+	-->
+	
+	<!--
+	<script type='text/javascript'>
+		document.fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.documentElement.webkitRequestFullScreen;
+
+		function requestFullscreen(element) {
+			if (element.requestFullscreen) {
+				element.requestFullscreen();
+			} else if (element.mozRequestFullScreen) {
+				element.mozRequestFullScreen();
+			} else if (element.webkitRequestFullScreen) {
+				element.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+			}
+		}
+
+		if (document.fullscreenEnabled) {
+			requestFullscreen(document.documentElement);
+			// alert('a');
+		} else {
+			// alert('b');
+		}
+	</script>
+	-->
+</body>
+
+</html>
