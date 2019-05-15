@@ -8,6 +8,11 @@ alert('test');
 
 // ----------------------------------------------------
 
+var dataUsExemplo = '2018-04-25';
+console.log(dataUsExemplo.split('-').reverse().join('/')); // out: 25/04/2018
+
+// ----------------------------------------------------
+
 var respostaDeletar = confirm("Deseja deletar?");
 if (respostaDeletar == true) {
 } else {
@@ -39,6 +44,30 @@ alert(location.host);
 //navigator.plugins; // objeto lista
 //navigator.plugins['Shockwave Flash']; // objeto
 alert(navigator.plugins['Shockwave Flash'].version);
+//navigator.appCodeName = "Mozilla"
+//navigator.oscpu = "Linux x86_64"
+//navigator.platform = "Linux x86_64"
+
+screen.width
+screen.height //total do display
+
+innerWidth
+innerHeight //disponivel para a pagina real
+
+screen.availWidth
+screen.availHeight //disponivel para o browser, mas sem descontar console e barras dele
+
+txt += "<p>Color depth: " + screen.colorDepth + "</p>";
+txt += "<p>Color resolution: " + screen.pixelDepth + "</p>"; 
+
+//navigator.appCodeName = "Mozilla"
+//navigator.appCodeName = "Mozilla"
+//navigator.appCodeName = "Mozilla"
+//navigator.appCodeName = "Mozilla"
+//navigator.appCodeName = "Mozilla"
+
+
+
 
 //document.links //lista links tela
 //document.images //lista imgs...
