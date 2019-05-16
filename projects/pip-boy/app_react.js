@@ -1,4 +1,36 @@
 
+	class OperatingSystem {
+	    constructor(isactive = false) {
+	        this.displayName = "Operating System";
+	        this.dataDescription = this.getDescription();
+	        this.active = isactive;
+	    }
+	    generateData() {
+	        return new Promise((resolve, reject) => {
+                resolve(fingerprint_os());
+	        });
+	    }
+	    getDescription() {
+	        return "The Operating System running in your hardware.";
+	    }
+	}
+
+	class Browser {
+	    constructor(isactive = false) {
+	        this.displayName = "Browser";
+	        this.dataDescription = this.getDescription();
+	        this.active = isactive;
+	    }
+	    generateData() {
+	        return new Promise((resolve, reject) => {
+                resolve(fingerprint_browser());
+	        });
+	    }
+	    getDescription() {
+	        return "The name and version of your web browser.";
+	    }
+	}
+
 	class Battery {
 	    constructor(isactive = false) {
 	        this.displayName = "Battery";
@@ -84,8 +116,9 @@
 	        {
 	            name: "Device",
 	            active: false,
-	            items: [new Language(true), new Battery()]
-	        }]
+	            items: [new Language(true), new Battery(), new Browser(), new OperatingSystem()]
+	        }
+        ]
 	};
 
 
@@ -131,12 +164,7 @@
 	                React.createElement(Footer, {
 	                    setActive: this.setFooterActive.bind(this),
 	                    categories: this.state.categories
-	                }),
-	                // React.createElement("audio", {
-	                // 	setActive: this.audio.play(),
-	                // 	src: "audio/1.mp3", //
-	                // 	controls:'true'
-                	// }) 
+	                })
                 )
             );
 	    }
