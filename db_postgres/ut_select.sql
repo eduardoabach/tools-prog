@@ -232,6 +232,18 @@ FROM (
            ARRAY_TO_ROW( ARRAY[ 100, 500, 99 ] ) AS valor_entrada
 ) AS caixa 
 
+-- Contagem de registros conforme o grupo_id
+SELECT
+   product_id,
+   product_name,
+   group_id,
+   ROW_NUMBER () OVER (
+      PARTITION BY group_id
+      ORDER BY product_name
+   )
+FROM products;
+
+
 --arredondar número para baixo
 SELECT floor(5) --out: 5
 SELECT floor(5.4) --out: 5
@@ -342,6 +354,14 @@ SELECT 'SELECT ' || array_to_string(ARRAY(SELECT 'f' || '.' || c.column_name
             WHERE table_name = 'nome_tabela'  and schema = 'public'
             AND  c.column_name NOT IN('id')
     ), ',') || ' FROM public.nome_tabela as t' As sqlstmt
+
+
+/* Buscar column default */
+SELECT column_name, column_default
+FROM information_schema.columns
+WHERE (table_schema, table_name) = ('nome_do_schema', 'nome_tabela') and column_name = 'nome_coluna'
+ORDER BY ordinal_position;
+
 
 
 SELECT * FROM pg_indexes 

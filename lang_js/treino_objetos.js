@@ -19,6 +19,52 @@ https://www.meteor.com/tutorials
 //-------------------
 */
 
+var timerRegressivoConsole = function(time){
+    this.timeInit   = time;
+    this.time       = time;
+    this.loop       = null;
+
+    this.start = () => this.loop = setInterval(this.contador, 1000);
+    this.pause = () => clearInterval(this.loop);
+    this.stop = () => {
+        this.pause();
+        this.time = this.timeInit;
+    }
+    this.contador = () => {
+        console.log(this.time);
+        if(this.time == 0)
+            return this.stop();
+        this.time--;
+    }
+};
+
+var timerRegressivo = function(time, elInterface){
+    this.timeInit   = time;
+    this.time       = time;
+    this.loop       = null;
+    this.el         = (typeof elInterface == 'object') ? elInterface : null;
+
+    this.start = () => this.loop = setInterval(this.contador, 1000);
+    this.pause = () => clearInterval(this.loop);
+    this.stop = () => {
+        this.pause();
+        this.time = this.timeInit;
+    }
+    this.contador = () => {
+        console.log(this.time);
+        if(this.el)
+            this.el.html(this.time);
+        if(this.time == 0)
+            return this.stop();
+        this.time--;
+    }
+};
+var t = new timerRegressivo(10, $('.form-search'));
+t.start();
+
+// ------------------------------
+
+
 
 var isGreen = () => {
     console.log('verde');
