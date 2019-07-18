@@ -1,13 +1,23 @@
 
-#Configurações
+# Configurações
 git config -l #ver configurações atuais
 git config user.name "Fulano de Tal"
 git config user.email fulanodetal@tal.com.br
+
+# Config Global, padrão de todos os projetos
+git config --global user.name "Fulano de Tal"
+git config --global user.email fulanodetal@tal.com.br
 
 # Início de projeto
 git init
 git remote add origin https://github.com/eduardoabach/repositorio.git
 git pull origin master
+
+# Alterar o link do repositório de origem
+git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+
+# Ver link atual
+git remote -v
 
 # Processo de trabalho normal
 git status
@@ -29,14 +39,15 @@ git add item_alterado_exemplo.php
 git commit -m "Exemplo alteracao branch dev"
 git push # fecha ciclo da alteração no branch, mas o master nao tem ela ainda
 
-#Criar branch baseado em outro existente
-git checkout -b tarefa_xx origin/tarefa_yy
+# Criar um branch local em base de um branch remoto
+git checkout -b tarefa_5545 origin/tarefa_5545
 
 # Alterar a ultima mensagem de commit
 git commit -m "Exemplo de novo texto do commit, vai substituir o existente anterior" --amend
 
-# Criar um branch local em base de um branch remoto
-git checkout -b tarefa_5545 origin/tarefa_5545
+# Resetar os dados de author
+git commit --amend --reset-author
+
 
 # Branch merge direto com o master, este é mais perigoso, mas para projetos simplórios até pode ser usado
 git checkout master #ir para o master para posterior pull atualizando
@@ -65,6 +76,9 @@ git pull -p
 git fetch --all --tags --prune
 git checkout tags/<tag_name> -b <branch_name>
 git checkout tags/version 1.0
+
+git diff c75ff538be5f2c960a0266d120c47269012a58b5 9a187a1d2b38a21b8a5e07d8342f9151b6ef19a6
+
 
 
 ########################### SITUAÇÕES ADVERSAS ################################

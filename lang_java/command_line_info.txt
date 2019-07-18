@@ -1,0 +1,6 @@
+
+java -version
+
+javac NomeClassFile.java // vai compilar binario MesmoNome.class 
+java NomeClass // vai acessar .class e rodar main()
+java -jar myproject.jar // exemplo usando um arquivo .jar

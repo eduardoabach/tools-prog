@@ -1,0 +1,28 @@
+
+# Install...
+
+sudo apt-get install python3
+sudo apt-get install python3-pip
+
+----------------------------------------------------
+
+# Uso no terminal
+
+python nome_arquivo.py
+python3 nome_arquivo.py
+
+----------------------------------------------------
+
+# Para instalar o que vc usa com "import exemplo_nome"
+pip install pexpect #para o python2~
+pip3 install pexpect
+
+# O pip tbm tem outros comandos...
+pip3 unistall pexpect
+pip3 list
+
+# Instalar tbm existe uma alternativa com outras caracteristicas:
+$ easy_install pexpect
+
+
+
