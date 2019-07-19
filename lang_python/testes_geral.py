@@ -49,6 +49,12 @@ def test_destria(mao_esquerda, mao_direita):
 	if not isinstance(mao_esquerda, bool) or not isinstance(mao_direita, bool):
 		return False
 
+	destria = ( 'destro' if mao_direita and not mao_esquerda else
+				'canhoto' if mao_esquerda and not mao_direita else
+				'ambidestro' if mao_esquerda and mao_direita else
+				'desastre' )
+
+	''' A forma acima usa ternário para reduzir o exemplo abaixo
 	destria = 'desastre'
 	if mao_direita and not mao_esquerda:
 		destria = 'destro'
@@ -56,6 +62,13 @@ def test_destria(mao_esquerda, mao_direita):
 		destria = 'canhoto'
 	elif mao_esquerda and mao_direita:
 		destria = 'ambidestro'
+	'''
+
+	''' 
+		Não é uma boa prática manter código desativado comentado com as 3 aspas, 
+		ela é usada para documentação... o ideal é comentar cada linha com '#'
+	'''
+
 	return destria
 
 def a():
@@ -71,6 +84,8 @@ def a():
 
 	import json
 	print(json.dumps(dictionary_exemplo, indent = 2)) # ao estilo <pre>print_r()</pre>
+
+	simples_assim_tbm_funciona = {'teste' : 'valor', 'teste2' : 55}
 
 def main():
 	show_title()

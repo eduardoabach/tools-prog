@@ -76,8 +76,11 @@ class Bot:
 	def get_direction_random(self, list_direct_indisponible=[]):
 
 		for tentat in range( self.possible_moves ):
-			# ajustar, está permitindo o [0,0] que significa não movimentar
-			direct = { 'x' :  random.randrange(-1,2) , 'y' : random.randrange(-1,2) }
+
+			while True: #evitar o vetor de direção 0,0
+				direct = { 'x' :  random.randrange(-1,2) , 'y' : random.randrange(-1,2) }
+				if not (direct['x'] == 0 and direct['y'] == 0):
+					break
 
 			valid = True
 			for direct_indisp in list_direct_indisponible:
