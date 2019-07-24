@@ -129,6 +129,9 @@ def main():
 	print(test_destria(None, None)) #out: False
 	print(test_destria('asdasdad', 'bbbb')) #out: False
 	print(test_destria(55, 99.9)) #out: False
+def sair():
+	import sys
+	sys.exit() #equivalente ao die() do php
 
 
 
