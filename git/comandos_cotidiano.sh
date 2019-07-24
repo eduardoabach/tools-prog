@@ -16,8 +16,11 @@ git pull origin master
 # Alterar o link do repositório de origem
 git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
 
-# Ver link atual
+# Ver lista de link remote atual
 git remote -v
+# adicionar outro, ao exemplo de um projeto fork, deve add o original para sincronizar alterações
+git remote add nome_remote_projeto_original https://github.com/nome_projeto/nome_projeto.git
+git push nome_remote_projeto_original master
 
 # Processo de trabalho normal
 git status
