@@ -52,6 +52,24 @@ apt-get autoremove
 dpkg -l | grep NOME_BUSCA
 apt list --installed | grep NOME_BUSCA
 
+# ----------------------------------------------------------------------------------
+
+## FEDORA ##
+
+sudo dnf search openjdk
+sudo dnf install java-11-openjdk.x86_64
+
+#Ubuntu / fedora
+
+apt update 				dnf check-update
+apt upgrade 			dnf upgrade
+apt dist-upgrade 		dnf system-upgrade
+apt install 			dnf install
+apt remove 				dnf remove
+apt-cache search 		dnf search
+
+# ----------------------------------------------------------------------------------
+
 # Manipular serviços
 /etc/init.d/apache2 restart
 service apache2 restart
