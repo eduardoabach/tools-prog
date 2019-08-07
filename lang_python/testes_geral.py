@@ -82,6 +82,7 @@ def a():
 	print(dictionary_exemplo['nome'])
 	print(dictionary_exemplo['subtrai_10'](5))
 
+	#here is a exemple possible, but not is a good pratice
 	import json
 	print(json.dumps(dictionary_exemplo, indent = 2)) # ao estilo <pre>print_r()</pre>
 
