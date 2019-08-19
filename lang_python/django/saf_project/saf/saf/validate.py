@@ -1,3 +1,0 @@
-
-class Validate:
-    ''' Valid '''
