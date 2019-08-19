@@ -106,6 +106,13 @@ time git status
 pstree
 pstree -hlp
 
+
+# ----------------------------------------------------------------------------
+
+#Ping mostrando a hora, util para guardar em arquivo de log
+ping 8.8.8.8 | while read pong; do echo "$(date): $pong"; done
+
+
 #fazer varredura em outro pc, portas disponiveis e os serviços ligados a elas, route...
 apt-get install nmap
 nmap -v -A www.siteexemplo.com.br
@@ -122,6 +129,8 @@ sudo nmap -sS -A -O -P0 -v hostname.domain
 #Scan de algumas possiveis vulnerabilidades, pontos de interesse
 sudo nmap -Pn --script vuln 127.0.0.1
 
+# -----------------------------------------------------------------------------
+
 #Para abrir gerenciador de arquivos do linux ubuntu como root
 sudo nautilus
 
@@ -137,6 +146,13 @@ ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}
 #Lista os macadress
 ifconfig -a | awk '/^[a-z]/ { iface=$1; mac=$NF; next } /inet addr:/ { print iface, mac }'
 
+#Desativar/Ativar uma interface de rede
+ifconfig enp3s0 down
+ifconfig enp3s0 up
+
+#outra forma de pegar o macadress
+ip link show
+
 #Listar dispositivos na rede, -a mostra nome e ip
 arp -a
 
@@ -149,16 +165,21 @@ cls
 #ver arquivos e permissões
 ls -palho
 
-chown root.root java-7-openjdk-amd64/ -Rf
-
-pwd
-
+#Lista informações sobre arquivos, permissoes, dono, data modifi...
 ll
 
+#Alterar dono/grupo de arquivo, R é recursivo e f silencioso
+chown root.root java-7-openjdk-amd64/ -Rf
+
+#Equivalente ao cd do windows, onde mostra o caminho do diretório atual
+pwd
+
+# remove arquivos dentro de diretório
+# r é recursive, f é force e não pergunta, v é verbose e explica o que está em andamento
 sudo rm -r /var/lib/apt/lists/* -vf
 
-htop
-
+#Alterar titulo da janela do terminal, equivalente ao windows: title "Teste de titulo..."
+PROMPT_COMMAND='echo -en "\033]0;New terminal title\a"'
 
 #adicionar um usuario
 adduser nome_user

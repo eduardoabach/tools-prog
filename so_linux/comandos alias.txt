@@ -9,7 +9,15 @@ tanto faz...
 >Adicionar as linhas no formato
 alias nome_alias='cd ..;ls; echo a1'
 alias nome_alias_2='ls -l'
+alias t_1='f(){ echo before "$@" after; }; f'
+    t_1 textoparam1 param2 qualquercoisa
+        before textoparam1 param2 qualquercoisa after
+alias t_2='f(){ echo before "$1 $2 $3" after; }; f'
+    t_2 param1 param2 param3 param4
+        before param1 param2 param3 after
 
 
-
-
+>Meus alias
+alias up_redis="sudo docker run -it -p 6379:6379 redis; PROMPT_COMMAND='echo -en \"\033]0;Docker Redis\a\"';"
+alias docker_go="sudo docker-compose build && sudo docker-compose up"
+alias my_ip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
