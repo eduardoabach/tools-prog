@@ -205,6 +205,13 @@ var cachorro = Object.create(animal, {
 cachorro.respirar(); // método herdado
 cachorro.latir(); // método adicionado
 
+// *********************************
+
+var object_normal = {};
+var object_normal2 = Object.create(Object.prototype); // is equivalent to {}
+var object_clear = Object.create(null); // no have default properties a javascritp
+// no console.log() é possível ter uma melhor idea da diferença
+// https://stackoverflow.com/questions/15518328/creating-js-object-with-object-createnull
 
 // *********************************
 
