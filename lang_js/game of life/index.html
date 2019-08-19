@@ -1,0 +1,35 @@
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>G of L</title>
+
+   <style>
+	   	body{
+			font-family: monospace;
+			/* font-kerning: normal; */
+		}
+   </style>
+</head>
+<body>
+
+	<div id="box"></div>
+
+	<!-- <div class="chat">
+		<div class="chat_menu" >
+			Sala: <input type="text" id="msg_sala" size="5" value="home" onchange="chat.SetSala(this.value);">
+			Nome: <input type="text" id="msg_nick" size="5" value="Jack" onchange="chat.SetNick(this.value);">
+			<input type="button" value="Conectar" onclick="chat.Conect();">
+			<input type="button" value="Conectar" onclick="chat.Disconect();">
+		</div>
+	</div> -->
+
+	<script src="app.js"></script>
+	<script>
+		 var gf = Object.create(GameOfLife);
+		 console.log('re');
+		 console.log(classic_opt['Glider']);
+	 	gf.init(document.getElementById('box'), classic_opt['Glider']);
+	</script>
+
+</body>
+</html>
