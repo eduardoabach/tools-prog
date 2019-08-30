@@ -196,3 +196,25 @@ restart
 
 # Mensagens dos drives do hardware, para conseguir o idVendor, idProduct, para usos de pesquisa de compatibilidade....
 dmesg -T
+
+# --------------------------------------------------------
+
+# Curl post com json de parametro
+curl -H "Content-Type: application/json; charset=utf-8" --request POST --data @ex_2.json http://10.10.10.10:8080/api/receive/
+
+# --------------------------------------------------------
+
+#Docker
+service docker start
+
+#Docker run aplication, with Dockerfile
+sudo docker-compose build && sudo docker-compose up
+
+#Docker run image, for example 'Redis'
+sudo docker run -it -p 6379:6379 redis
+
+# --------------------------------------------------------
+
+#Random, numero randomico entre 1~10
+shuf -i 1-10 -n 1
+
