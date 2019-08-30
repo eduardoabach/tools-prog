@@ -122,6 +122,36 @@ var semaf = {
 semaf.Init();
 
 
+/*******************************************************/
+
+var elevador = {
+    andarMax: 10,
+    andarMin: 1,
+    andarAtual: 1,
+    andarSelecionados: [],
+    aberto: false,
+    direcao: 'up',
+    Chamar: function(andar){
+
+    },
+    Abrir: function(){
+
+    },
+    Fechar: function(){
+
+    },
+    AndarSelecionar: function(){
+
+    },
+    Subir: function(andar){
+
+    },
+    Descer: function(){
+
+    }
+
+}
+
 
 /*******************************************************/
 
