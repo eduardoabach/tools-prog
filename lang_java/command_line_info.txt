@@ -1,6 +1,16 @@
 
 java -version
 
-javac NomeClassFile.java // vai compilar binario MesmoNome.class 
-java NomeClass // vai acessar .class e rodar main()
+# para compilar
+javac NomeClassFile.java // vai compilar em arquivo NomeClassFile.class 
+javac pasta_do_projeto/App.java // vai compilar em arquivo pasta_do_projeto/App.class 
+
+# compilar criando arquivos .class em um diretório separado, dist
+javac ./ecomerce/Demo.java -d ./ecomerce/dist/
+
+# Run
+java NomeClassFile // vai acessar .class e rodar main()
+java pasta_do_projeto.App // vai acessar .class e rodar a class App.main()
+
+# Run .jar
 java -jar myproject.jar // exemplo usando um arquivo .jar

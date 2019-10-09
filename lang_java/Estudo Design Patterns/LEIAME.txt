@@ -1,0 +1,17 @@
+
+##Estudo design patterns
+
+#Creational patterns
+
+> Factory Method
+Fazer uso de interfaces, para manter formato de chamada.
+Criar class de 'Factory' para cada aplicação especifica, implementando a interface central.
+A aplicação vai receber objetos do tipo da 'Interface', fazendo assim as chamadas conforme o padrão dessa interface.
+
+Ao chamar a aplicação, vai usar a Factory que cabe ao momento e mandar esse objeto para a aplicação usar, portanto a aplicação vai conseguir usar qualquer factory customizada, contanto que siga a interface desenvolvida.
+
+Um exemplo de implementação é 
+
+
+
+
