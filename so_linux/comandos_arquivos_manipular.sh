@@ -6,6 +6,7 @@ echo ", complemento de texto.">>nome.txt # Adicionar ao que já existe
 # Listar arquivos pasta
 ls
 ls -l # listar com permissões
+ll # listar com permissões
 
 # tamanho arquivos
 du -sh #tamanho da pasta atual
@@ -27,3 +28,6 @@ scp -rp dir1 user@hostname:/tmp/.
 
 # Infos sobre armazenamento de arquivos, hds, tamanho, livre...
 df -h
+
+# Descobrir a codificação, text enconde
+file -bi /etc/fileexamplename.txt

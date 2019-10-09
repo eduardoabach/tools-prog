@@ -59,6 +59,9 @@ apt list --installed | grep NOME_BUSCA
 sudo dnf search openjdk
 sudo dnf install java-11-openjdk.x86_64
 
+# Fedora, install de um arquivo .rpm
+sudo dnf localinstall sample_file.rpm
+
 #Ubuntu / fedora
 
 apt update 				dnf check-update
@@ -157,7 +160,6 @@ ip link show
 arp -a
 
 #?
-
 scp -rf root@10.1.1.185:/usr/lib/jvm/java-1.7.0-openjdk-amd64 ./
 cls
 
@@ -167,6 +169,9 @@ ls -palho
 
 #Lista informações sobre arquivos, permissoes, dono, data modifi...
 ll
+
+# Descobrir a codificação, text enconde
+file -bi /etc/fileexamplename.txt
 
 #Alterar dono/grupo de arquivo, R é recursivo e f silencioso
 chown root.root java-7-openjdk-amd64/ -Rf
