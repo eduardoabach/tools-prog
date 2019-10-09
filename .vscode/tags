@@ -1,0 +1,257 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Bot	../lang_python/class/Bot.py	/^class Bot:$/;"	kind:class	line:4
+Bot	../lang_python/class/Tab.py	/^from Bot import Bot$/;"	kind:namespace	line:7
+Bot.py	../lang_python/class/Bot.py	1;"	kind:file	line:1
+Cell	../lang_js/game of life/python/gf.py	/^from gf_cell import Cell, CellCalcAliveFactory$/;"	kind:namespace	line:7
+Cell	../lang_js/game of life/python/gf_cell.py	/^class Cell:$/;"	kind:class	line:3
+Cell	../lang_python/game_of_life/gf.py	/^from gf_cell import Cell, CellCalcAliveFactory$/;"	kind:namespace	line:7
+Cell	../lang_python/game_of_life/gf_cell.py	/^class Cell:$/;"	kind:class	line:3
+CellCalcAliveFactory	../lang_js/game of life/python/gf.py	/^from gf_cell import Cell, CellCalcAliveFactory$/;"	kind:namespace	line:7
+CellCalcAliveFactory	../lang_js/game of life/python/gf_cell.py	/^class CellCalcAliveFactory:$/;"	kind:class	line:30
+CellCalcAliveFactory	../lang_python/game_of_life/gf.py	/^from gf_cell import Cell, CellCalcAliveFactory$/;"	kind:namespace	line:7
+CellCalcAliveFactory	../lang_python/game_of_life/gf_cell.py	/^class CellCalcAliveFactory:$/;"	kind:class	line:30
+Class Multiple Inheritance Super Tests.py	../lang_python/class/Class Multiple Inheritance Super Tests.py	1;"	kind:file	line:1
+Class Super Tests.py	../lang_python/class/Class Super Tests.py	1;"	kind:file	line:1
+Cube	../lang_python/class/Class Multiple Inheritance Super Tests.py	/^class Cube(VolumeMixin, Square):$/;"	kind:class	line:22
+Cube	../lang_python/class/Class Super Tests.py	/^class Cube(Square):$/;"	kind:class	line:20
+DEBUG	../lang_python/django/hello_min/helloword.py	/^DEBUG = True$/;"	kind:variable	line:3
+DEBUG	../lang_python/django/hello_view/helloword.py	/^DEBUG = True$/;"	kind:variable	line:5
+Flask	../lang_python/flask/hello_min/hello.py	/^from flask import Flask$/;"	kind:namespace	line:1
+Flask	../lang_python/flask/web_vote/hello.py	/^from flask import Flask$/;"	kind:namespace	line:4
+Gf	../lang_js/game of life/python/ex_explorer.py	/^from gf import Gf$/;"	kind:namespace	line:3
+Gf	../lang_js/game of life/python/ex_glider.py	/^from gf import Gf$/;"	kind:namespace	line:3
+Gf	../lang_js/game of life/python/ex_tumbler.py	/^from gf import Gf$/;"	kind:namespace	line:3
+Gf	../lang_js/game of life/python/gf.py	/^class Gf:$/;"	kind:class	line:9
+Gf	../lang_python/game_of_life/ex_explorer.py	/^from gf import Gf$/;"	kind:namespace	line:3
+Gf	../lang_python/game_of_life/ex_glider.py	/^from gf import Gf$/;"	kind:namespace	line:3
+Gf	../lang_python/game_of_life/ex_tumbler.py	/^from gf import Gf$/;"	kind:namespace	line:3
+Gf	../lang_python/game_of_life/gf.py	/^class Gf:$/;"	kind:class	line:9
+HttpResponse	../lang_python/django/hello_view/view.py	/^from django.http import HttpResponse$/;"	kind:namespace	line:1
+ROOT_URLCONF	../lang_python/django/hello_min/helloword.py	/^ROOT_URLCONF = __name__$/;"	kind:variable	line:4
+ROOT_URLCONF	../lang_python/django/hello_view/helloword.py	/^ROOT_URLCONF = __name__$/;"	kind:variable	line:6
+Rectangle	../lang_python/class/Class Multiple Inheritance Super Tests.py	/^class Rectangle:$/;"	kind:class	line:3
+Rectangle	../lang_python/class/Class Super Tests.py	/^class Rectangle:$/;"	kind:class	line:3
+SECRET_KEY	../lang_python/django/hello_min/helloword.py	/^SECRET_KEY = 'chave...'$/;"	kind:variable	line:2
+SECRET_KEY	../lang_python/django/hello_view/helloword.py	/^SECRET_KEY = 'chave...'$/;"	kind:variable	line:4
+Semaf	../lang_python/class/Semaf.py	/^class Semaf:$/;"	kind:class	line:4
+Semaf.py	../lang_python/class/Semaf.py	1;"	kind:file	line:1
+Square	../lang_python/class/Class Multiple Inheritance Super Tests.py	/^class Square(Rectangle):$/;"	kind:class	line:12
+Square	../lang_python/class/Class Super Tests.py	/^class Square(Rectangle):$/;"	kind:class	line:15
+Tab	../lang_python/class/Tab.py	/^class Tab:$/;"	kind:class	line:9
+Tab.py	../lang_python/class/Tab.py	1;"	kind:file	line:1
+VolumeMixin	../lang_python/class/Class Multiple Inheritance Super Tests.py	/^class VolumeMixin:$/;"	kind:class	line:17
+__init__	../lang_js/game of life/python/gf.py	/^	def __init__(self, alive_exist=[]):$/;"	kind:member	line:17
+__init__	../lang_js/game of life/python/gf_cell.py	/^	def __init__(self, alive = False):$/;"	kind:member	line:7
+__init__	../lang_js/game of life/python/gf_cell.py	/^	def __init__(self, cell_list):$/;"	kind:member	line:37
+__init__	../lang_python/class/Bot.py	/^	def __init__(self, name=None):$/;"	kind:member	line:12
+__init__	../lang_python/class/Class Multiple Inheritance Super Tests.py	/^    def __init__(self, length):$/;"	kind:member	line:13
+__init__	../lang_python/class/Class Multiple Inheritance Super Tests.py	/^    def __init__(self, length):$/;"	kind:member	line:23
+__init__	../lang_python/class/Class Multiple Inheritance Super Tests.py	/^    def __init__(self, length, width):$/;"	kind:member	line:4
+__init__	../lang_python/class/Class Super Tests.py	/^    def __init__(self, length):$/;"	kind:member	line:16
+__init__	../lang_python/class/Class Super Tests.py	/^    def __init__(self, length, width):$/;"	kind:member	line:4
+__init__	../lang_python/class/Semaf.py	/^	def __init__(self):$/;"	kind:member	line:7
+__init__	../lang_python/class/Tab.py	/^	def __init__(self, list_init=[]):$/;"	kind:member	line:16
+__init__	../lang_python/game_of_life/gf.py	/^	def __init__(self, alive_exist=[]):$/;"	kind:member	line:17
+__init__	../lang_python/game_of_life/gf_cell.py	/^	def __init__(self, alive = False):$/;"	kind:member	line:7
+__init__	../lang_python/game_of_life/gf_cell.py	/^	def __init__(self, cell_list):$/;"	kind:member	line:37
+a	../lang_python/testes_geral.py	/^def a():$/;"	kind:function	line:74
+add_alive	../lang_js/game of life/python/gf_cell.py	/^	def add_alive(self):$/;"	kind:member	line:80
+add_alive	../lang_python/game_of_life/gf_cell.py	/^	def add_alive(self):$/;"	kind:member	line:80
+admin	../lang_python/django/hello_view/view.py	/^def admin(request):$/;"	kind:function	line:9
+age	../lang_python/command_age.py	/^age = ages.get(person)$/;"	kind:variable	line:8
+ages	../lang_python/command_age.py	/^ages = {'Jim': 30, 'Pam': 28, 'Kevin': 33}$/;"	kind:variable	line:6
+alive	../lang_js/game of life/python/gf_cell.py	/^	alive = False$/;"	kind:variable	line:4
+alive	../lang_python/game_of_life/gf_cell.py	/^	alive = False$/;"	kind:variable	line:4
+app	../lang_python/flask/hello_min/hello.py	/^app = Flask(__name__)$/;"	kind:variable	line:2
+app	../lang_python/flask/web_vote/hello.py	/^app = Flask(__name__)$/;"	kind:variable	line:5
+area	../lang_python/class/Class Multiple Inheritance Super Tests.py	/^    def area(self):$/;"	kind:member	line:8
+area	../lang_python/class/Class Super Tests.py	/^    def area(self):$/;"	kind:member	line:8
+arr	../lang_python/quicksort.py	/^arr = [5,99,2,45,12,234,29,0];$/;"	kind:variable	line:11
+born	../lang_js/game of life/python/gf_cell.py	/^	def born(self):$/;"	kind:member	line:18
+born	../lang_python/game_of_life/gf_cell.py	/^	def born(self):$/;"	kind:member	line:18
+calc_hipotenusa	../lang_python/testes_geral.py	/^def calc_hipotenusa(lado_a, labo_b):$/;"	kind:function	line:18
+calc_hipotenusa_quadrado	../lang_python/testes_geral.py	/^def calc_hipotenusa_quadrado(lado):$/;"	kind:function	line:21
+calc_simple	../lang_python/testes_geral.py	/^def calc_simple():$/;"	kind:function	line:15
+cell	../lang_js/game of life/python/gf_cell.py	/^	cell = None$/;"	kind:variable	line:32
+cell	../lang_python/game_of_life/gf_cell.py	/^	cell = None$/;"	kind:variable	line:32
+cell_list	../lang_js/game of life/python/gf_cell.py	/^	cell_list = {}$/;"	kind:variable	line:31
+cell_list	../lang_python/game_of_life/gf_cell.py	/^	cell_list = {}$/;"	kind:variable	line:31
+cells	../lang_js/game of life/python/gf.py	/^	cells = {}$/;"	kind:variable	line:14
+cells	../lang_python/game_of_life/gf.py	/^	cells = {}$/;"	kind:variable	line:14
+cells_alive_init	../lang_js/game of life/python/gf.py	/^	cells_alive_init = []$/;"	kind:variable	line:15
+cells_alive_init	../lang_python/game_of_life/gf.py	/^	cells_alive_init = []$/;"	kind:variable	line:15
+change	../lang_python/class/Bot.py	/^	def change(self):$/;"	kind:member	line:45
+change	../lang_python/class/Semaf.py	/^	def change(self, time_delay = None):$/;"	kind:member	line:10
+change	../lang_python/class/Tab.py	/^	def change(self):$/;"	kind:member	line:28
+change_content	../lang_python/class/Tab.py	/^	def change_content(self):$/;"	kind:member	line:37
+check	../lang_js/game of life/python/gf_cell.py	/^	def check(self):$/;"	kind:member	line:10
+check	../lang_js/game of life/python/gf_cell.py	/^	def check(self):$/;"	kind:member	line:53
+check	../lang_python/game_of_life/gf_cell.py	/^	def check(self):$/;"	kind:member	line:10
+check	../lang_python/game_of_life/gf_cell.py	/^	def check(self):$/;"	kind:member	line:53
+check_alive	../lang_js/game of life/python/gf_cell.py	/^	def check_alive(self, n_line, n_column):$/;"	kind:member	line:74
+check_alive	../lang_python/game_of_life/gf_cell.py	/^	def check_alive(self, n_line, n_column):$/;"	kind:member	line:74
+classic_opt	../lang_js/game of life/python/ex_explorer.py	/^from ex_list import classic_opt$/;"	kind:namespace	line:4
+classic_opt	../lang_js/game of life/python/ex_glider.py	/^from ex_list import classic_opt$/;"	kind:namespace	line:4
+classic_opt	../lang_js/game of life/python/ex_list.py	/^classic_opt = {$/;"	kind:variable	line:3
+classic_opt	../lang_js/game of life/python/ex_tumbler.py	/^from ex_list import classic_opt$/;"	kind:namespace	line:4
+classic_opt	../lang_python/game_of_life/ex_explorer.py	/^from ex_list import classic_opt$/;"	kind:namespace	line:4
+classic_opt	../lang_python/game_of_life/ex_glider.py	/^from ex_list import classic_opt$/;"	kind:namespace	line:4
+classic_opt	../lang_python/game_of_life/ex_list.py	/^classic_opt = {$/;"	kind:variable	line:3
+classic_opt	../lang_python/game_of_life/ex_tumbler.py	/^from ex_list import classic_opt$/;"	kind:namespace	line:4
+command_age.py	../lang_python/command_age.py	1;"	kind:file	line:1
+delay	../lang_js/game of life/python/gf.py	/^	delay = 0.2 # clock em segudos$/;"	kind:variable	line:12
+delay	../lang_python/class/Tab.py	/^	delay = 0.1 # clock em segudos$/;"	kind:variable	line:12
+delay	../lang_python/game_of_life/gf.py	/^	delay = 0.2 # clock em segudos$/;"	kind:variable	line:12
+die	../lang_js/game of life/python/gf_cell.py	/^	def die(self):$/;"	kind:member	line:21
+die	../lang_python/game_of_life/gf_cell.py	/^	def die(self):$/;"	kind:member	line:21
+do	../lang_js/game of life/python/gf_cell.py	/^	def do(self):$/;"	kind:member	line:41
+do	../lang_python/game_of_life/gf_cell.py	/^	def do(self):$/;"	kind:member	line:41
+environment	../lang_python/class/Bot.py	/^	environment = None$/;"	kind:variable	line:10
+ex_explorer.py	../lang_js/game of life/python/ex_explorer.py	1;"	kind:file	line:1
+ex_explorer.py	../lang_python/game_of_life/ex_explorer.py	1;"	kind:file	line:1
+ex_glider.py	../lang_js/game of life/python/ex_glider.py	1;"	kind:file	line:1
+ex_glider.py	../lang_python/game_of_life/ex_glider.py	1;"	kind:file	line:1
+ex_list.py	../lang_js/game of life/python/ex_list.py	1;"	kind:file	line:1
+ex_list.py	../lang_python/game_of_life/ex_list.py	1;"	kind:file	line:1
+ex_tumbler.py	../lang_js/game of life/python/ex_tumbler.py	1;"	kind:file	line:1
+ex_tumbler.py	../lang_python/game_of_life/ex_tumbler.py	1;"	kind:file	line:1
+exemplo_metodo	../lang_python/testes_geral.py	/^def exemplo_metodo(msg):$/;"	kind:function	line:6
+face_area	../lang_python/class/Class Multiple Inheritance Super Tests.py	/^    def face_area(self):$/;"	kind:member	line:27
+gen	../lang_js/game of life/python/gf.py	/^	gen = 0$/;"	kind:variable	line:10
+gen	../lang_python/class/Tab.py	/^	gen = 0$/;"	kind:variable	line:10
+gen	../lang_python/game_of_life/gf.py	/^	gen = 0$/;"	kind:variable	line:10
+gen_check_rules	../lang_js/game of life/python/gf.py	/^	def gen_check_rules(self):$/;"	kind:member	line:47
+gen_check_rules	../lang_python/game_of_life/gf.py	/^	def gen_check_rules(self):$/;"	kind:member	line:47
+gen_limit	../lang_js/game of life/python/gf.py	/^	gen_limit = 1000000$/;"	kind:variable	line:11
+gen_limit	../lang_python/class/Tab.py	/^	gen_limit = 1000000$/;"	kind:variable	line:11
+gen_limit	../lang_python/game_of_life/gf.py	/^	gen_limit = 1000000$/;"	kind:variable	line:11
+gen_make	../lang_js/game of life/python/gf.py	/^	def gen_make(self):$/;"	kind:member	line:38
+gen_make	../lang_python/game_of_life/gf.py	/^	def gen_make(self):$/;"	kind:member	line:38
+get_break_line	../lang_python/class/Tab.py	/^	def get_break_line(self):$/;"	kind:member	line:60
+get_direction_random	../lang_python/class/Bot.py	/^	def get_direction_random(self, list_direct_indisponible=[]):$/;"	kind:member	line:76
+get_position_environment_random	../lang_python/class/Bot.py	/^	def get_position_environment_random(self):$/;"	kind:member	line:41
+get_things	../lang_python/testes_geral.py	/^def get_things():$/;"	kind:function	line:12
+get_view_cell	../lang_python/class/Tab.py	/^	def get_view_cell(self, num_line, num_column):$/;"	kind:member	line:56
+get_view_line	../lang_python/class/Tab.py	/^	def get_view_line(self, num_line):$/;"	kind:member	line:49
+gf.py	../lang_js/game of life/python/gf.py	1;"	kind:file	line:1
+gf.py	../lang_python/game_of_life/gf.py	1;"	kind:file	line:1
+gf_cell.py	../lang_js/game of life/python/gf_cell.py	1;"	kind:file	line:1
+gf_cell.py	../lang_python/game_of_life/gf_cell.py	1;"	kind:file	line:1
+hello	../lang_python/django/hello_view/view.py	/^def hello(request):$/;"	kind:function	line:3
+hello	../lang_python/flask/hello_min/hello.py	/^def hello():$/;"	kind:function	line:5
+hello.py	../lang_python/flask/hello_min/hello.py	1;"	kind:file	line:1
+hello.py	../lang_python/flask/web_vote/hello.py	1;"	kind:file	line:1
+helloword.py	../lang_python/django/hello_min/helloword.py	1;"	kind:file	line:1
+helloword.py	../lang_python/django/hello_view/helloword.py	1;"	kind:file	line:1
+input_file	../lang_python/ssh phyton/ssh.py	/^input_file = "list.txt"$/;"	kind:variable	line:7
+interface_break_line	../lang_js/game of life/python/gf.py	/^	def interface_break_line(self):$/;"	kind:member	line:66
+interface_break_line	../lang_python/game_of_life/gf.py	/^	def interface_break_line(self):$/;"	kind:member	line:66
+interface_render	../lang_js/game of life/python/gf.py	/^	def interface_render(self):$/;"	kind:member	line:53
+interface_render	../lang_python/game_of_life/gf.py	/^	def interface_render(self):$/;"	kind:member	line:53
+is_exist_alive_init	../lang_js/game of life/python/gf.py	/^	def is_exist_alive_init(self, n_line, n_column):$/;"	kind:member	line:32
+is_exist_alive_init	../lang_python/game_of_life/gf.py	/^	def is_exist_alive_init(self, n_line, n_column):$/;"	kind:member	line:32
+json	../lang_python/testes_geral.py	/^	import json$/;"	kind:namespace	line:86
+list_el_content	../lang_python/class/Tab.py	/^	list_el_content = []$/;"	kind:variable	line:14
+load_cells	../lang_js/game of life/python/gf.py	/^	def load_cells(self, alive_exist):$/;"	kind:member	line:24
+load_cells	../lang_python/game_of_life/gf.py	/^	def load_cells(self, alive_exist):$/;"	kind:member	line:24
+load_el_content	../lang_python/class/Tab.py	/^	def load_el_content(self):$/;"	kind:member	line:23
+log_gen	../lang_python/class/Bot.py	/^	log_gen = []$/;"	kind:variable	line:8
+main	../lang_python/ssh phyton/ssh.py	/^def main():$/;"	kind:function	line:41
+main	../lang_python/testes_geral.py	/^def main():$/;"	kind:function	line:91
+move	../lang_python/class/Bot.py	/^	def move(self):$/;"	kind:member	line:49
+move_cell_cords_result	../lang_python/class/Bot.py	/^	def move_cell_cords_result(self, cell_el, direction_cords):$/;"	kind:member	line:54
+move_select	../lang_python/class/Bot.py	/^	def move_select(self):$/;"	kind:member	line:60
+n_column	../lang_js/game of life/python/gf_cell.py	/^	n_column = None$/;"	kind:variable	line:34
+n_column	../lang_python/game_of_life/gf_cell.py	/^	n_column = None$/;"	kind:variable	line:34
+n_line	../lang_js/game of life/python/gf_cell.py	/^	n_line = None$/;"	kind:variable	line:33
+n_line	../lang_python/game_of_life/gf_cell.py	/^	n_line = None$/;"	kind:variable	line:33
+n_qtd	../lang_js/game of life/python/gf_cell.py	/^	n_qtd = None$/;"	kind:variable	line:35
+n_qtd	../lang_python/game_of_life/gf_cell.py	/^	n_qtd = None$/;"	kind:variable	line:35
+name	../lang_python/class/Bot.py	/^	name = 'X'$/;"	kind:variable	line:5
+neighbor_add_alive	../lang_js/game of life/python/gf_cell.py	/^	def neighbor_add_alive(self):$/;"	kind:member	line:27
+neighbor_add_alive	../lang_python/game_of_life/gf_cell.py	/^	def neighbor_add_alive(self):$/;"	kind:member	line:27
+neighbor_alive	../lang_js/game of life/python/gf_cell.py	/^	neighbor_alive = 0$/;"	kind:variable	line:5
+neighbor_alive	../lang_python/game_of_life/gf_cell.py	/^	neighbor_alive = 0$/;"	kind:variable	line:5
+neighbor_reset	../lang_js/game of life/python/gf_cell.py	/^	def neighbor_reset(self):$/;"	kind:member	line:24
+neighbor_reset	../lang_python/game_of_life/gf_cell.py	/^	def neighbor_reset(self):$/;"	kind:member	line:24
+os	../lang_js/game of life/python/gf.py	/^import os$/;"	kind:namespace	line:3
+os	../lang_python/class/Tab.py	/^import os$/;"	kind:namespace	line:4
+os	../lang_python/game_of_life/gf.py	/^import os$/;"	kind:namespace	line:3
+page	../lang_python/django/hello_view/view.py	/^def page(request):$/;"	kind:function	line:6
+paramiko	../lang_python/ssh phyton/ssh paramiko.py	/^import paramiko$/;"	kind:namespace	line:3
+password	../lang_python/ssh phyton/ssh.py	/^password= 'sg'$/;"	kind:variable	line:13
+perimeter	../lang_python/class/Class Super Tests.py	/^    def perimeter(self):$/;"	kind:member	line:11
+person	../lang_python/command_age.py	/^person = input('Get age for: ')$/;"	kind:variable	line:7
+pexpect	../lang_python/ssh phyton/ssh.py	/^import pexpect$/;"	kind:namespace	line:4
+pos_x	../lang_python/class/Bot.py	/^	pos_x = 0$/;"	kind:variable	line:6
+pos_y	../lang_python/class/Bot.py	/^	pos_y = 0$/;"	kind:variable	line:7
+possible_moves	../lang_python/class/Bot.py	/^	possible_moves = 8 # 4 movs em cruz(+), mais os 4 movs em (X)$/;"	kind:variable	line:9
+queue_name	../lang_python/flask/web_vote/hello.py	/^queue_name = 'vote_opt'$/;"	kind:variable	line:6
+quicksort	../lang_python/quicksort.py	/^def quicksort(arr):$/;"	kind:function	line:3
+quicksort.py	../lang_python/quicksort.py	1;"	kind:file	line:1
+random	../lang_python/class/Bot.py	/^import random$/;"	kind:namespace	line:2
+redis	../lang_python/flask/web_vote/hello.py	/^import redis as redis$/;"	kind:namespace	line:2
+redis_cli	../lang_python/flask/web_vote/hello.py	/^def redis_cli():$/;"	kind:function	line:8
+redis_vote	../lang_python/flask/web_vote/hello.py	/^def redis_vote(id):$/;"	kind:function	line:15
+redis_vote_status	../lang_python/flask/web_vote/hello.py	/^def redis_vote_status(id):$/;"	kind:function	line:11
+render	../lang_python/class/Tab.py	/^	def render(self):$/;"	kind:member	line:41
+s1	../lang_python/class/Semaf.py	/^s1 = Semaf()$/;"	kind:variable	line:42
+sair	../lang_python/testes_geral.py	/^def sair():$/;"	kind:function	line:133
+set_check	../lang_js/game of life/python/gf_cell.py	/^	def set_check(self, cell, line, column):$/;"	kind:member	line:47
+set_check	../lang_python/game_of_life/gf_cell.py	/^	def set_check(self, cell, line, column):$/;"	kind:member	line:47
+set_environment	../lang_python/class/Bot.py	/^	def set_environment(self, env):$/;"	kind:member	line:16
+set_log_gen	../lang_python/class/Bot.py	/^	def set_log_gen(self):$/;"	kind:member	line:19
+set_pos	../lang_python/class/Bot.py	/^	def set_pos(self, pos_x, pos_y):$/;"	kind:member	line:26
+set_pos_random	../lang_python/class/Bot.py	/^	def set_pos_random(self):$/;"	kind:member	line:30
+show_msg_list	../lang_python/testes_geral.py	/^def show_msg_list(list):$/;"	kind:function	line:24
+show_title	../lang_python/testes_geral.py	/^def show_title():$/;"	kind:function	line:31
+size	../lang_python/class/Tab.py	/^	size = 20$/;"	kind:variable	line:13
+ssh	../lang_python/ssh phyton/ssh paramiko.py	/^ssh = paramiko.SSHClient()$/;"	kind:variable	line:4
+ssh paramiko.py	../lang_python/ssh phyton/ssh paramiko.py	1;"	kind:file	line:1
+ssh.py	../lang_python/ssh phyton/ssh.py	1;"	kind:file	line:1
+ssh_command	../lang_python/ssh phyton/ssh.py	/^def ssh_command (user, host, password, command):$/;"	kind:function	line:17
+state	../lang_python/class/Semaf.py	/^	state = 'red'$/;"	kind:variable	line:5
+state_to_green	../lang_python/class/Semaf.py	/^	def state_to_green(self):$/;"	kind:member	line:29
+state_to_red	../lang_python/class/Semaf.py	/^	def state_to_red(self):$/;"	kind:member	line:37
+state_to_yellow	../lang_python/class/Semaf.py	/^	def state_to_yellow(self):$/;"	kind:member	line:33
+surface_area	../lang_python/class/Class Multiple Inheritance Super Tests.py	/^    def surface_area(self):$/;"	kind:member	line:30
+surface_area	../lang_python/class/Class Super Tests.py	/^    def surface_area(self):$/;"	kind:member	line:21
+sys	../lang_js/game of life/python/gf.py	/^import sys$/;"	kind:namespace	line:4
+sys	../lang_python/class/Tab.py	/^import sys$/;"	kind:namespace	line:3
+sys	../lang_python/game_of_life/gf.py	/^import sys$/;"	kind:namespace	line:4
+sys	../lang_python/testes_geral.py	/^	import sys$/;"	kind:namespace	line:134
+sz	../lang_js/game of life/python/gf.py	/^	sz = 12$/;"	kind:variable	line:13
+sz	../lang_python/game_of_life/gf.py	/^	sz = 12$/;"	kind:variable	line:13
+t1	../lang_python/class/Tab.py	/^t1 = Tab( [ Bot('A'), Bot('B') ] )$/;"	kind:variable	line:75
+test	../lang_js/game of life/python/ex_explorer.py	/^test = Gf(classic_opt['Small Exploder'])/;"	kind:variable	line:6
+test	../lang_js/game of life/python/ex_glider.py	/^test = Gf(classic_opt['Glider'])/;"	kind:variable	line:6
+test	../lang_js/game of life/python/ex_tumbler.py	/^test = Gf(classic_opt['Tumbler'])/;"	kind:variable	line:6
+test	../lang_python/game_of_life/ex_explorer.py	/^test = Gf(classic_opt['Small Exploder'])/;"	kind:variable	line:6
+test	../lang_python/game_of_life/ex_glider.py	/^test = Gf(classic_opt['Glider'])/;"	kind:variable	line:6
+test	../lang_python/game_of_life/ex_tumbler.py	/^test = Gf(classic_opt['Tumbler'])/;"	kind:variable	line:6
+test_destria	../lang_python/testes_geral.py	/^def test_destria(mao_esquerda, mao_direita):$/;"	kind:function	line:48
+test_is_cor_azul	../lang_python/testes_geral.py	/^def test_is_cor_azul(cor):$/;"	kind:function	line:39
+test_numero_maior	../lang_python/testes_geral.py	/^def test_numero_maior(num_a, num_b):$/;"	kind:function	line:42
+test_valid_string	../lang_python/testes_geral.py	/^def test_valid_string(text):$/;"	kind:function	line:45
+testes_geral.py	../lang_python/testes_geral.py	1;"	kind:file	line:1
+time	../lang_js/game of life/python/gf.py	/^import time$/;"	kind:namespace	line:5
+time	../lang_python/class/Semaf.py	/^import time$/;"	kind:namespace	line:2
+time	../lang_python/class/Tab.py	/^import time$/;"	kind:namespace	line:5
+time	../lang_python/game_of_life/gf.py	/^import time$/;"	kind:namespace	line:5
+url	../lang_python/django/hello_view/helloword.py	/^from django.conf.urls import url$/;"	kind:namespace	line:1
+urlpatterns	../lang_python/django/hello_min/helloword.py	/^urlpatterns = []$/;"	kind:variable	line:6
+urlpatterns	../lang_python/django/hello_view/helloword.py	/^urlpatterns = [$/;"	kind:variable	line:9
+user	../lang_python/ssh phyton/ssh.py	/^user = 'sg'$/;"	kind:variable	line:12
+verif_el_exist_in_cell	../lang_python/class/Tab.py	/^	def verif_el_exist_in_cell(self, num_line, num_column):$/;"	kind:function	line:69
+verif_empty_cell	../lang_python/class/Tab.py	/^	def verif_empty_cell(self, num_line, num_column):$/;"	kind:function	line:64
+view	../lang_python/django/hello_view/helloword.py	/^import view$/;"	kind:namespace	line:2
+view.py	../lang_python/django/hello_view/view.py	1;"	kind:file	line:1
+volume	../lang_python/class/Class Multiple Inheritance Super Tests.py	/^    def volume(self):$/;"	kind:member	line:18
+volume	../lang_python/class/Class Super Tests.py	/^    def volume(self):$/;"	kind:member	line:25
+vote_set	../lang_python/flask/web_vote/hello.py	/^def vote_set(id_chose_vote):$/;"	kind:function	line:25
+vote_status	../lang_python/flask/web_vote/hello.py	/^def vote_status(id_chose_vote):$/;"	kind:function	line:21
