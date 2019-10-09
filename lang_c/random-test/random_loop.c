@@ -4,8 +4,8 @@
 #include <math.h>
 #include <time.h>
 
-long N_LIMIT = 6;
-long N_LIMIT_LOOP = 100;
+long N_LIMIT = 20;
+long N_LIMIT_LOOP = 100000;
 
 volatile sig_atomic_t stop = 0;
 void stop_by_ctrl_c(int sig){
@@ -163,14 +163,12 @@ void make_list(){
 	// for(int i=0; i < N_LIMIT; i++){
 	// 	printf("y: %d | %d \n", i, n_list[i]);
 	// }
-
 	// printf("t1_: %d | %d \n", N_LIMIT, N_LIMIT_LOOP);
 
 	while (!stop && n_loop < N_LIMIT_LOOP){
 		n_loop++;
 		n_rand = get_random_number();
 		n_list[n_rand-1] = n_list[n_rand-1] + 1;
-
 		// printf("x: %d | %d | %d \n", n_loop, n_rand, n_list[n_rand-1]);
 	}
 
