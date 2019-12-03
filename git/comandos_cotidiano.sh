@@ -47,6 +47,7 @@ git checkout -b tarefa_5545 origin/tarefa_5545
 
 # Alterar a ultima mensagem de commit
 git commit -m "Exemplo de novo texto do commit, vai substituir o existente anterior" --amend
+git commit --amend --author="João da Silva <j.silva@email.com>"
 
 # Resetar os dados de author
 git commit --amend --reset-author
@@ -82,6 +83,10 @@ git checkout tags/version 1.0
 
 git diff c75ff538be5f2c960a0266d120c47269012a58b5 9a187a1d2b38a21b8a5e07d8342f9151b6ef19a6
 
+# remover uma alteração em um arquivo ou pasta
+git checkout caminho/do/arquivo.txt
+# quando o arquivo é novo (untraked) e queremos remover a alteração com git
+git clean caminho/do/arquivo.txt -f
 
 
 ########################### SITUAÇÕES ADVERSAS ################################
