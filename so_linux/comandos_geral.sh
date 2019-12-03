@@ -35,6 +35,8 @@ df -h
 uname -a
 # Infos mais completo
 cat /etc/*release*
+# Outra forma de acesso a versão do sistema operacional
+lsb_release -a
 
 # Instalar
 apt-get install aaa #debian, ubuntu
@@ -159,7 +161,13 @@ ip link show
 #Listar dispositivos na rede, -a mostra nome e ip
 arp -a
 
-#?
+#Copiar arquivos e diretórios/pastas
+cp arquivo-origem arquivo-destino
+cp arquivo-origem caminho/diretório-destino/
+cp -R diretório-origem nome-destino
+cp -R diretório-origem caminho/diretório-destino/
+
+#copiar arquivos entre servidores
 scp -rf root@10.1.1.185:/usr/lib/jvm/java-1.7.0-openjdk-amd64 ./
 cls
 
