@@ -8,6 +8,9 @@ javac pasta_do_projeto/App.java // vai compilar em arquivo pasta_do_projeto/App.
 # compilar criando arquivos .class em um diretório separado, dist
 javac ./ecomerce/Demo.java -d ./ecomerce/dist/
 
+# Compilar em utf-8, acentuação funcionar 
+javac Exemplo.java -J-Dfile.encoding=UTF-8
+
 # Run
 java NomeClassFile // vai acessar .class e rodar main()
 java pasta_do_projeto.App // vai acessar .class e rodar a class App.main()
